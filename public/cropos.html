@@ -1,0 +1,71 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ 
+<div class="container">
+  <div class="login-header text-center">
+      <h2>Crops</h2>
+  </div>
+   <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+         <form action="#">
+          <div class="form-group">
+            <label for="CropsName">Crops Name:</label>
+            <input type="text" class="form-control" id="CropsName" placeholder="Enter Crops Name" name="CropsName">
+          </div>
+          <div class="form-group">
+            <label for="region">Select Region:</label>
+              <select>
+                <option>Select District</option>
+                  <option>Dhaka</option>
+                  <option>Mymenshing</option>
+                  <option>Narshingdi</option>
+                </select>
+          </div>
+          <div class="form-group">
+            <label for="TimePeriod">Time Period: </label>
+              <select>
+                <option>Select Any One</option>
+                <option>January-April</option>
+                <option>May-Aug</option>
+                <option>Sep-Dec</option>
+              </select>
+          </div>
+          <div class="form-group">
+            <label for="cost">Total Cost:</label>
+            <input type="text" class="form-control" id="cost" placeholder="Enter Total Cost" name="TotalCost">
+          </div>
+          <div class="form-group">
+            <label for="cost">Land Type:</label>
+            <select>
+              <option value="উঁচু">উঁচু</option>
+              <option value="নিছু">নিছু</option>
+              <option value="উঁচু">পানির ধারে</option>
+            </select>
+          </div>
+          <div class="form-group">
+             <label for="filed">Water Source:</label>
+             <select name="ekok" class="water-source">
+                <option value="নদী">নদী</option>
+                <option value="পুকুর্">পুকুর্</option>
+                <option value="সেচ">সেচ</option>
+             </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+   </div>
+     
+</div>
+
+</body>
+</html>
