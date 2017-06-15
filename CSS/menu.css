@@ -1,3 +1,33 @@
-.main-menu{
-	margin-left: 400px;
+.topbar {
+	padding: 0px;
+	background: springgreen;
+}
+.topbar ul{
+  list-style-type: none;
+  
+}
+.temperature{
+	margin-left: 500px;
+	margin-top: -30px;
+}
+
+.temperature li{
+	list-style-type: none;
+	display:inline-block;
+	margin-right: 5px;	
+}
+.user{
+	margin-top: -42px;
+}
+.main_menu {
+	margin-top: -20px;
+}
+.main-menu {
+	margin-left: 56px;
+}
+.main-menu li {
+	margin-right: 23px;
+}
+.main-menu li a {
+	font-size: 16px;
 }
