@@ -64,6 +64,10 @@
              </select>
           </div>
           <div class="form-group">
+            <div class="panel-group">
+              <div class="panel panel-primary" style="width: 654px;">
+                <div class="panel-heading text-center">Week and Task</div>
+                <div class="panel-body">
              <div class="option-control">
                <label for="week">Select Week:</label>
                <select id="week" name="week">
@@ -74,33 +78,59 @@
                </select>
              </div>
              <div class="textAreaControl">
-              <textarea name="" id="ValueAboutWeek" cols="10" rows="3"style="width: 353px; height: 61px;margin-left: 202px;margin-top: -46px;" placeholder="Write Something task this week.."></textarea>
+              <textarea name="" id="ValueAboutWeek" cols="10" rows="3"style="width: 353px; height: 61px;margin-left: 202px;margin-top: -33px;" placeholder="Write Something task this week.."></textarea>
              </div>
              <button type="submit" id="aboutCrops" class="btn btn-info" style="margin-left: 569px;margin-top: -65px;">Add</button>
+              
+                  <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Week</th>
+                          <th>Task</th> 
+                        </tr>
+                      </thead>
+                      <tbody id="weekAndTask">
+                      </tbody>
+                    </table>
+                </div>
+              </div>  
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="panel-group">
+              <div class="panel panel-primary" style="width: 654px;">
+                <div class="panel-heading text-center">Fertilizer</div>
+                <div class="panel-body">
+                   <div class="fertilizerControl">
+                        <label for="FertilizerName">Fertilizer Name:</label>
+                        <input type="text" class="form-control" id="FertilizerName" placeholder="Enter Fertilizer Name" style="width: 313px;margin-left: 145px;margin-top: -28px;" name="FertilizerName">
+                        <label for="FertilizerName">Amount:</label>
+                        <input type="text" class="form-control" id="FertilizerAmount" placeholder="Enter Amount" style="width: 313px;margin-left: 145px;margin-top: -15px;" name="FertilizerAmount">
+                   </div>
+                   <button type="submit" id="aboutFertilizer" class="btn btn-info" style="margin-left: 569px;margin-top: -65px;">Add</button>
+              
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>No</th>
+                            <th>Name</th> 
+                            <th>Amount</th> 
+                          </tr>
+                        </thead>
+                        <tbody id="Fertilizer">
+                        </tbody>
+                    </table>
+                </div>
+              </div>  
+            </div>
+
           </div>
 
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
       <div class="col-md-5 col-md-offset-2">
-          <div class="panel-group">
-            <div class="panel panel-primary">
-              <div class="panel-heading text-center">Week and Task</div>
-              <div class="panel-body">
-                <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th>Week</th>
-                        <th>Task</th> 
-                      </tr>
-                    </thead>
-                    <tbody id="weekAndTask">
-                    </tbody>
-                  </table>
-              </div>
-            </div>
-             
-          </div>
+           
       </div>
    </div>
      
