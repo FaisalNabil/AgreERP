@@ -63,7 +63,7 @@
 <div class="container">
   <ul class="nav nav-tabs">
       <li class="active"><a data-toggle="tab" href="#current-activity">Current Activity</a></li>
-      <li><a data-toggle="tab" href="#add-new">Add New</a></li>
+      <li><a data-toggle="tab" href="#add">Add</a></li>
       <li><a data-toggle="tab" href="#history">History</a></li>
   </ul>
   <div class="tab-content section1">
@@ -170,146 +170,68 @@
                             </div><!-- End modal for checkbox --> 
                         </div>
                       </div>
-                    </section><!-- End section2 -->
-                    <hr>
-                    <!-- <section class="section-3">
-                       <div class="row">
-                         <div class="col-md-6">
-                           <div ng-app="myShoppingList" ng-controller="myCtrl" class="w3-card-2 w3-margin" style="max-width:400px;">
-                             <header class="w3-container w3-light-grey w3-padding-16">
-                               <h3>সার যোগ করুন</h3>
-                             </header>
-                             <ul class="w3-ul">
-                               <li ng-repeat="x in products" class="w3-padding-16">{{x}}<span ng-click="removeItem($index)" style="cursor:pointer;" class="w3-right w3-margin-right">×</span></li>
-                             </ul>
-                             <div class="w3-container w3-light-grey w3-padding-16">
-                               <div class="w3-row w3-margin-top">
-                                 <div class="w3-col s10">
-                                   <input placeholder="Add items here" ng-model="addMe" class="w3-input w3-border w3-padding">
-                                 </div>
-                                 <div class="w3-col s2">
-                                   <button ng-click="addItem()" class="w3-btn w3-padding w3-green">Add</button>
-                                 </div>
-                               </div>
-                               <p class="w3-padding-left w3-text-red">{{errortext}}</p>
-                             </div>
-                           </div>
-                           <div id="App2" ng-app="myShoppingList2" ng-controller="myCtrl2" class="w3-card-2 w3-margin" style="max-width:400px;">
-                             <header class="w3-container w3-light-grey w3-padding-16">
-                               <h3>কীটনাশক যোগ করুন</h3>
-                             </header>
-                             <ul class="w3-ul">
-                               <li ng-repeat="x in products" class="w3-padding-16">{{x}}<span ng-click="removeItem($index)" style="cursor:pointer;" class="w3-right w3-margin-right">×</span></li>
-                             </ul>
-                             <div class="w3-container w3-light-grey w3-padding-16">
-                               <div class="w3-row w3-margin-top">
-                                 <div class="w3-col s10">
-                                   <input placeholder="Add items here" ng-model="addMe" class="w3-input w3-border w3-padding">
-                                 </div>
-                                 <div class="w3-col s2">
-                                   <button ng-click="addItem()" class="w3-btn w3-padding w3-green">Add</button>
-                                 </div>
-                               </div>
-                               <p class="w3-padding-left w3-text-red">{{errortext}}</p>
-                             </div>
-                          </div>End Angular Add aplication
-                        </div>End col-md-6
-                        <div class="col-md-6">
-                          <div class="alert alert-info">
-                              <strong>Info!</strong> You Can Help Evaluating your harvest by providing information. 
-                              <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#myModal">Evaluate</button>
-                              <div class="modal fade" id="myModal" role="dialog">
-                                <div class="modal-dialog modal-lg">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                      <h4 class="modal-title text-center">Evaluation Form</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                       <h3>BRRI-21</h3>
-                                      <div class="container">
-                                        <div class="row">
-                                          <div class="col-md-6">
-                                             <form class="form-horizontal">
-                                                  <div class="form-group">
-                                                    <label class="control-label col-sm-2" for="email">মোট খরচ:</label>
-                                                    <div class="col-sm-10">
-                                                      <input type="text" class="form-control" id="email" placeholder="Enter total cost">
-                                                    </div>
-                                                  </div>
-                                                  <div class="form-group">
-                                                    <label class="control-label col-sm-2" for="pwd">মোট ফলন:</label>
-                                                    <div class="col-sm-10">          
-                                                      <input type="text" class="form-control" id="pwd" placeholder="Enter total crops">
-                                                    </div>
-                                                  </div>
-                                                  <div class="form-group">
-                                                    <label class="control-label col-sm-2" for="pwd">রেটিং:</label>
-                                                    <div class="col-sm-10">          
-                                                        <input type="text" class="form-control" id="pwd" placeholder="Enter total crops">
-                                                    </div>
-                                                    <div class="form-group">
-                                                     <p class="col-md-10" style="margin-left: 50px; margin-top: 10px;">Did you use all the suggested materials?</p>
-                                                      <div class="col-sm-10" style="margin-left: 150px;">          
-                                                        <label class="radio-inline">
-                                                          <input type="radio" name="optradio">Yes
-                                                        </label>
-                                                        <label class="radio-inline">
-                                                          <input type="radio" name="optradio">No
-                                                        </label>
-                                                    </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                     <p class="col-md-10" style="margin-left: 50px; margin-top: 10px;">If you used any extra material! Please insert</p>
-                                                      <div class="col-sm-10" style="margin-left: 150px;">          
-                                                        <label class="radio-inline">
-                                                          <input type="radio" name="optradio">Yes
-                                                        </label>
-                                                        <label class="radio-inline">
-                                                          <input type="radio" name="optradio">No
-                                                        </label>
-                                                    </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                     <p class="col-md-10" style="margin-left: 50px; margin-top: 10px;">Did you water the field on every suggested time</p>
-                                                      <div class="col-sm-10" style="margin-left: 150px;">          
-                                                        <label class="radio-inline">
-                                                          <input type="radio" name="optradio">Yes
-                                                        </label>
-                                                        <label class="radio-inline">
-                                                          <input type="radio" name="optradio">No
-                                                        </label>
-                                                    </div>
-                                                    </div>
-                                                   
-                                                  <div class="form-group">        
-                                                    <div class="col-sm-offset-2 col-sm-10">
-                                                      <button type="submit" class="btn btn-success">Submit</button>
-                                                    </div>
-                                                  </div>
-                                                </form>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>End modal 
-                          </div>
-                         </div>
-                        </div>End row
-                    </section> -->
 
+                    </section><!-- End section2 -->
+
+                    <hr>
+                    <button class="btn btn-info" data-toggle="modal" data-target="#totalCostModal">Finished Cultivation</button>
+                     <!-- Modal -->
+  <div class="modal fade" id="totalCostModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Total cost and Porduct</h4>
+        </div>
+        <div class="modal-body">
+             <form class="form-horizontal" action="#">
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="totalCost">Total cost:</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="form-control" id="totalCost" placeholder="Enter Total Cost" name="totalCost">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="totalProduct">Total Product:</label>
+                  <div class="col-sm-8">
+                    <input type="number" class="form-control" id="totalProduct" placeholder="Enter Total Product" name="totalProduct">
+                  </div>
+                  <div class="col-sm-2">
+                      <select class="form-control" id="unit">
+                        <option>kg</option>
+                        <option>tons</option>
+                      </select>
+                  </div>
+                </div>
+                <div class="form-group">        
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>    
+    </div>
+  </div><!-- End Modal -->
                 </div>
               </div>      
           </div> 
        </div><!-- End tab-pane current-activity -->
-        <div id="add-new" class="tab-pane fade">
+        <div id="add" class="tab-pane fade">
           <section class="section2">
-            <div class="panel panel-default">
+             <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#add_new">Add By System</a></li>
+                <li><a data-toggle="tab" href="#add_menualy">Add Menualy</a></li>
+              </ul>
+
+              <div class="tab-content">
+                <div id="add_new" class="tab-pane fade in active">
+                    <div class="panel panel-default">
                <div class="form-area">
                     <form class="form-inline">
                       <div class="form-group">
@@ -408,6 +330,37 @@
                 </div>
               </div><!-- End toltip area -->
             </div>
+                </div>
+                <div id="add_menualy" class="tab-pane fade">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>No</th>
+                        <th>Crops Name</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>BRII-21</td>
+                        <td><a href="product_details.html" target="_blank" class="btn btn-primary">View Details</a></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>BRII-22</td>
+                        <td><a href="product_details.html" target="_blank" class="btn btn-primary">View Details</a></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>BRII-23</td>
+                        <td><a href="product_details.html" target="_blank" class="btn btn-primary">View Details</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
           </section>
         </div><!-- End add-new tab-->
 
