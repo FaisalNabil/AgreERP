@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2017 at 03:42 AM
+-- Generation Time: Jun 21, 2017 at 08:36 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.0.15
 
@@ -30,24 +30,70 @@ USE `agrierp`;
 CREATE TABLE `crops` (
   `CropsId` varchar(15) NOT NULL,
   `Name` varchar(20) NOT NULL,
-  `CropsGroupId` varchar(15) NOT NULL,
   `RegionId` varchar(15) NOT NULL,
   `TimePeriod` varchar(20) NOT NULL,
   `TotalCost` varchar(7) NOT NULL,
   `EstimatedProduction` varchar(7) NOT NULL,
   `LandType` varchar(10) NOT NULL,
-  `WaterSource` varchar(7) NOT NULL
+  `WaterSource` varchar(7) NOT NULL,
+  `WeekSysId` varchar(15) NOT NULL,
+  `CultInsectSysId` varchar(15) NOT NULL,
+  `CultFertSysId` varchar(15) NOT NULL,
+  `CropsGroupName` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cropsgroup`
+-- Table structure for table `cropsfertilizer`
 --
 
-CREATE TABLE `cropsgroup` (
-  `CropsGroupId` varchar(15) NOT NULL,
-  `Name` varchar(20) NOT NULL
+CREATE TABLE `cropsfertilizer` (
+  `CultFertSysId` varchar(15) NOT NULL,
+  `CropsId` varchar(15) NOT NULL,
+  `FertilizerId` varchar(15) NOT NULL,
+  `Status` tinyint(1) NOT NULL,
+  `Use` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cropsinsecticide`
+--
+
+CREATE TABLE `cropsinsecticide` (
+  `CultInsectSysId` varchar(15) NOT NULL,
+  `CropsId` varchar(15) NOT NULL,
+  `InsecticideId` varchar(15) NOT NULL,
+  `status` varchar(15) NOT NULL,
+  `Use` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cropsweeklytask`
+--
+
+CREATE TABLE `cropsweeklytask` (
+  `WeekId` varchar(15) NOT NULL,
+  `WeekNumber` varchar(3) NOT NULL,
+  `CropsId` varchar(15) NOT NULL,
+  `Task` varchar(200) NOT NULL,
+  `Status` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `crops_ cropsweeklytask`
+--
+
+CREATE TABLE `crops_ cropsweeklytask` (
+  `WeekSysId` varchar(15) NOT NULL,
+  `WeekId` varchar(15) NOT NULL,
+  `CropsId` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -59,44 +105,24 @@ CREATE TABLE `cropsgroup` (
 CREATE TABLE `cultivation` (
   `CultivationId` varchar(15) NOT NULL,
   `CropsId` varchar(15) NOT NULL,
-  `CultFertSysId` varchar(15) NOT NULL,
   `FarmarId` varchar(15) NOT NULL,
-  `WeekSysId` varchar(15) NOT NULL,
-  `CultInsectSysId` varchar(15) NOT NULL,
   `StartDate` varchar(20) NOT NULL,
   `EndDate` varchar(20) NOT NULL,
   `TotalLandInUse` varchar(20) NOT NULL,
-  `TotalCost` varchar(10) NOT NULL
+  `TotalCost` varchar(10) NOT NULL,
+  `TotalProducation` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cultivationfertilizer`
+-- Table structure for table `cultivationweeklytask`
 --
 
-CREATE TABLE `cultivationfertilizer` (
-  `CultFertSysId` varchar(15) NOT NULL,
-  `CultivationId` varchar(15) NOT NULL,
-  `FertilizerId` varchar(15) NOT NULL,
+CREATE TABLE `cultivationweeklytask` (
   `WeekSysId` varchar(15) NOT NULL,
-  `Status` tinyint(1) NOT NULL,
-  `Use` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cultivationinsecticide`
---
-
-CREATE TABLE `cultivationinsecticide` (
-  `CultInsectSysId` varchar(15) NOT NULL,
-  `CultivationId` varchar(15) NOT NULL,
-  `InsecticideId` varchar(15) NOT NULL,
-  `WeekSysId` varchar(15) NOT NULL,
-  `status` varchar(15) NOT NULL,
-  `Use` varchar(200) NOT NULL
+  `WeekId` varchar(15) NOT NULL,
+  `CultivationId` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -108,7 +134,7 @@ CREATE TABLE `cultivationinsecticide` (
 CREATE TABLE `farmer` (
   `FarmerID` varchar(15) NOT NULL,
   `Name` varchar(35) NOT NULL,
-  `Address` varchar(35) NOT NULL,
+  `District` varchar(35) NOT NULL,
   `Phone` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -153,10 +179,10 @@ CREATE TABLE `region` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `regioncroprelation`
+-- Table structure for table `regioncrops`
 --
 
-CREATE TABLE `regioncroprelation` (
+CREATE TABLE `regioncrops` (
   `CropsId` varchar(15) NOT NULL,
   `RegionId` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -170,20 +196,8 @@ CREATE TABLE `regioncroprelation` (
 CREATE TABLE `weeklytask` (
   `WeekId` varchar(15) NOT NULL,
   `WeekNumber` varchar(3) NOT NULL,
-  `CropsId` varchar(15) NOT NULL,
+  `CultivationId` varchar(15) NOT NULL,
   `Task` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `weeklytaskcultivationrelation`
---
-
-CREATE TABLE `weeklytaskcultivationrelation` (
-  `WeekSysId` varchar(15) NOT NULL,
-  `WeekId` varchar(15) NOT NULL,
-  `CultivationId` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -195,14 +209,41 @@ CREATE TABLE `weeklytaskcultivationrelation` (
 --
 ALTER TABLE `crops`
   ADD PRIMARY KEY (`CropsId`),
-  ADD KEY `CropsGroupId` (`CropsGroupId`),
-  ADD KEY `RegionId` (`RegionId`);
+  ADD KEY `RegionId` (`RegionId`),
+  ADD KEY `CultInsectSysId` (`CultInsectSysId`),
+  ADD KEY `CultFertSysId` (`CultFertSysId`),
+  ADD KEY `WeekSysId` (`WeekSysId`);
 
 --
--- Indexes for table `cropsgroup`
+-- Indexes for table `cropsfertilizer`
 --
-ALTER TABLE `cropsgroup`
-  ADD PRIMARY KEY (`CropsGroupId`);
+ALTER TABLE `cropsfertilizer`
+  ADD PRIMARY KEY (`CultFertSysId`),
+  ADD KEY `CropsId` (`CropsId`),
+  ADD KEY `FertilizerId` (`FertilizerId`);
+
+--
+-- Indexes for table `cropsinsecticide`
+--
+ALTER TABLE `cropsinsecticide`
+  ADD PRIMARY KEY (`CultInsectSysId`),
+  ADD KEY `CropsId` (`CropsId`),
+  ADD KEY `InsecticideId` (`InsecticideId`);
+
+--
+-- Indexes for table `cropsweeklytask`
+--
+ALTER TABLE `cropsweeklytask`
+  ADD PRIMARY KEY (`WeekId`),
+  ADD KEY `CropsId` (`CropsId`);
+
+--
+-- Indexes for table `crops_ cropsweeklytask`
+--
+ALTER TABLE `crops_ cropsweeklytask`
+  ADD PRIMARY KEY (`WeekSysId`),
+  ADD KEY `CropsId` (`CropsId`),
+  ADD KEY `WeekId` (`WeekId`);
 
 --
 -- Indexes for table `cultivation`
@@ -210,28 +251,15 @@ ALTER TABLE `cropsgroup`
 ALTER TABLE `cultivation`
   ADD PRIMARY KEY (`CultivationId`),
   ADD KEY `CropsId` (`CropsId`),
-  ADD KEY `CultFertSysId` (`CultFertSysId`),
-  ADD KEY `FarmarId` (`FarmarId`),
-  ADD KEY `WeekSysId` (`WeekSysId`),
-  ADD KEY `CultInsectSysId` (`CultInsectSysId`);
+  ADD KEY `FarmarId` (`FarmarId`);
 
 --
--- Indexes for table `cultivationfertilizer`
+-- Indexes for table `cultivationweeklytask`
 --
-ALTER TABLE `cultivationfertilizer`
-  ADD PRIMARY KEY (`CultFertSysId`),
+ALTER TABLE `cultivationweeklytask`
+  ADD PRIMARY KEY (`WeekSysId`),
   ADD KEY `CultivationId` (`CultivationId`),
-  ADD KEY `FertilizerId` (`FertilizerId`),
-  ADD KEY `WeekSysId` (`WeekSysId`);
-
---
--- Indexes for table `cultivationinsecticide`
---
-ALTER TABLE `cultivationinsecticide`
-  ADD PRIMARY KEY (`CultInsectSysId`),
-  ADD KEY `CultivationId` (`CultivationId`),
-  ADD KEY `InsecticideId` (`InsecticideId`),
-  ADD KEY `WeekSysId` (`WeekSysId`);
+  ADD KEY `WeekId` (`WeekId`);
 
 --
 -- Indexes for table `farmer`
@@ -258,9 +286,9 @@ ALTER TABLE `region`
   ADD PRIMARY KEY (`RegionId`);
 
 --
--- Indexes for table `regioncroprelation`
+-- Indexes for table `regioncrops`
 --
-ALTER TABLE `regioncroprelation`
+ALTER TABLE `regioncrops`
   ADD KEY `CropsId` (`CropsId`),
   ADD KEY `RegionId` (`RegionId`);
 
@@ -269,15 +297,7 @@ ALTER TABLE `regioncroprelation`
 --
 ALTER TABLE `weeklytask`
   ADD PRIMARY KEY (`WeekId`),
-  ADD KEY `CropsId` (`CropsId`);
-
---
--- Indexes for table `weeklytaskcultivationrelation`
---
-ALTER TABLE `weeklytaskcultivationrelation`
-  ADD PRIMARY KEY (`WeekSysId`),
-  ADD KEY `weeklytaskcultivationrelation_ibfk_1` (`WeekId`),
-  ADD KEY `weeklytaskcultivationrelation_ibfk_2` (`CultivationId`);
+  ADD KEY `CultivationId` (`CultivationId`);
 
 --
 -- Constraints for dumped tables
@@ -287,54 +307,64 @@ ALTER TABLE `weeklytaskcultivationrelation`
 -- Constraints for table `crops`
 --
 ALTER TABLE `crops`
-  ADD CONSTRAINT `crops_ibfk_1` FOREIGN KEY (`CropsGroupId`) REFERENCES `cropsgroup` (`CropsGroupId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `crops_ibfk_2` FOREIGN KEY (`RegionId`) REFERENCES `region` (`RegionId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `crops_ibfk_2` FOREIGN KEY (`RegionId`) REFERENCES `region` (`RegionId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `crops_ibfk_3` FOREIGN KEY (`CultInsectSysId`) REFERENCES `insecticide` (`InsecticideId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `crops_ibfk_4` FOREIGN KEY (`CultFertSysId`) REFERENCES `fertilizer` (`FertilizerId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `crops_ibfk_5` FOREIGN KEY (`WeekSysId`) REFERENCES `crops_ cropsweeklytask` (`WeekSysId`);
+
+--
+-- Constraints for table `cropsfertilizer`
+--
+ALTER TABLE `cropsfertilizer`
+  ADD CONSTRAINT `cropsfertilizer_ibfk_1` FOREIGN KEY (`CropsId`) REFERENCES `crops` (`CropsId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cropsfertilizer_ibfk_2` FOREIGN KEY (`FertilizerId`) REFERENCES `fertilizer` (`FertilizerId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `cropsinsecticide`
+--
+ALTER TABLE `cropsinsecticide`
+  ADD CONSTRAINT `cropsinsecticide_ibfk_1` FOREIGN KEY (`CropsId`) REFERENCES `crops` (`CropsId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cropsinsecticide_ibfk_2` FOREIGN KEY (`InsecticideId`) REFERENCES `insecticide` (`InsecticideId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `cropsweeklytask`
+--
+ALTER TABLE `cropsweeklytask`
+  ADD CONSTRAINT `cropsweeklytask_ibfk_1` FOREIGN KEY (`CropsId`) REFERENCES `crops` (`CropsId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `crops_ cropsweeklytask`
+--
+ALTER TABLE `crops_ cropsweeklytask`
+  ADD CONSTRAINT `crops_ cropsweeklytask_ibfk_1` FOREIGN KEY (`CropsId`) REFERENCES `crops` (`CropsId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `crops_ cropsweeklytask_ibfk_2` FOREIGN KEY (`WeekId`) REFERENCES `cropsweeklytask` (`WeekId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `cultivation`
 --
 ALTER TABLE `cultivation`
   ADD CONSTRAINT `cultivation_ibfk_1` FOREIGN KEY (`CropsId`) REFERENCES `crops` (`CropsId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cultivation_ibfk_2` FOREIGN KEY (`CultFertSysId`) REFERENCES `cultivationfertilizer` (`CultFertSysId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cultivation_ibfk_3` FOREIGN KEY (`FarmarId`) REFERENCES `farmer` (`FarmerID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cultivation_ibfk_4` FOREIGN KEY (`WeekSysId`) REFERENCES `weeklytaskcultivationrelation` (`WeekSysId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cultivation_ibfk_5` FOREIGN KEY (`CultInsectSysId`) REFERENCES `cultivationinsecticide` (`CultInsectSysId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cultivation_ibfk_2` FOREIGN KEY (`FarmarId`) REFERENCES `farmer` (`FarmerID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `cultivationfertilizer`
+-- Constraints for table `cultivationweeklytask`
 --
-ALTER TABLE `cultivationfertilizer`
-  ADD CONSTRAINT `cultivationfertilizer_ibfk_1` FOREIGN KEY (`CultivationId`) REFERENCES `cultivation` (`CultivationId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cultivationfertilizer_ibfk_2` FOREIGN KEY (`FertilizerId`) REFERENCES `fertilizer` (`FertilizerId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cultivationfertilizer_ibfk_3` FOREIGN KEY (`WeekSysId`) REFERENCES `weeklytaskcultivationrelation` (`WeekSysId`);
+ALTER TABLE `cultivationweeklytask`
+  ADD CONSTRAINT `cultivationweeklytask_ibfk_1` FOREIGN KEY (`CultivationId`) REFERENCES `cultivation` (`CultivationId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cultivationweeklytask_ibfk_2` FOREIGN KEY (`WeekId`) REFERENCES `weeklytask` (`WeekId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `cultivationinsecticide`
+-- Constraints for table `regioncrops`
 --
-ALTER TABLE `cultivationinsecticide`
-  ADD CONSTRAINT `cultivationinsecticide_ibfk_1` FOREIGN KEY (`CultivationId`) REFERENCES `cultivation` (`CultivationId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cultivationinsecticide_ibfk_2` FOREIGN KEY (`InsecticideId`) REFERENCES `insecticide` (`InsecticideId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cultivationinsecticide_ibfk_3` FOREIGN KEY (`WeekSysId`) REFERENCES `weeklytaskcultivationrelation` (`WeekSysId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `regioncroprelation`
---
-ALTER TABLE `regioncroprelation`
-  ADD CONSTRAINT `regioncroprelation_ibfk_1` FOREIGN KEY (`CropsId`) REFERENCES `crops` (`CropsId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `regioncroprelation_ibfk_2` FOREIGN KEY (`RegionId`) REFERENCES `region` (`RegionId`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `regioncrops`
+  ADD CONSTRAINT `regioncrops_ibfk_1` FOREIGN KEY (`CropsId`) REFERENCES `crops` (`CropsId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `regioncrops_ibfk_2` FOREIGN KEY (`RegionId`) REFERENCES `region` (`RegionId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `weeklytask`
 --
 ALTER TABLE `weeklytask`
-  ADD CONSTRAINT `weeklytask_ibfk_1` FOREIGN KEY (`CropsId`) REFERENCES `crops` (`CropsId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `weeklytaskcultivationrelation`
---
-ALTER TABLE `weeklytaskcultivationrelation`
-  ADD CONSTRAINT `weeklytaskcultivationrelation_ibfk_1` FOREIGN KEY (`WeekId`) REFERENCES `weeklytask` (`WeekId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `weeklytaskcultivationrelation_ibfk_2` FOREIGN KEY (`CultivationId`) REFERENCES `cultivation` (`CultivationId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `weeklytask_ibfk_1` FOREIGN KEY (`CultivationId`) REFERENCES `cultivation` (`CultivationId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
