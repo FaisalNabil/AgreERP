@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2017 at 08:36 AM
+-- Generation Time: Jun 29, 2017 at 05:24 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.0.15
 
@@ -21,6 +21,7 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `agrierp` DEFAULT CHARACTER SET = 'utf8' COLLATE utf8_general_ci;
 USE `agrierp`;
+
 -- --------------------------------------------------------
 
 --
@@ -138,6 +139,13 @@ CREATE TABLE `farmer` (
   `Phone` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `farmer`
+--
+
+INSERT INTO `farmer` (`FarmerID`, `Name`, `District`, `Phone`) VALUES
+('f-001', 'ashiq', 'pabna', '01532312342');
+
 -- --------------------------------------------------------
 
 --
@@ -150,6 +158,13 @@ CREATE TABLE `fertilizer` (
   `PricePerUnit` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `fertilizer`
+--
+
+INSERT INTO `fertilizer` (`FertilizerId`, `Name`, `PricePerUnit`) VALUES
+('fer-001', 'xyz', '50tk');
+
 -- --------------------------------------------------------
 
 --
@@ -160,9 +175,16 @@ CREATE TABLE `insecticide` (
   `InsecticideId` varchar(15) NOT NULL,
   `Name` varchar(35) NOT NULL,
   `PricePerUnit` varchar(10) NOT NULL,
-  `InsectName` varchar(20) NOT NULL,
+  `InsectName` varchar(35) NOT NULL,
   `DiseaseName` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `insecticide`
+--
+
+INSERT INTO `insecticide` (`InsecticideId`, `Name`, `PricePerUnit`, `InsectName`, `DiseaseName`) VALUES
+('ins-001', 'abc', '50tk', 'dsa', 'xyz');
 
 -- --------------------------------------------------------
 
@@ -175,6 +197,13 @@ CREATE TABLE `region` (
   `RegionNumber` varchar(4) NOT NULL,
   `Area` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `region`
+--
+
+INSERT INTO `region` (`RegionId`, `RegionNumber`, `Area`) VALUES
+('re-001', '12', 'pabna');
 
 -- --------------------------------------------------------
 
@@ -210,9 +239,9 @@ CREATE TABLE `weeklytask` (
 ALTER TABLE `crops`
   ADD PRIMARY KEY (`CropsId`),
   ADD KEY `RegionId` (`RegionId`),
-  ADD KEY `CultInsectSysId` (`CultInsectSysId`),
-  ADD KEY `CultFertSysId` (`CultFertSysId`),
-  ADD KEY `WeekSysId` (`WeekSysId`);
+  ADD KEY `WeekSysId` (`WeekSysId`),
+  ADD KEY `crops_ibfk_3` (`CultInsectSysId`),
+  ADD KEY `crops_ibfk_4` (`CultFertSysId`);
 
 --
 -- Indexes for table `cropsfertilizer`
@@ -308,8 +337,8 @@ ALTER TABLE `weeklytask`
 --
 ALTER TABLE `crops`
   ADD CONSTRAINT `crops_ibfk_2` FOREIGN KEY (`RegionId`) REFERENCES `region` (`RegionId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `crops_ibfk_3` FOREIGN KEY (`CultInsectSysId`) REFERENCES `insecticide` (`InsecticideId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `crops_ibfk_4` FOREIGN KEY (`CultFertSysId`) REFERENCES `fertilizer` (`FertilizerId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `crops_ibfk_3` FOREIGN KEY (`CultInsectSysId`) REFERENCES `cropsinsecticide` (`CultInsectSysId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `crops_ibfk_4` FOREIGN KEY (`CultFertSysId`) REFERENCES `cropsfertilizer` (`CultFertSysId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `crops_ibfk_5` FOREIGN KEY (`WeekSysId`) REFERENCES `crops_ cropsweeklytask` (`WeekSysId`);
 
 --
