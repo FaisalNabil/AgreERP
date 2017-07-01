@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2017 at 05:24 AM
+-- Generation Time: Jul 01, 2017 at 03:18 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.0.15
 
@@ -21,7 +21,6 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `agrierp` DEFAULT CHARACTER SET = 'utf8' COLLATE utf8_general_ci;
 USE `agrierp`;
-
 -- --------------------------------------------------------
 
 --
@@ -136,15 +135,16 @@ CREATE TABLE `farmer` (
   `FarmerID` varchar(15) NOT NULL,
   `Name` varchar(35) NOT NULL,
   `District` varchar(35) NOT NULL,
-  `Phone` varchar(15) NOT NULL
+  `Phone` varchar(15) NOT NULL,
+  `Password` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `farmer`
 --
 
-INSERT INTO `farmer` (`FarmerID`, `Name`, `District`, `Phone`) VALUES
-('f-001', 'ashiq', 'pabna', '01532312342');
+INSERT INTO `farmer` (`FarmerID`, `Name`, `District`, `Phone`, `Password`) VALUES
+('f-001', 'ashiq', 'pabna', '01532312342', '1234');
 
 -- --------------------------------------------------------
 
@@ -163,7 +163,7 @@ CREATE TABLE `fertilizer` (
 --
 
 INSERT INTO `fertilizer` (`FertilizerId`, `Name`, `PricePerUnit`) VALUES
-('fer-001', 'xyz', '50tk');
+('fer-001', 'Urea', '50tk');
 
 -- --------------------------------------------------------
 
