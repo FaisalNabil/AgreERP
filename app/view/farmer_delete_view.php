@@ -9,8 +9,18 @@
 	if($_SERVER['REQUEST_METHOD']=="POST"){
 		$id = $_POST['FarmerId'];
 		
-		if(removeFarmer(($id)){
+		if(removeFarmer($id)){
 			echo "Record Deleted!";
 		}
 	}
 ?>
+
+<form method="post">
+	<br /><h3>DELETE FARMER</h3><hr/><br />
+	Id: <?=$farmer['FarmerId']?><input type="hidden" name="FarmerId" value="<?=$farmer['FarmerId']?>"/><br />
+	Name: <?=$farmer['Name']?><br />
+	Phone: <?=$farmer['Phone']?><br />
+	Address: <?=$farmer['Address']?><br /> 
+	<input type="submit" value="Delete"/>
+	<a href="/contacto/?farmer_show">SHOW ALL</a>
+</form>

@@ -14,3 +14,12 @@
 		}
 	}
 ?>
+<form method="post">
+	<br /><h3>DELETE STATUS</h3><hr/><br />
+	Id: <?=$status['StatusId']?><input type="hidden" name="StatusId" value="<?=$status['StatusId']?>"/><br />
+	DoneTask: <?=$status['DoneTask']?><br />
+	 
+
+	<input type="submit" value="Delete"/>
+	<a href="/AgreERP/?status_show">SHOW ALL</a>
+</form>

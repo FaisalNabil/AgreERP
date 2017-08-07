@@ -63,7 +63,11 @@
 <div class="container">
   <ul class="nav nav-tabs">
       <li class="active"><a data-toggle="tab" href="#current-activity">Current Activity</a></li>
+<<<<<<< HEAD
       <li><a data-toggle="tab" href="#add">Add</a></li>
+=======
+      <li><a data-toggle="tab" href="#add-new">Add New</a></li>
+>>>>>>> dde1e0981b89ea0e1f126c53988654f7ff010c37
       <li><a data-toggle="tab" href="#history">History</a></li>
   </ul>
   <div class="tab-content section1">
@@ -100,6 +104,7 @@
 
                     <section class="section-2">
                         <ul class="nav nav-tabs">
+<<<<<<< HEAD
                           <li class="active"><a data-toggle="tab" href="#menu3">চাষের পদ্ধতি</a></li>
                           <li><a data-toggle="tab" href="#menu4">সার সমূহ</a></li>
                           <li><a data-toggle="tab" href="#menu5">কীটনাশক সমূহ</a></li>
@@ -109,6 +114,17 @@
                       <div class="tab-content">
                         <div id="menu3" class="tab-pane fade in active">
                              <h3>চাষের পদ্ধতি</h3>
+=======
+                          <li class="active"><a data-toggle="tab" href="#menu3">চাষের পদ্দতি</a></li>
+                          <li><a data-toggle="tab" href="#menu4">সার সমূহ</a></li>
+                          <li><a data-toggle="tab" href="#menu5">কীটনাশক সমূহ</a></li>
+                          <li><a data-toggle="tab" href="#menu6">সমস্যাগুলো</a></li>
+                          <li><a data-toggle="tab" href="#menu7">Lifeline</a></li>
+                        </ul>
+                      <div class="tab-content">
+                        <div id="menu3" class="tab-pane fade in active">
+                             <h3>চাষের পদ্দতি</h3>
+>>>>>>> dde1e0981b89ea0e1f126c53988654f7ff010c37
                              <p>Some content in this area.</p>
                         </div>     
                         <div id="menu4" class="tab-pane fade">
@@ -126,6 +142,7 @@
                         <div id="menu7" class="tab-pane fade">
                             <form>
                               <div class="checkbox">
+<<<<<<< HEAD
                                 <label><input id = "checkbox1" type="checkbox" value="" checked>Week1 :</label>
                               </div>
                               <div class="checkbox">
@@ -148,6 +165,30 @@
                               </div>
                               <div class="checkbox">
                                 <label><input id = "checkbox1" type="checkbox" value="">Week5 :</label>
+=======
+                                <label><input id = "checkbox1" type="checkbox" value="" >Week1 :</label>
+                              </div>
+                              <div class="checkbox">
+                                <label><input id = "checkbox1" type="checkbox" value="">Week2 :</label>
+                              </div>
+                              <div class="checkbox">
+                                <label><input id = "checkbox1" type="checkbox" value="">Week3 :</label>
+                              </div>
+                              <div class="checkbox">
+                                <label><input id = "checkbox1" type="checkbox" value="">Week4 :</label>
+                              </div>
+                              <div class="checkbox">
+                                <label><input id = "checkbox1" type="checkbox" value="">Week5 :</label>
+                              </div>
+                              <div class="checkbox">
+                                <label><input id = "checkbox1" type="checkbox" value="">Week6 :</label>
+                              </div>
+                              <div class="checkbox">
+                                <label><input id = "checkbox1" type="checkbox" value="">Week7 :</label>
+                              </div>
+                              <div class="checkbox">
+                                <label><input id = "checkbox1" type="checkbox" value="">Week8 :</label>
+>>>>>>> dde1e0981b89ea0e1f126c53988654f7ff010c37
                               </div>
                             </form> 
                             <!-- Modal -->
@@ -170,6 +211,7 @@
                             </div><!-- End modal for checkbox --> 
                         </div>
                       </div>
+<<<<<<< HEAD
 
                     </section><!-- End section2 -->
 
@@ -218,10 +260,146 @@
       </div>    
     </div>
   </div><!-- End Modal -->
+=======
+                    </section><!-- End section2 -->
+                    <hr>
+                    <!-- <section class="section-3">
+                       <div class="row">
+                         <div class="col-md-6">
+                           <div ng-app="myShoppingList" ng-controller="myCtrl" class="w3-card-2 w3-margin" style="max-width:400px;">
+                             <header class="w3-container w3-light-grey w3-padding-16">
+                               <h3>সার যোগ করুন</h3>
+                             </header>
+                             <ul class="w3-ul">
+                               <li ng-repeat="x in products" class="w3-padding-16">{{x}}<span ng-click="removeItem($index)" style="cursor:pointer;" class="w3-right w3-margin-right">×</span></li>
+                             </ul>
+                             <div class="w3-container w3-light-grey w3-padding-16">
+                               <div class="w3-row w3-margin-top">
+                                 <div class="w3-col s10">
+                                   <input placeholder="Add items here" ng-model="addMe" class="w3-input w3-border w3-padding">
+                                 </div>
+                                 <div class="w3-col s2">
+                                   <button ng-click="addItem()" class="w3-btn w3-padding w3-green">Add</button>
+                                 </div>
+                               </div>
+                               <p class="w3-padding-left w3-text-red">{{errortext}}</p>
+                             </div>
+                           </div>
+                           <div id="App2" ng-app="myShoppingList2" ng-controller="myCtrl2" class="w3-card-2 w3-margin" style="max-width:400px;">
+                             <header class="w3-container w3-light-grey w3-padding-16">
+                               <h3>কীটনাশক যোগ করুন</h3>
+                             </header>
+                             <ul class="w3-ul">
+                               <li ng-repeat="x in products" class="w3-padding-16">{{x}}<span ng-click="removeItem($index)" style="cursor:pointer;" class="w3-right w3-margin-right">×</span></li>
+                             </ul>
+                             <div class="w3-container w3-light-grey w3-padding-16">
+                               <div class="w3-row w3-margin-top">
+                                 <div class="w3-col s10">
+                                   <input placeholder="Add items here" ng-model="addMe" class="w3-input w3-border w3-padding">
+                                 </div>
+                                 <div class="w3-col s2">
+                                   <button ng-click="addItem()" class="w3-btn w3-padding w3-green">Add</button>
+                                 </div>
+                               </div>
+                               <p class="w3-padding-left w3-text-red">{{errortext}}</p>
+                             </div>
+                          </div>End Angular Add aplication
+                        </div>End col-md-6
+                        <div class="col-md-6">
+                          <div class="alert alert-info">
+                              <strong>Info!</strong> You Can Help Evaluating your harvest by providing information. 
+                              <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#myModal">Evaluate</button>
+                              <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog modal-lg">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title text-center">Evaluation Form</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                       <h3>BRRI-21</h3>
+                                      <div class="container">
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                             <form class="form-horizontal">
+                                                  <div class="form-group">
+                                                    <label class="control-label col-sm-2" for="email">মোট খরচ:</label>
+                                                    <div class="col-sm-10">
+                                                      <input type="text" class="form-control" id="email" placeholder="Enter total cost">
+                                                    </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                    <label class="control-label col-sm-2" for="pwd">মোট ফলন:</label>
+                                                    <div class="col-sm-10">          
+                                                      <input type="text" class="form-control" id="pwd" placeholder="Enter total crops">
+                                                    </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                    <label class="control-label col-sm-2" for="pwd">রেটিং:</label>
+                                                    <div class="col-sm-10">          
+                                                        <input type="text" class="form-control" id="pwd" placeholder="Enter total crops">
+                                                    </div>
+                                                    <div class="form-group">
+                                                     <p class="col-md-10" style="margin-left: 50px; margin-top: 10px;">Did you use all the suggested materials?</p>
+                                                      <div class="col-sm-10" style="margin-left: 150px;">          
+                                                        <label class="radio-inline">
+                                                          <input type="radio" name="optradio">Yes
+                                                        </label>
+                                                        <label class="radio-inline">
+                                                          <input type="radio" name="optradio">No
+                                                        </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                     <p class="col-md-10" style="margin-left: 50px; margin-top: 10px;">If you used any extra material! Please insert</p>
+                                                      <div class="col-sm-10" style="margin-left: 150px;">          
+                                                        <label class="radio-inline">
+                                                          <input type="radio" name="optradio">Yes
+                                                        </label>
+                                                        <label class="radio-inline">
+                                                          <input type="radio" name="optradio">No
+                                                        </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                     <p class="col-md-10" style="margin-left: 50px; margin-top: 10px;">Did you water the field on every suggested time</p>
+                                                      <div class="col-sm-10" style="margin-left: 150px;">          
+                                                        <label class="radio-inline">
+                                                          <input type="radio" name="optradio">Yes
+                                                        </label>
+                                                        <label class="radio-inline">
+                                                          <input type="radio" name="optradio">No
+                                                        </label>
+                                                    </div>
+                                                    </div>
+                                                   
+                                                  <div class="form-group">        
+                                                    <div class="col-sm-offset-2 col-sm-10">
+                                                      <button type="submit" class="btn btn-success">Submit</button>
+                                                    </div>
+                                                  </div>
+                                                </form>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>End modal 
+                          </div>
+                         </div>
+                        </div>End row
+                    </section> -->
+
+>>>>>>> dde1e0981b89ea0e1f126c53988654f7ff010c37
                 </div>
               </div>      
           </div> 
        </div><!-- End tab-pane current-activity -->
+<<<<<<< HEAD
         <div id="add" class="tab-pane fade">
           <section class="section2">
              <ul class="nav nav-tabs">
@@ -232,6 +410,11 @@
               <div class="tab-content">
                 <div id="add_new" class="tab-pane fade in active">
                     <div class="panel panel-default">
+=======
+        <div id="add-new" class="tab-pane fade">
+          <section class="section2">
+            <div class="panel panel-default">
+>>>>>>> dde1e0981b89ea0e1f126c53988654f7ff010c37
                <div class="form-area">
                     <form class="form-inline">
                       <div class="form-group">
@@ -330,6 +513,7 @@
                 </div>
               </div><!-- End toltip area -->
             </div>
+<<<<<<< HEAD
                 </div>
                 <div id="add_menualy" class="tab-pane fade">
                   <table class="table table-striped">
@@ -361,6 +545,8 @@
                 </div>
 
               </div>
+=======
+>>>>>>> dde1e0981b89ea0e1f126c53988654f7ff010c37
           </section>
         </div><!-- End add-new tab-->
 

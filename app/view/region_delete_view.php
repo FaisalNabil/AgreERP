@@ -14,3 +14,12 @@
 		}
 	}
 ?>
+<form method="post">
+	<br /><h3>DELETE REGION</h3><hr/><br />
+	Id: <?=$region['RegionId']?><input type="hidden" name="regionId" value="<?=$region['RegionId']?>"/><br />
+	RegionNumber: <?=$region['RegionNumber']?><br />
+	Area: <?=$region['Area']?><br />
+
+	<input type="submit" value="Delete"/>
+	<a href="/AgreERP/?region_show">SHOW ALL</a>
+</form>

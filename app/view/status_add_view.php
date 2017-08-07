@@ -16,3 +16,11 @@
 		}
 	}
 ?>
+<form method="post">
+	<br /><h3>ADD STATUS</h3><hr/><br />
+	Id:<br /><input type="text" name="StatusId"/><br />
+	Done Task:<br /><input type="text" name="DoneTask"/><br />
+
+	<input type="submit" value="Add"/>
+	<a href="/AgreERP/?status_show">SHOW ALL</a>
+</form>
