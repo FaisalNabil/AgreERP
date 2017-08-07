@@ -17,3 +17,12 @@
 		}
 	}
 ?>
+<form method="post">
+	<br /><h3>ADD REGION</h3><hr/><br />
+	Id:<br /><input type="text" name="regionId"/><br />
+	Region Number:<br /><input type="text" name="regionNumber"/><br />
+	Area:<br /><input type="text" name="area"/><br />
+	
+	<input type="submit" value="Add"/>
+	<a href="/AgreERP/?region_show">SHOW ALL</a>
+</form>

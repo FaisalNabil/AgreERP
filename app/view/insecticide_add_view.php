@@ -19,3 +19,14 @@
 		}
 	}
 ?>
+<form method="post">
+	<br /><h3>ADD INSECTICIDE</h3><hr/><br />
+	Id:<br /><input type="text" name="insecticideId"/><br />
+	Name:<br /><input type="text" name="name"/><br />
+	Price Unit:<br /><input type="number" name="pricePerUnit"/><br />
+	Insect Name:<br /><input type="text" name="insectName"/><br />
+	Disease Name:<br /><input type="text" name="diseaseName"/><br />
+	
+	<input type="submit" value="Add"/>
+	<a href="/AgreERP/?insecticide_show">SHOW ALL</a>
+</form>
