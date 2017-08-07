@@ -1,6 +1,6 @@
 <?php
-	var_dump($GLOBALS);
-	define('APP_ROOT', "$_SERVER[DOCUMENT_ROOT]AgreERP");
+	//var_dump($GLOBALS);
+	define('APP_ROOT', "$_SERVER[DOCUMENT_ROOT]/AgriERP");
 
 	$hasError=true;
 	if(count($_GET)>0){
