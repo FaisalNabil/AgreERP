@@ -21,8 +21,8 @@
 					<td>$farmer[Name]</td>
 					<td>$farmer[Address]</td>
 					<td>$farmer[Phone]</td>
-					<td><a href='/AgreERP/?farmer_edit&id=$farmer[FarmerId]'>edit</a></td>
-					<td><a href='/AgreERP/?farmer_delete&id=$farmer[FarmerId]'>delete</a></td>
+					<td><a href='/AgriERP/?farmer_edit&id=$farmer[FarmerId]'>edit</a></td>
+					<td><a href='/AgriERP/?farmer_delete&id=$farmer[FarmerId]'>delete</a></td>
 				</tr>";
 		}
 	?>	

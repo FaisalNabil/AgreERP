@@ -23,5 +23,5 @@
 	Done Task: <input type="text" name="DoneTask" value="<?=$status['DoneTask']?>"/><br />
 
 	<input type="submit" value="Update"/>
-	<a href="/AgreERP/?status_show">SHOW ALL</a>
+	<a href="/AgriERP/?status_show">SHOW ALL</a>
 </form>

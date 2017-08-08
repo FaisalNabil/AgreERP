@@ -30,5 +30,5 @@
 	Insect Name: <input type="text" name="diseaseName" value="<?=$insecticide['DiseaseName']?>"/><br />
 
 	<input type="submit" value="Update"/>
-	<a href="/AgreERP/?insecticide_show">SHOW ALL</a>
+	<a href="/AgriERP/?insecticide_show">SHOW ALL</a>
 </form>

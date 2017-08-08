@@ -21,5 +21,5 @@
 	 
 
 	<input type="submit" value="Delete"/>
-	<a href="/AgreERP/?status_show">SHOW ALL</a>
+	<a href="/AgriERP/?status_show">SHOW ALL</a>
 </form>

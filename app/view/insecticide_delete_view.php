@@ -22,5 +22,5 @@
 	InsectName: <?=$insecticide['InsectName']?><br /> 
 	DiseaseName: <?=$insecticide['DiseaseName']?><br /> 
 	<input type="submit" value="Delete"/>
-	<a href="/AgreERP/?insecticide_show">SHOW ALL</a>
+	<a href="/AgriERP/?insecticide_show">SHOW ALL</a>
 </form>

@@ -25,5 +25,5 @@
 	Area: <input type="text" name="area" value="<?=$region['Area']?>"/><br />
 
 	<input type="submit" value="Update"/>
-	<a href="/AgreERP/?region_show">SHOW ALL</a>
+	<a href="/AgriERP/?region_show">SHOW ALL</a>
 </form>

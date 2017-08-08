@@ -22,5 +22,5 @@
 	Phone: <?=$farmer['Phone']?><br />
 	Address: <?=$farmer['Address']?><br /> 
 	<input type="submit" value="Delete"/>
-	<a href="/contacto/?farmer_show">SHOW ALL</a>
+	<a href="/AgriERP/?farmer_show">SHOW ALL</a>
 </form>

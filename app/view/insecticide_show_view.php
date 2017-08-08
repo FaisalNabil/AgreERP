@@ -23,8 +23,8 @@
 					<td>$insecticide[InsectName]</td>
 					<td>$insecticide[DiseaseName]</td>
 
-					<td><a href='/AgreERP/?insecticide_edit&id=$insecticide[InsecticideId]'>edit</a></td>
-					<td><a href='/AgreERP/?insecticide_delete&id=$insecticide[InsecticideId]'>delete</a></td>
+					<td><a href='/AgriERP/?insecticide_edit&id=$insecticide[InsecticideId]'>edit</a></td>
+					<td><a href='/AgriERP/?insecticide_delete&id=$insecticide[InsecticideId]'>delete</a></td>
 				</tr>";
 		}
 	?>	

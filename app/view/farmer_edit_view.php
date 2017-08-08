@@ -26,5 +26,5 @@
 	Phone: <input type="text" name="phone" value="<?=$farmer['Phone']?>"/><br /><br /><hr />
 	Address: <input type="text" name="address" value="<?=$farmer['Address']?>"/><br /><br />
 	<input type="submit" value="Update"/>
-	<a href="/AgreERP/?farmer_show">SHOW ALL</a>
+	<a href="/AgriERP/?farmer_show">SHOW ALL</a>
 </form>

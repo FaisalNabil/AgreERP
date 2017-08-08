@@ -20,8 +20,8 @@
 					<td>$region[Area]</td>
 					 
 
-					<td><a href='/AgreERP/?region_edit&id=$region[regionId]'>edit</a></td>
-					<td><a href='/AgreERP/?region_delete&id=$region[regionId]'>delete</a></td>
+					<td><a href='/AgriERP/?region_edit&id=$region[regionId]'>edit</a></td>
+					<td><a href='/AgriERP/?region_delete&id=$region[regionId]'>delete</a></td>
 				</tr>";
 		}
 	?>	

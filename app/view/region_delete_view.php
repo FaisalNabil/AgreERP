@@ -21,5 +21,5 @@
 	Area: <?=$region['Area']?><br />
 
 	<input type="submit" value="Delete"/>
-	<a href="/AgreERP/?region_show">SHOW ALL</a>
+	<a href="/AgriERP/?region_show">SHOW ALL</a>
 </form>

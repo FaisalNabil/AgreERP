@@ -25,5 +25,5 @@
 	Phone:<br /><input type="text" name="phone"/><br /><br /><hr />
 	Address:<br/><input type="text" name="address"/><br />
 	<input type="submit" value="Add"/>
-	<a href="/AgreERP/?farmer_show">SHOW ALL</a>
+	<a href="/AgriERP/?farmer_show">SHOW ALL</a>
 </form>

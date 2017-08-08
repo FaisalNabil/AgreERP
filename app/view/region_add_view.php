@@ -24,5 +24,5 @@
 	Area:<br /><input type="text" name="area"/><br />
 	
 	<input type="submit" value="Add"/>
-	<a href="/AgreERP/?region_show">SHOW ALL</a>
+	<a href="/AgriERP/?region_show">SHOW ALL</a>
 </form>
