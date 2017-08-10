@@ -11,7 +11,7 @@
 		<td><b>ID</b></td>
 		<td><b>NAME</b></td>
 		<td><b>PHONE</b></td>
-		<td><b>ADDRESS</b></td>
+		<td><b>DISTRICT</b></td>
 		<td colspan="2"></td>
 	</tr>
 	<?php
@@ -19,7 +19,7 @@
 			echo"<tr>
 					<td>$farmer[FarmerId]</td>
 					<td>$farmer[Name]</td>
-					<td>$farmer[Address]</td>
+					<td>$farmer[District]</td>
 					<td>$farmer[Phone]</td>
 					<td><a href='/AgriERP/?farmer_edit&id=$farmer[FarmerId]'>edit</a></td>
 					<td><a href='/AgriERP/?farmer_delete&id=$farmer[FarmerId]'>delete</a></td>

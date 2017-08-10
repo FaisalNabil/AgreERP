@@ -20,7 +20,7 @@
 	Id: <?=$farmer['FarmerId']?><input type="hidden" name="FarmerId" value="<?=$farmer['FarmerId']?>"/><br />
 	Name: <?=$farmer['Name']?><br />
 	Phone: <?=$farmer['Phone']?><br />
-	Address: <?=$farmer['Address']?><br /> 
+	District: <?=$farmer['District']?><br /> 
 	<input type="submit" value="Delete"/>
 	<a href="/AgriERP/?farmer_show">SHOW ALL</a>
 </form>
