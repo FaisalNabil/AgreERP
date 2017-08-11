@@ -10,9 +10,8 @@
 		$id = $_POST['farmerId'];
 		$name = $_POST['name'];
 		$phone = $_POST['phone'];
-		$address = $_POST['address'];
-		$farmer = array("FarmerId"=>$id, "Name"=>$name, "Address"=>$address, "Phone"=>$phone);
-		
+		$district = $_POST['district'];
+		$farmer = array("FarmerId"=>$id, "Name"=>$name, "District"=>$district, "Phone"=>$phone);
 		if(addFarmer($farmer)){
 			echo "Record Added!";
 		}
@@ -23,7 +22,7 @@
 	Id:<br /><input type="text" name="farmerId"/><br />
 	Name:<br /><input type="text" name="name"/><br />
 	Phone:<br /><input type="text" name="phone"/><br /><br /><hr />
-	Address:<br/><input type="text" name="address"/><br />
+	District:<br/><input type="text" name="district"/><br />
 	<input type="submit" value="Add"/>
 	<a href="/AgriERP/?farmer_show">SHOW ALL</a>
 </form>
