@@ -1,14 +1,15 @@
 $(document).ready(function(){
 
-     $('#aboutCrops').click(function(event){
+     $('#fertilizerBtn').click(function(event){
          event.preventDefault();
 
           var week = $("#week option:selected").val();
-          var TextAreaValue = $("textarea#ValueAboutWeek").val();
+          var TextAreaValue = $("textarea#FertilizerTask").val();
+		  var fertilizerName = $("#fertilizer option:selected").val();
 
           if (TextAreaValue.length > 0) {
-             var tableRow = "<tr>"+ "<td>"+week+"</td>"+ "<td>"+TextAreaValue+"</td>"+"</tr>";
-             $("#weekAndTask").append(tableRow); 
+             var tableRow = "<tr>"+ "<td>"+week+"</td>"+ "<td>"+fertilizerName+"</td>"+" <td>"+TextAreaValue+"</td>"+"</tr>";
+             $("#fertilizerList").append(tableRow); 
           }else{
             alert("Please Add some value");
           }
@@ -19,10 +20,11 @@ $(document).ready(function(){
          event.preventDefault();
           
           var week = $("#weekName option:selected").val();
-          var TextAreaValue = $("textarea#taskThisWeek").val();
+          var TextAreaValue = $("textarea#InserticideTask").val();
+		  var insecticideName = $("#insecticide option:selected").val();
 
           if (TextAreaValue.length > 0) {
-             var tableRow = "<tr>"+ "<td>"+week+"</td>"+ "<td>"+TextAreaValue+"</td>"+"</tr>";
+             var tableRow = "<tr>"+ "<td>"+week+"</td>"+ "<td>"+insecticideName+"</td>"+" <td>"+TextAreaValue+"</td>"+"</tr>";
              $("#insecticideList").append(tableRow); 
           }else{
             alert("Please Add some value");
@@ -35,7 +37,7 @@ $(document).ready(function(){
          event.preventDefault();
           
           var week = $("#otherTaskweekName option:selected").val();
-          var TextAreaValue = $("textarea#otherTaskThisWeek").val();
+          var TextAreaValue = $("textarea#otherTask").val();
 
           if (TextAreaValue.length > 0) {
              var tableRow = "<tr>"+ "<td>"+week+"</td>"+ "<td>"+TextAreaValue+"</td>"+"</tr>";

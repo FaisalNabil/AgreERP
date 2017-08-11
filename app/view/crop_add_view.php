@@ -121,18 +121,19 @@
                </select>
              </div>
              <div class="textAreaControl">
-              <textarea name="" id="ValueAboutWeek" cols="10" rows="3"style="width: 353px; height: 61px; margin-left: 4px;margin-top: 10px;" placeholder="Write Something task this week.."></textarea>
+              <textarea name="" id="FertilizerTask" cols="10" rows="3"style="width: 353px; height: 61px; margin-left: 4px;margin-top: 10px;" placeholder="Write Something task this week.."></textarea>
              </div>
-             <button type="submit" id="aboutCrops" class="btn btn-info" style="margin-left: 401px;margin-top: -65px;">Add</button>
+             <button type="submit" id="fertilizerBtn" class="btn btn-info" style="margin-left: 401px;margin-top: -65px;">Add</button>
               
                   <table class="table table-striped">
                       <thead>
                         <tr>
                           <th>Week</th>
+						  <th>Fertilizer</th>
                           <th>Task</th> 
                         </tr>
                       </thead>
-                      <tbody id="weekAndTask">
+                      <tbody id="fertilizerList">
                       </tbody>
                     </table>
                 </div>
@@ -164,7 +165,7 @@
                </select>
              </div>
              <div class="textAreaControl">
-              <textarea name="" id="taskThisWeek" cols="10" rows="3"style="width: 353px; height: 61px; margin-left: 4px;margin-top: 10px;" placeholder="Write Something task this week.."></textarea>
+              <textarea name="" id="InserticideTask" cols="10" rows="3"style="width: 353px; height: 61px; margin-left: 4px;margin-top: 10px;" placeholder="Write Something task this week.."></textarea>
              </div>
              <button type="submit" id="insecticideBtn" class="btn btn-info" style="margin-left: 401px;margin-top: -65px;">Add</button>
               
@@ -172,6 +173,7 @@
                       <thead>
                         <tr>
                           <th>Week</th>
+						  <th>insecticide</th>
                           <th>Task</th> 
                         </tr>
                       </thead>
@@ -198,7 +200,7 @@
                </select>
              </div>
              <div class="textAreaControl">
-              <textarea name="" id="otherTaskThisWeek" cols="10" rows="3"style="width: 353px; height: 61px; margin-left: 4px;margin-top: 10px;" placeholder="Write Something task this week.."></textarea>
+              <textarea name="" id="otherTask" cols="10" rows="3"style="width: 353px; height: 61px; margin-left: 4px;margin-top: 10px;" placeholder="Write Something task this week.."></textarea>
              </div>
              <button type="submit" id="otherTaskBtn" class="btn btn-info" style="margin-left: 401px;margin-top: -65px;">Add</button>
               
