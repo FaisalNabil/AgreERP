@@ -1,4 +1,4 @@
-<?php require_once(APP_ROOT."/data/crop_region_data_access.php") ?>
+<?php require_once(APP_ROOT."/data/cropregion_data_access.php") ?>
 <?php
 	function addCrop($crop){
 		return addCropToDb($crop);
@@ -26,13 +26,5 @@
 
 	function getRegionByArea($area){
 		return getRegionByAreaFromDb($area);
-	}
-	
-	function getAllFertilizer(){
-		return getAllFertilizerFromDb();
-	}
-	
-	function getAllInsecticide(){
-		return getAllInsecticideFromDb();
 	}
 ?>

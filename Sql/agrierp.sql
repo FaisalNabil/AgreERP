@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2017 at 05:47 PM
+-- Generation Time: Aug 12, 2017 at 03:19 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.0.15
 
@@ -19,7 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `agrierp`
 --
-
+CREATE DATABASE IF NOT EXISTS `agrierp` DEFAULT CHARACTER SET = 'utf8' COLLATE utf8_general_ci;
+USE `agrierp`;
 -- --------------------------------------------------------
 
 --
@@ -45,7 +46,7 @@ CREATE TABLE `crop` (
 --
 
 CREATE TABLE `cropfertilizer` (
-  `CultFertSysId` varchar(15) NOT NULL,
+  `CropFertSysId` varchar(15) NOT NULL,
   `CropId` varchar(15) NOT NULL,
   `FertilizerId` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -57,7 +58,7 @@ CREATE TABLE `cropfertilizer` (
 --
 
 CREATE TABLE `cropinsecticide` (
-  `CultInsectSysId` varchar(15) NOT NULL,
+  `CropInsectSysId` varchar(15) NOT NULL,
   `CropId` varchar(15) NOT NULL,
   `InsecticideId` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -72,8 +73,8 @@ CREATE TABLE `cropweeklytask` (
   `WeekId` varchar(15) NOT NULL,
   `WeekNumber` varchar(3) NOT NULL,
   `CropId` varchar(15) NOT NULL,
-  `CultInsectSysId` varchar(15) NOT NULL,
-  `CultFertSysId` varchar(15) NOT NULL,
+  `CropInsectSysId` varchar(15) NOT NULL,
+  `CropFertSysId` varchar(15) NOT NULL,
   `FertilizerTask` varchar(255) NOT NULL,
   `InsecticideTask` varchar(255) NOT NULL,
   `OtherTask` varchar(255) NOT NULL
@@ -225,7 +226,7 @@ ALTER TABLE `crop`
 -- Indexes for table `cropfertilizer`
 --
 ALTER TABLE `cropfertilizer`
-  ADD PRIMARY KEY (`CultFertSysId`),
+  ADD PRIMARY KEY (`CropFertSysId`),
   ADD KEY `CropId` (`CropId`),
   ADD KEY `FertilizerId` (`FertilizerId`);
 
@@ -233,7 +234,7 @@ ALTER TABLE `cropfertilizer`
 -- Indexes for table `cropinsecticide`
 --
 ALTER TABLE `cropinsecticide`
-  ADD PRIMARY KEY (`CultInsectSysId`),
+  ADD PRIMARY KEY (`CropInsectSysId`),
   ADD KEY `CropId` (`CropId`),
   ADD KEY `InsecticideId` (`InsecticideId`);
 
@@ -243,8 +244,8 @@ ALTER TABLE `cropinsecticide`
 ALTER TABLE `cropweeklytask`
   ADD PRIMARY KEY (`WeekId`),
   ADD KEY `CropId` (`CropId`),
-  ADD KEY `CultInsectSysId` (`CultInsectSysId`),
-  ADD KEY `CultFertSysId` (`CultFertSysId`);
+  ADD KEY `CultInsectSysId` (`CropInsectSysId`),
+  ADD KEY `CultFertSysId` (`CropFertSysId`);
 
 --
 -- Indexes for table `cultivation`
@@ -328,8 +329,8 @@ ALTER TABLE `cropinsecticide`
 --
 ALTER TABLE `cropweeklytask`
   ADD CONSTRAINT `cropweeklytask_ibfk_1` FOREIGN KEY (`CropId`) REFERENCES `crop` (`CropId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cropweeklytask_ibfk_2` FOREIGN KEY (`CultInsectSysId`) REFERENCES `cropinsecticide` (`CultInsectSysId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cropweeklytask_ibfk_3` FOREIGN KEY (`CultFertSysId`) REFERENCES `cropfertilizer` (`CultFertSysId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cropweeklytask_ibfk_2` FOREIGN KEY (`CropInsectSysId`) REFERENCES `cropinsecticide` (`CropInsectSysId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cropweeklytask_ibfk_3` FOREIGN KEY (`CropFertSysId`) REFERENCES `cropfertilizer` (`CropFertSysId`);
 
 --
 -- Constraints for table `cultivation`

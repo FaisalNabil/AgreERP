@@ -4,12 +4,12 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="CSS/bootstrap.min.css">
-  <link rel="stylesheet" href="CSS/font-awesome.min.css">
+  <link rel="stylesheet" href="app/view/CSS/bootstrap.min.css">
+  <link rel="stylesheet" href="app/view/CSS/font-awesome.min.css">
 
-  <link rel="stylesheet" href="CSS/w3.css">
-  <link rel="stylesheet" href="CSS/menu.css">
-  <link rel="stylesheet" href="CSS/color.css">
-  <link rel="stylesheet" href="CSS/main.css">
+  <link rel="stylesheet" href="app/view/CSS/w3.css">
+  <link rel="stylesheet" href="app/view/CSS/menu.css">
+  <link rel="stylesheet" href="app/view/CSS/color.css">
+  <link rel="stylesheet" href="app/view/CSS/main.css">
 </head>
 <body>

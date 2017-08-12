@@ -115,7 +115,7 @@
                   <?php 
                        $fertilizerList = getAllFertilizer();
                   foreach( $fertilizerList as $fertilizer){ 
-                      echo "<option value='".$fertilizer['FertilizerId']."'>".$fertilizer['Name']."</option>";
+                      echo "<option value='".$fertilizer['Name']."'>".$fertilizer['Name']."</option>";
                   	}?>
                      
                </select>
@@ -159,7 +159,7 @@
                   <?php 
                        $insecticideList = getAllInsecticide();
                   foreach( $insecticideList as $insecticide){ 
-                      echo "<option value='".$insecticide['InsecticideId']."'>".$insecticide['Name']."</option>";
+                      echo "<option value='".$insecticide['Name']."'>".$insecticide['Name']."</option>";
                   	}?>
                      
                </select>

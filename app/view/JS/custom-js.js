@@ -6,9 +6,9 @@ $(document).ready(function(){
           var week = $("#week option:selected").val();
           var TextAreaValue = $("textarea#FertilizerTask").val();
 		  var fertilizerName = $("#fertilizer option:selected").val();
-
+		  
           if (TextAreaValue.length > 0) {
-             var tableRow = "<tr>"+ "<td>"+week+"</td>"+ "<td>"+fertilizerName+"</td>"+" <td>"+TextAreaValue+"</td>"+"</tr>";
+             var tableRow = "<tr>"+ "<td>"+week+"</td>"+ "<td>"+fertilizerName+"</td>" + " <td>"+TextAreaValue+<?php echo"noooo";+"</td>"+"</tr>";
              $("#fertilizerList").append(tableRow); 
           }else{
             alert("Please Add some value");
@@ -24,7 +24,7 @@ $(document).ready(function(){
 		  var insecticideName = $("#insecticide option:selected").val();
 
           if (TextAreaValue.length > 0) {
-             var tableRow = "<tr>"+ "<td>"+week+"</td>"+ "<td>"+insecticideName+"</td>"+" <td>"+TextAreaValue+"</td>"+"</tr>";
+             var tableRow = "<tr>"+ "<td>"+week+"</td>"+ "<td>"+insecticideName+"</td>" + " <td>"+TextAreaValue+"</td>"+"</tr>";
              $("#insecticideList").append(tableRow); 
           }else{
             alert("Please Add some value");

@@ -14,7 +14,7 @@
 		$totalLandInUse = $_POST['totalLandInUse'];
 		$totalCost = $_POST['totalCost'];
 		$cropId = $_POST['cropId'];
-		$insecticide = array("CultivationId"=>$id, "CropId"=>$cropId, "FarmerId"=>$farmerId, "StartDate"=>$startDate, "EndDate"=>$endDate, "TotalLandInUse"=>$totalLandInUse, "TotalCost"=>$totalCost);
+		$cultivation = array("CultivationId"=>$id, "CropId"=>$cropId, "FarmerId"=>$farmerId, "StartDate"=>$startDate, "EndDate"=>$endDate, "TotalLandInUse"=>$totalLandInUse, "TotalCost"=>$totalCost);
 		
 		if(addCultivation($cultivation)){
 			echo "Record Added!";
