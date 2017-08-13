@@ -1,11 +1,11 @@
 <?php require_once(APP_ROOT."/data/status_data_access.php") ?>
 <?php
 	function addStatus($status){
-		return addStatusToDb($region);
+		return addStatusToDb($status);
 	}
 	
 	function editStatus($status){	
-		return editStatusToDb($region);
+		return editStatusToDb($status);
 	}
 	
 	function removeStatus($id){

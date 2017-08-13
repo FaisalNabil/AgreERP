@@ -25,6 +25,7 @@
 			if(isset($_GET['id'])){
 				$id = $_GET['id'];
 				$crop = getCropById($id); //Getting the model for view
+				$region = getRegionById($crop['RegionId']);
 				if($crop){
 					include_once(APP_ROOT."/app/view/cropregion_delete_view.php");
 				}
@@ -36,8 +37,6 @@
 			if(count($cropList)>0){
 				include_once(APP_ROOT."/app/view/cropregion_show_view.php");
 			}
-			else
-				echo "none";
 			break;
 			
 		default:

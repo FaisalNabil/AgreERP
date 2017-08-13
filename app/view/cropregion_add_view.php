@@ -18,7 +18,7 @@
 		$regionId=getRegionByArea($region);
 		//print_r($regionId);
 		$crop = array("CropId"=>$cropId, "Name"=>$cropName, "CropGroupName"=>$CropGroupName, "RegionId"=>$regionId['RegionId'], "TimePeriod"=>$TimePeriod, "TotalCost"=>$TotalCost, "EstimatedProduction"=>$EstimatedProduction, "LandType"=>$LandType, "WaterSource"=>$WaterSource);
-		
+		print_r($crop);
 		if(addCrop($crop)){
 			echo "Record Added!";
 		}

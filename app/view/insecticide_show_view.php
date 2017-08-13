@@ -15,6 +15,7 @@
 		<td colspan="2"></td>
 	</tr>
 	<?php
+	print_r($insecticideList);
 		foreach($insecticideList as $insecticide){
 			echo"<tr>
 					<td>$insecticide[InsecticideId]</td>

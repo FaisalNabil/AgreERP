@@ -13,15 +13,16 @@
 		<td colspan="2"></td>
 	</tr>
 	<?php
+	//print_r($regionList);
 		foreach($regionList as $region){
 			echo"<tr>
-					<td>$region[regionId]</td>
+					<td>$region[RegionId]</td>
 					<td>$region[RegionNumber]</td>
 					<td>$region[Area]</td>
 					 
 
-					<td><a href='/AgriERP/?region_edit&id=$region[regionId]'>edit</a></td>
-					<td><a href='/AgriERP/?region_delete&id=$region[regionId]'>delete</a></td>
+					<td><a href='/AgriERP/?region_edit&id=$region[RegionId]'>edit</a></td>
+					<td><a href='/AgriERP/?region_delete&id=$region[RegionId]'>delete</a></td>
 				</tr>";
 		}
 	?>	

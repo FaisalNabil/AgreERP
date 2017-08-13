@@ -1,22 +1,22 @@
 <?php require_once(APP_ROOT."/lib/data_access_helper.php") ?>
 <?php
 	function addCultivationToDb($cultivation){
-		$query = "INSERT INTO Cultivation(CultivationId, CropsId, FarmerId, StartDate, EndDate, TotalLandInUse, TotalCost) VALUES($cultivation[CultivationId], $cultivation[CropId], $cultivation[FarmerId], $cultivation[StartDate], $cultivation[EndDate], $cultivation[TotalLandInUse], $cultivation[TotalCost])";
+		$query = "INSERT INTO Cultivation(CultivationId, CropId, FarmerId, StartDate, EndDate, TotalLandInUse, TotalCost) VALUES('$cultivation[CultivationId]', '$cultivation[CropId]', '$cultivation[FarmerId]', '$cultivation[StartDate]', '$cultivation[EndDate]', '$cultivation[TotalLandInUse]', '$cultivation[TotalCost]')";
 		return executeNonQuery($query);
 	}	
 	
 	function editCultivationToDb($cultivation){
-		$query = "UPDATE Cultivation SET CropsId=$cultivation[CropId], FarmerId=$cultivation[FarmerId], StartDate=$cultivation[StartDate], EndDate=$cultivation[EndDate], TotalLandInUse=$cultivation[TotalLandInUse], TotalCost=$cultivation[TotalCost] WHERE CultivationId=$cultivation[CultivationId]";
+		$query = "UPDATE Cultivation SET CropId='$cultivation[CropId]', FarmerId='$cultivation[FarmerId]', StartDate='$cultivation[StartDate]', EndDate='$cultivation[EndDate]', TotalLandInUse='$cultivation[TotalLandInUse]', TotalCost='$cultivation[TotalCost]'' WHERE CultivationId='$cultivation[CultivationId]'";
 		return executeNonQuery($query);
 	}
 	
 	function removeCultivationFromDb($id){
-		$query = "DELETE FROM Cultivation WHERE CultivationId=$id";
+		$query = "DELETE FROM Cultivation WHERE CultivationId='$id'";
 		return executeNonQuery($query);
 	}
 	
-	function getAllCultivationFromDb(){
-		$query = "SELECT CultivationId, CropsId, FarmerId, StartDate, EndDate, TotalLandInUse, TotalCost FROM Cultivation";  
+	function getAllCultivationFromDb($farmer){
+		$query = "SELECT CultivationId, CropId, FarmerId, StartDate, EndDate, TotalLandInUse, TotalCost FROM Cultivation WHERE FarmerId='$farmer'";  
 		$result = executeQuery($query);	
 		$cultivationList = array();
 		if($result){
@@ -28,7 +28,7 @@
 	}
 
 	function getCultivationByIdFromDb($id){
-		$query = "SELECT CultivationId, CropsId, FarmerId, StartDate, EndDate, TotalLandInUse, TotalCost FROM Cultivation WHERE CultivationId=$id";  
+		$query = "SELECT CultivationId, CropId, FarmerId, StartDate, EndDate, TotalLandInUse, TotalCost FROM Cultivation WHERE CultivationId='$id'";  
 		$result = executeQuery($query);	
 		$cultivation = null;
 		if($result){

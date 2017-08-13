@@ -14,7 +14,7 @@
 		$insecticideId = $_POST['insecticide'];
 		$insecticideTask = $_POST['insecticideTask'];
 		$otherTask = $_POST['otherTask'];
-		$crop_Weeklytask = array("WeekId"=>$weekId, "CropId"=>$cropId, "WeekNumber"=>$weekNumber, "CropInsectSysId"=>$fertilizerId, "CropFertSysId"=>$insecticideId, "FertilizerTask"=>$fertilizerTask, "InsecticideTask"=>$insecticideTask, "OtherTask"=>$otherTask);
+		$crop_Weeklytask = array("WeekId"=>$weekId, "CropId"=>$cropId, "WeekNumber"=>$weekNumber, "CropInsectSysId"=>$insecticideId, "CropFertSysId"=>$fertilizerId, "FertilizerTask"=>$fertilizerTask, "InsecticideTask"=>$insecticideTask, "OtherTask"=>$otherTask);
 		
 		if(addCrop_Weeklytask($crop_Weeklytask)){
 			echo "Record Added!";
@@ -22,11 +22,11 @@
 	}
 ?>
 <form method="post"></br></br>
-Week Id:<input type="text" name="weekId">
-Week Number:</br>
+Week Id:<input type="text" name="weekId"></br>
+Week Number:
 	<select name="weekNumber">
 	  <?php for($i = 1; $i<=5; $i++){ 
-		  echo "<option value='week$i'>week$i</option>";
+		  echo "<option value='$i'>week$i</option>";
 		}?>	 
     </select></br></br>
 Select fertilizer Name:</br>
@@ -52,5 +52,5 @@ Select Insecticide Name:</br>
 Other Task:</br>
 <textarea name="otherTask" placeholder="Write Some task for this week.."></textarea></br>
 	 <input type="submit" value="Add"/>
-	 <a href="/AgriERP/?crop_show">SHOW ALL</a>
+	 <a href="/AgriERP/?cropweeklytask_show&cropid=$cropId">SHOW ALL</a>
 </form>

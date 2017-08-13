@@ -1,6 +1,7 @@
 <?php require_once(APP_ROOT."/lib/data_access_helper.php") ?>
 <?php
 	function addCrop_WeeklytaskToDb($crop_Weeklytask){
+		print_r($crop_Weeklytask);
 		$query = "INSERT INTO CropWeeklytask(WeekId, WeekNumber, CropId, CropInsectSysId, CropFertSysId, FertilizerTask, InsecticideTask, OtherTask) VALUES($crop_Weeklytask[WeekId], '$crop_Weeklytask[WeekNumber]', '$crop_Weeklytask[CropId]', '$crop_Weeklytask[CropInsectSysId]', '$crop_Weeklytask[CropFertSysId]', '$crop_Weeklytask[FertilizerTask]', '$crop_Weeklytask[InsecticideTask]', '$crop_Weeklytask[OtherTask]')";
 		return executeNonQuery($query);
 	}	
@@ -27,6 +28,17 @@
 		return $crop_WeeklytaskList;
 	}
 
+	function getCrop_WeeklytaskByCropIdFromDb($id){
+		$query = "SELECT WeekId, WeekNumber, CropId, CropInsectSysId, CropFertSysId, FertilizerTask, InsecticideTask, OtherTask FROM CropWeeklytask WHERE CropId=$id";  
+		$result = executeQuery($query);	
+		$crop_WeeklytaskList = array();
+		if($result){
+			for($i=0; $row = mysqli_fetch_assoc($result); ++$i) {
+				$crop_WeeklytaskList[$i] = $row;				
+			}
+		}
+		return $crop_WeeklytaskList;
+	}
 	function getCrop_WeeklytaskByIdFromDb($id){
 		$query = "SELECT WeekId, WeekNumber, CropId, CropInsectSysId, CropFertSysId, FertilizerTask, InsecticideTask, OtherTask FROM CropWeeklytask WHERE WeekId=$id";  
 		$result = executeQuery($query);	
@@ -35,7 +47,7 @@
 			$crop_Weeklytask = mysqli_fetch_assoc($result);
 		}
 		return $crop_Weeklytask;
-	}
+	}/* 
 	function getAllFertilizerFromDb(){
 		$query = "SELECT FertilizerId, Name, PricePerUnit FROM Fertilizer";  
 		$result = executeQuery($query);	
@@ -56,6 +68,6 @@
 				$insecticideList[$i] = $row;				
 			}
 		}
-		return $insecticideList;
-	}
+		return $insecticideList; 
+	}*/
 ?>

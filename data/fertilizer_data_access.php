@@ -1,17 +1,17 @@
 <?php require_once(APP_ROOT."/lib/data_access_helper.php") ?>
 <?php
 	function addFertilizerToDb($fertilizer){
-		$query = "INSERT INTO Fertilizer(FertilizerId, Name, PricePerUnit) VALUES($fertilizer[FertilizerId], '$fertilizer[Name]', $fertilizer[PricePerUnit])";
+		$query = "INSERT INTO Fertilizer(FertilizerId, Name, PricePerUnit) VALUES('$fertilizer[FertilizerId]', '$fertilizer[Name]', $fertilizer[PricePerUnit])";
 		return executeNonQuery($query);
 	}	
 	
 	function editFertilizerToDb($fertilizer){
-		$query = "UPDATE Fertilizer SET Name='$fertilizer[Name]', PricePerUnit=$fertilizer[PricePerUnit] WHERE FertilizerId=$fertilizer[FertilizerId]";
+		$query = "UPDATE Fertilizer SET Name='$fertilizer[Name]', PricePerUnit=$fertilizer[PricePerUnit] WHERE FertilizerId='$fertilizer[FertilizerId]'";
 		return executeNonQuery($query);
 	}
 	
 	function removeFertilizerFromDb($id){
-		$query = "DELETE FROM Fertilizer WHERE FertilizerId=$id";
+		$query = "DELETE FROM Fertilizer WHERE FertilizerId='$id'";
 		return executeNonQuery($query);
 	}
 	
@@ -28,7 +28,7 @@
 	}
 
 	function getFertilizerByIdFromDb($id){
-		$query = "SELECT FertilizerId, Name, PricePerUnit FROM Fertilizer WHERE FertilizerId=$id";  
+		$query = "SELECT FertilizerId, Name, PricePerUnit FROM Fertilizer WHERE FertilizerId='$id'";  
 		$result = executeQuery($query);	
 		$fertilizer = null;
 		if($result){

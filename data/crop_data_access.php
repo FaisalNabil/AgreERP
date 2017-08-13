@@ -1,7 +1,7 @@
 <?php require_once(APP_ROOT."/lib/data_access_helper.php") ?>
 <?php
 	function addCropToDb($crop){
-		$query = "INSERT INTO Crop(CropId, Name, CropGroupName, RegionId, TimePeriod, TotalCost, EstimatedProduction, LandType, WaterSource) VALUES($crop[CropId], '$crop[Name]', '$crop[CropGroupName]', '$crop[RegionId]', '$crop[TimePeriod]', $crop[TotalCost], $crop[EstimatedProduction], '$crop[LandType]', '$crop[WaterSource]')";
+		$query = "INSERT INTO Crop(CropId, Name, CropGroupName, RegionId, TimePeriod, TotalCost, EstimatedProduction, LandType, WaterSource) VALUES('$crop[CropId]', '$crop[Name]', '$crop[CropGroupName]', '$crop[RegionId]', '$crop[TimePeriod]', $crop[TotalCost], $crop[EstimatedProduction], '$crop[LandType]', '$crop[WaterSource]')";
 		return executeNonQuery($query);
 	}	
 	
@@ -35,7 +35,7 @@
 			$crop = mysqli_fetch_assoc($result);
 		}
 		return $crop;
-	}
+	}/* 
 	function getAllRegionFromDb(){
 		$query = "SELECT RegionId, RegionNumber, Area FROM Region";  
 		$result = executeQuery($query);	
@@ -55,6 +55,6 @@
 			$region = mysqli_fetch_assoc($result);
 		}
 		return $region;
-	}
+	} */
 	
 ?>
