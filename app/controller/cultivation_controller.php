@@ -41,6 +41,21 @@
 			}
 			break;
 
+		case "details":
+			if(isset($_GET['cultivationid'])){
+				$cultivationid = $_GET['cultivationid'];
+				$cultivation = getCultivationById($cultivationid); //Getting the model for view
+				//print_r($cultivation);echo "<br/>";
+				$crop = getCropById($cultivation['CropId']);
+				//print_r($crop);echo "<br/>";
+				$cultivationweeklytaskList = getCrop_WeeklytaskByCropId($cultivation['CultivationId']);
+				//print_r($cultivationweeklytaskList);echo "<br/>";
+				if($cultivation){
+					include_once(APP_ROOT."/app/view/cultivation_details_view.php");					
+				}
+			}
+			break;
+
 		default:
 			include_once(APP_ROOT."/app/error.php");
 	}	

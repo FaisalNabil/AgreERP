@@ -4,6 +4,8 @@
 <?php require_once(APP_ROOT."/data/farmer_data_access.php") ?>
 <?php require_once(APP_ROOT."/data/cropweeklytask_data_access.php") ?>
 <?php require_once(APP_ROOT."/data/cultivationweeklytask_data_access.php") ?>
+<?php require_once(APP_ROOT."/data/fertilizer_data_access.php") ?>
+<?php require_once(APP_ROOT."/data/insecticide_data_access.php") ?>
 <?php
 	function addCultivation($cultivation){
 		return addCultivationToDb($cultivation);
@@ -53,6 +55,10 @@
 		return getCrop_WeeklytaskByCropIdFromDb($id);
 	}
 
+	function getCrop_WeeklytaskById($id){	
+		return getCrop_WeeklytaskByIdFromDb($id);
+	}
+
 	function addCultivation_Weeklytask($cultivation_Weeklytask){
 		return addCultivation_WeeklytaskToDb($cultivation_Weeklytask);
 	}
@@ -71,5 +77,13 @@
 
 	function getCultivation_WeeklytaskById($id){	
 		return getCultivation_WeeklytaskByIdFromDb($id);
+	}
+
+	function getFertilizerById($id){	
+		return getFertilizerByIdFromDb($id);
+	}
+
+	function getInsecticideById($id){	
+		return getInsecticideByIdFromDb($id);
 	}
 ?>
