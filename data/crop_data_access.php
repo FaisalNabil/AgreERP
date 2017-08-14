@@ -1,7 +1,7 @@
 <?php require_once(APP_ROOT."/lib/data_access_helper.php") ?>
 <?php
 	function addCropToDb($crop){
-		$query = "INSERT INTO Crop(CropId, Name, CropGroupName, RegionId, TimePeriod, TotalCost, EstimatedProduction, LandType, WaterSource) VALUES('$crop[CropId]', '$crop[Name]', '$crop[CropGroupName]', '$crop[RegionId]', '$crop[TimePeriod]', $crop[TotalCost], $crop[EstimatedProduction], '$crop[LandType]', '$crop[WaterSource]')";
+		$query = "INSERT INTO Crop(Name, CropGroupName, RegionId, TimePeriod, TotalCost, EstimatedProduction, LandType, WaterSource) VALUES('$crop[Name]', '$crop[CropGroupName]', '$crop[RegionId]', '$crop[TimePeriod]', $crop[TotalCost], $crop[EstimatedProduction], '$crop[LandType]', '$crop[WaterSource]')";
 		return executeNonQuery($query);
 	}	
 	
@@ -35,26 +35,6 @@
 			$crop = mysqli_fetch_assoc($result);
 		}
 		return $crop;
-	}/* 
-	function getAllRegionFromDb(){
-		$query = "SELECT RegionId, RegionNumber, Area FROM Region";  
-		$result = executeQuery($query);	
-		$regionList = array();
-		if($result){
-			for($i=0; $row = mysqli_fetch_assoc($result); ++$i) {
-				$regionList[$i] = $row;				
-			}
-		}
-		return $regionList;
 	}
-	function getRegionByAreaFromDb($area){
-		$query = "SELECT RegionId, RegionNumber, Area FROM Region WHERE Area='$area'";  
-		$result = executeQuery($query);	
-		$region = null;
-		if($result){
-			$region = mysqli_fetch_assoc($result);
-		}
-		return $region;
-	} */
 	
 ?>

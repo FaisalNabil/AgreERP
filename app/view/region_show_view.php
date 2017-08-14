@@ -7,7 +7,6 @@
 <br /><h3>SHOW REGION</h3><hr/><br />
 <table>
 	<tr>
-		<td><b>RegionId</b></td>
 		<td><b>RegionNumber</b></td>
 		<td><b>Area</b></td>
 		<td colspan="2"></td>
@@ -16,7 +15,6 @@
 	//print_r($regionList);
 		foreach($regionList as $region){
 			echo"<tr>
-					<td>$region[RegionId]</td>
 					<td>$region[RegionNumber]</td>
 					<td>$region[Area]</td>
 					 

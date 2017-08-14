@@ -24,7 +24,7 @@
 					<td>$crop[TotalCost]</td>
 					<td>$crop[EstimatedProduction]</td>
 					<td><a href='/AgriERP/?cultivation_cropdetails&id=$crop[CropId]'>details</a></td>
-					<td><a href='/AgriERP/?cropregion_edit&id=$crop[CropId]'>add to cultivation</a></td>
+					<td><a href='/AgriERP/?cultivation_show&farmerid=<?=$_GET[farmerid]?>''>SHOW ALL CULTIVATION</a></td>
 				</tr>";
 		}
 	?>	

@@ -5,8 +5,7 @@
 	}
 ?>
 <?php
-	if($_SERVER['REQUEST_METHOD']=="POST"){		
-		$cropId = $_POST['cropId'];
+	if($_SERVER['REQUEST_METHOD']=="POST"){	
 		$cropName = $_POST['cropName'];
 		$CropGroupName = $_POST['CropGroupName'];
 		$region = $_POST['region'];
@@ -17,7 +16,7 @@
 		$WaterSource = $_POST['WaterSource'];
 		$regionId=getRegionByArea($region);
 		//print_r($regionId);
-		$crop = array("CropId"=>$cropId, "Name"=>$cropName, "CropGroupName"=>$CropGroupName, "RegionId"=>$regionId['RegionId'], "TimePeriod"=>$TimePeriod, "TotalCost"=>$TotalCost, "EstimatedProduction"=>$EstimatedProduction, "LandType"=>$LandType, "WaterSource"=>$WaterSource);
+		$crop = array("Name"=>$cropName, "CropGroupName"=>$CropGroupName, "RegionId"=>$regionId['RegionId'], "TimePeriod"=>$TimePeriod, "TotalCost"=>$TotalCost, "EstimatedProduction"=>$EstimatedProduction, "LandType"=>$LandType, "WaterSource"=>$WaterSource);
 		print_r($crop);
 		if(addCrop($crop)){
 			echo "Record Added!";
@@ -25,8 +24,6 @@
 	}
 ?>
 <form method="post"></br></br>
-Crops Id:</br>
-<input type="text" name="cropId"></br></br>
 Crops Name:</br>
 <input type="text" name="cropName"></br></br>
 Crops Group Name:</br>

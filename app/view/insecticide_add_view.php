@@ -6,8 +6,7 @@
 ?>
 
 <?php
-	if($_SERVER['REQUEST_METHOD']=="POST"){		
-		$id = $_POST['insecticideId'];
+	if($_SERVER['REQUEST_METHOD']=="POST"){	
 		$name = $_POST['name'];
 		$pricePerUnit = $_POST['pricePerUnit'];
 		$insectName = $_POST['insectName'];
@@ -21,7 +20,6 @@
 ?>
 <form method="post">
 	<br /><h3>ADD INSECTICIDE</h3><hr/><br />
-	Id:<br /><input type="text" name="insecticideId"/><br />
 	Name:<br /><input type="text" name="name"/><br />
 	Price Unit:<br /><input type="number" name="pricePerUnit"/><br />
 	Insect Name:<br /><input type="text" name="insectName"/><br />

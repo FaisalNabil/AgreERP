@@ -2,7 +2,7 @@
 <?php
 	function addCrop_WeeklytaskToDb($crop_Weeklytask){
 		print_r($crop_Weeklytask);
-		$query = "INSERT INTO CropWeeklytask(WeekId, WeekNumber, CropId, CropInsectSysId, CropFertSysId, FertilizerTask, InsecticideTask, OtherTask) VALUES($crop_Weeklytask[WeekId], '$crop_Weeklytask[WeekNumber]', '$crop_Weeklytask[CropId]', '$crop_Weeklytask[CropInsectSysId]', '$crop_Weeklytask[CropFertSysId]', '$crop_Weeklytask[FertilizerTask]', '$crop_Weeklytask[InsecticideTask]', '$crop_Weeklytask[OtherTask]')";
+		$query = "INSERT INTO CropWeeklytask(WeekNumber, CropId, CropInsectSysId, CropFertSysId, FertilizerTask, InsecticideTask, OtherTask) VALUES('$crop_Weeklytask[WeekNumber]', '$crop_Weeklytask[CropId]', '$crop_Weeklytask[CropInsectSysId]', '$crop_Weeklytask[CropFertSysId]', '$crop_Weeklytask[FertilizerTask]', '$crop_Weeklytask[InsecticideTask]', '$crop_Weeklytask[OtherTask]')";
 		return executeNonQuery($query);
 	}	
 	
@@ -47,27 +47,5 @@
 			$crop_Weeklytask = mysqli_fetch_assoc($result);
 		}
 		return $crop_Weeklytask;
-	}/* 
-	function getAllFertilizerFromDb(){
-		$query = "SELECT FertilizerId, Name, PricePerUnit FROM Fertilizer";  
-		$result = executeQuery($query);	
-		$fertilizerList = array();
-		if($result){
-			for($i=0; $row = mysqli_fetch_assoc($result); ++$i) {
-				$fertilizerList[$i] = $row;				
-			}
-		}
-		return $fertilizerList;
 	}
-	function getAllInsecticideFromDb(){
-		$query = "SELECT InsecticideId, Name, PricePerUnit, InsectName, DiseaseName FROM Insecticide";  
-		$result = executeQuery($query);	
-		$insecticideList = array();
-		if($result){
-			for($i=0; $row = mysqli_fetch_assoc($result); ++$i) {
-				$insecticideList[$i] = $row;				
-			}
-		}
-		return $insecticideList; 
-	}*/
 ?>

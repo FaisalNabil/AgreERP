@@ -6,11 +6,10 @@
 ?>
 
 <?php
-	if($_SERVER['REQUEST_METHOD']=="POST"){		
-		$id = $_POST['regionId'];
+	if($_SERVER['REQUEST_METHOD']=="POST"){	
 		$regionNumber = $_POST['regionNumber'];
 		$area = $_POST['area'];
-		$region = array("RegionId"=>$id, "RegionNumber"=>$regionNumber, "Area"=>$area);
+		$region = array("RegionNumber"=>$regionNumber, "Area"=>$area);
 		
 		if(addRegion($region)){
 			echo "Record Added!";
@@ -19,7 +18,6 @@
 ?>
 <form method="post">
 	<br /><h3>ADD REGION</h3><hr/><br />
-	Id:<br /><input type="text" name="regionId"/><br />
 	Region Number:<br /><input type="text" name="regionNumber"/><br />
 	Area:<br /><input type="text" name="area"/><br />
 	

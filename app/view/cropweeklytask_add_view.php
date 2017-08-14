@@ -6,7 +6,6 @@
 ?>
 <?php
 	if($_SERVER['REQUEST_METHOD']=="POST"){	
-		$weekId=$_POST['weekId'];	
 		$cropId = $_GET['id'];
 		$weekNumber = $_POST['weekNumber'];
 		$fertilizerId = $_POST['fertilizer'];
@@ -14,7 +13,7 @@
 		$insecticideId = $_POST['insecticide'];
 		$insecticideTask = $_POST['insecticideTask'];
 		$otherTask = $_POST['otherTask'];
-		$crop_Weeklytask = array("WeekId"=>$weekId, "CropId"=>$cropId, "WeekNumber"=>$weekNumber, "CropInsectSysId"=>$insecticideId, "CropFertSysId"=>$fertilizerId, "FertilizerTask"=>$fertilizerTask, "InsecticideTask"=>$insecticideTask, "OtherTask"=>$otherTask);
+		$crop_Weeklytask = array("CropId"=>$cropId, "WeekNumber"=>$weekNumber, "CropInsectSysId"=>$insecticideId, "CropFertSysId"=>$fertilizerId, "FertilizerTask"=>$fertilizerTask, "InsecticideTask"=>$insecticideTask, "OtherTask"=>$otherTask);
 		
 		if(addCrop_Weeklytask($crop_Weeklytask)){
 			echo "Record Added!";
@@ -22,7 +21,6 @@
 	}
 ?>
 <form method="post"></br></br>
-Week Id:<input type="text" name="weekId"></br>
 Week Number:
 	<select name="weekNumber">
 	  <?php for($i = 1; $i<=5; $i++){ 

@@ -8,7 +8,6 @@
 <br /><h3>SHOW FARMER</h3><hr/><br />
 <table>
 	<tr>
-		<td><b>ID</b></td>
 		<td><b>NAME</b></td>
 		<td><b>PHONE</b></td>
 		<td><b>DISTRICT</b></td>
@@ -17,7 +16,6 @@
 	<?php
 		foreach($farmerList as $farmer){
 			echo"<tr>
-					<td>$farmer[FarmerId]</td>
 					<td>$farmer[Name]</td>
 					<td>$farmer[District]</td>
 					<td>$farmer[Phone]</td>
