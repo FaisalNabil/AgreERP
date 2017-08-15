@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2017 at 07:00 AM
+-- Generation Time: Aug 15, 2017 at 07:52 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.0.15
 
@@ -340,7 +340,7 @@ ALTER TABLE `cultivationweeklytask`
 -- AUTO_INCREMENT for table `farmer`
 --
 ALTER TABLE `farmer`
-  MODIFY `FarmerId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `FarmerId` int(15) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `fertilizer`
 --
@@ -356,11 +356,6 @@ ALTER TABLE `insecticide`
 --
 ALTER TABLE `region`
   MODIFY `RegionId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `status`
---
-ALTER TABLE `status`
-  MODIFY `StatusId` int(5) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
@@ -404,8 +399,7 @@ ALTER TABLE `cultivation`
 -- Constraints for table `cultivationweeklytask`
 --
 ALTER TABLE `cultivationweeklytask`
-  ADD CONSTRAINT `cultivationweeklytask_ibfk_1` FOREIGN KEY (`CultivationId`) REFERENCES `cultivation` (`CultivationId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cultivationweeklytask_ibfk_2` FOREIGN KEY (`StatusId`) REFERENCES `status` (`StatusId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cultivationweeklytask_ibfk_1` FOREIGN KEY (`CultivationId`) REFERENCES `cultivation` (`CultivationId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `regioncrop`
