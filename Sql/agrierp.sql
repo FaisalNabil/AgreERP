@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 15, 2017 at 07:52 AM
+-- Generation Time: Aug 15, 2017 at 07:57 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.0.15
 
@@ -263,7 +263,7 @@ ALTER TABLE `cultivation`
 ALTER TABLE `cultivationweeklytask`
   ADD PRIMARY KEY (`WeekSysId`),
   ADD KEY `CultivationId` (`CultivationId`),
-  ADD KEY `cultivationweeklytask_ibfk_2` (`StatusId`);
+  ADD KEY `StatusId` (`StatusId`);
 
 --
 -- Indexes for table `farmer`
@@ -399,7 +399,8 @@ ALTER TABLE `cultivation`
 -- Constraints for table `cultivationweeklytask`
 --
 ALTER TABLE `cultivationweeklytask`
-  ADD CONSTRAINT `cultivationweeklytask_ibfk_1` FOREIGN KEY (`CultivationId`) REFERENCES `cultivation` (`CultivationId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cultivationweeklytask_ibfk_1` FOREIGN KEY (`CultivationId`) REFERENCES `cultivation` (`CultivationId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cultivationweeklytask_ibfk_2` FOREIGN KEY (`StatusId`) REFERENCES `status` (`StatusId`);
 
 --
 -- Constraints for table `regioncrop`
