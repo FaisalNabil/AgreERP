@@ -11,7 +11,7 @@
 		$pricePerUnit = $_POST['pricePerUnit'];
 		$insectName = $_POST['insectName'];
 		$diseaseName = $_POST['diseaseName'];
-		$insecticide = array("InsecticideId"=>$id, "Name"=>$name, "PricePerUnit"=>$pricePerUnit, "InsectName"=>$insectName, "DiseaseName"=>$diseaseName);
+		$insecticide = array("Name"=>$name, "PricePerUnit"=>$pricePerUnit, "InsectName"=>$insectName, "DiseaseName"=>$diseaseName);
 		
 		if(addInsecticide($insecticide)){
 			echo "Record Added!";

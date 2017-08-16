@@ -14,7 +14,7 @@
 		case "edit":
 			if(isset($_GET['id'])){
 				$id = $_GET['id'];
-				$status = getRegionById($id); //Getting the model for view
+				$status = getStatusById($id); //Getting the model for view
 				if($status){
 					include_once(APP_ROOT."/app/view/status_edit_view.php");					
 				}
@@ -24,7 +24,7 @@
 		case "delete":
 			if(isset($_GET['id'])){
 				$id = $_GET['id'];
-				$status = getRegionById($id); //Getting the model for view
+				$status = getStatusById($id); //Getting the model for view
 				if($status){
 					include_once(APP_ROOT."/app/view/status_delete_view.php");
 				}
@@ -32,7 +32,7 @@
 			break;
 			
 		case "show":
-			$statusList = getAllRegion(); //Getting the model for view
+			$statusList = getAllStatus(); //Getting the model for view
 			if(count($statusList)>0){
 				include_once(APP_ROOT."/app/view/status_show_view.php");
 			}

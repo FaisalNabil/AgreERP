@@ -1,7 +1,7 @@
 <?php require_once(APP_ROOT."/lib/data_access_helper.php") ?>
 <?php
 	function addCultivation_WeeklytaskToDb($cultivation_Weeklytask){
-		$query = "INSERT INTO Cultivationweeklytask(WeekSysId, StatusId) VALUES('$cultivation_Weeklytask[WeekSysId]', '$cultivation_Weeklytask[StatusId]')";
+		$query = "INSERT INTO Cultivationweeklytask(WeekSysId, CultivationId StatusId) VALUES('$cultivation_Weeklytask[WeekSysId]', '$cultivation_Weeklytask[CultivationId]', '$cultivation_Weeklytask[StatusId]')";
 		return executeNonQuery($query);
 	}	
 	

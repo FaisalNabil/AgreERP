@@ -10,3 +10,9 @@
 <a href="/AgriERP/?region_add">ADD REGION</a> | <a href="/AgriERP/?region_show">SHOW REGION</a></br>
 <a href="/AgriERP/?status_add">ADD STATUS</a> | <a href="/AgriERP/?status_show">SHOW STATUS</a></br></br>
 <a href="/AgriERP/?cropregion_add">ADD CROP</a> | <a href="/AgriERP/?cropregion_show">SHOW CROP</a></br></br>
+
+<?php
+session_start();
+ echo 'Session';
+ echo $_SESSION['farmerid'];
+ ?>

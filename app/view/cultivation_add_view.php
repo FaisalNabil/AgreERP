@@ -7,22 +7,23 @@
 
 <?php
 	if($_SERVER['REQUEST_METHOD']=="POST"){	
-		$farmerId = $_GET['farmerid'];
+		$farmerId = $_SESSION['farmerid'];
 		$startDate = date("Y-m-d");
 		$endDate = "";
 		$totalLandInUse = $_POST['landValue']." ".$_POST['landUnit'];
 		$totalCost = "";
+		$cultivationid=rand(1,999999);
 		$cropId = $_GET['cropid'];
 
-		$cultivation = array("CropId"=>$cropId, "FarmerId"=>$farmerId, "StartDate"=>$startDate, "EndDate"=>$endDate, "TotalLandInUse"=>$totalLandInUse, "TotalCost"=>$totalCost);
-		//print_r($cultivation);
+		$cultivation = array("CultivationId"=>$cultivationid, "CropId"=>$cropId, "FarmerId"=>$farmerId, "StartDate"=>$startDate, "EndDate"=>$endDate, "TotalLandInUse"=>$totalLandInUse, "TotalCost"=>$totalCost);
+		print_r($cultivation);
 		$weekId = getCrop_WeeklytaskByCropId($cropId);
 		//print_r($weekId);
 		
 		
 		if(addCultivation($cultivation)){
 			foreach ($weekId as $week) {
-				$cultivation_Weeklytask = array("WeekSysId"=>$week['WeekId'], "StatusId"=>'0');
+				$cultivation_Weeklytask = array("WeekSysId"=>$week['WeekId'], "CultivationId"=>$cultivationid, "StatusId"=>'0');
 				if (addCultivation_Weeklytask($cultivation_Weeklytask)) {
 					echo "Weekly task and ";
 				}
@@ -43,5 +44,5 @@
 	
 	<input type="submit" value="Add"/>
 	<a href="/AgriERP/?cultivation_cropshow">SHOW ALL CROPS</a>
-	<a href="/AgriERP/?cultivation_show&farmerid=<?=$_GET['farmerid']?>">SHOW ALL CULTIVATION</a>
+	<a href="/AgriERP/?cultivation_show">SHOW ALL CULTIVATION</a>
 </form>

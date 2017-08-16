@@ -23,8 +23,8 @@
 					<td>$crop[TimePeriod]</td>
 					<td>$crop[TotalCost]</td>
 					<td>$crop[EstimatedProduction]</td>
-					<td><a href='/AgriERP/?cultivation_cropdetails&id=$crop[CropId]'>details</a></td>
-					<td><a href='/AgriERP/?cultivation_show&farmerid=<?=$_GET[farmerid]?>''>SHOW ALL CULTIVATION</a></td>
+					<td><a href='/AgriERP/?cultivation_cropdetails&cropid=$crop[CropId]'>details</a></td>
+					<td><a href='/AgriERP/?cultivation_show'>SHOW ALL CULTIVATION</a></td>
 				</tr>";
 		}
 	?>	

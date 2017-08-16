@@ -7,11 +7,15 @@
 <?php
 	if($_SERVER['REQUEST_METHOD']=="POST"){		
 		$farmerid = $_POST['farmerid'];
-		$password = $_POST['password'];
+		$pass = $_POST['password'];
 
-		$_SESSION['farmerid']=$farmerid;
-
-		header("http://localhost/AgriERP/?home_show");
+		$farmer = getFarmerById($farmerid);
+		if($pass = $farmer['Password']){
+			$_SESSION['farmerid']=$farmerid;
+			//echo $_SESSION['farmerid'];
+			header('Location:?home_show');
+		}
+		
 		
 	}
 ?>

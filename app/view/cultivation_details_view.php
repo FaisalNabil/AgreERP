@@ -6,7 +6,7 @@
 ?>
 
 	<h3>CULTIVATION OF <?=$crop['Name']?></h3><hr/><br />
-	Cultivation Id: <?=$cultivation['CultivationId']?><input type="hidden" name="insecticideId" value="<?=$cultivation['CultivationId']?>"/><br />
+	Cultivation Id: <?=$cultivation['CultivationId']?><input type="hidden" name="cultivationId" value="<?=$cultivation['CultivationId']?>"/><br />
 	Estimated Cost: <?=$crop['TotalCost']?><br />
 	Estimated Production: <?=$crop['EstimatedProduction']?><br />
 	Land Type: <?=$crop['LandType']?><br />

@@ -17,6 +17,6 @@
 	Land Type:<?=$crop['LandType']?> <br />
 	Water Source: <?=$crop['WaterSource']?> <br />
 
-	<a href="/AgriERP/?cultivation_add&cropid=<?=$crop['CropId']?>&farmerid=f-001">Add To Cultivation</a>
+	<a href="/AgriERP/?cultivation_add&cropid=<?=$crop['CropId']?>">Add To Cultivation</a>
 	<a href="/AgriERP/?cultivation_cropshow">SHOW ALL</a>
 

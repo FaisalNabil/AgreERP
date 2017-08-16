@@ -1,7 +1,7 @@
 <?php require_once(APP_ROOT."/lib/data_access_helper.php") ?>
 <?php
 	function addCultivationToDb($cultivation){
-		$query = "INSERT INTO Cultivation CropId, FarmerId, StartDate, EndDate, TotalLandInUse, TotalCost) VALUES('$cultivation[CropId]', '$cultivation[FarmerId]', '$cultivation[StartDate]', '$cultivation[EndDate]', '$cultivation[TotalLandInUse]', '$cultivation[TotalCost]')";
+		$query = "INSERT INTO Cultivation (CultivationId, CropId, FarmerId, StartDate, EndDate, TotalLandInUse, TotalCost) VALUES($cultivation[CultivationId], '$cultivation[CropId]', '$cultivation[FarmerId]', '$cultivation[StartDate]', '$cultivation[EndDate]', '$cultivation[TotalLandInUse]', '$cultivation[TotalCost]')";
 		return executeNonQuery($query);
 	}	
 	

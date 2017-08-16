@@ -6,6 +6,7 @@
 ?>
 <?php include_once(APP_ROOT."/core/cultivation_service.php"); ?>
 <?php
+session_start();
 	switch($view){
 		case "cropshow":
 			$cropList = getAllCrop(); //Getting the model for view
@@ -15,8 +16,8 @@
 			break;
 
 		case "cropdetails":
-			if(isset($_GET['id'])){
-				$id = $_GET['id'];
+			if(isset($_GET['cropid'])){
+				$id = $_GET['cropid'];
 				$crop = getCropById($id); //Getting the model for view
 				$region = getRegionById($crop['RegionId']);
 				if($crop){
@@ -30,15 +31,14 @@
 			break;
 
 		case "show":
-			if(isset($_GET['farmerid'])){
-				$farmerid = $_GET['farmerid'];
+				$farmerid = $_SESSION['farmerid'];
 				$cultivationList = getAllCultivation($farmerid); //Getting the model for view
 				$farmer = getFarmerById($farmerid);
 				if($cultivationList){
 					//print_r($cultivationList);
 					include_once(APP_ROOT."/app/view/cultivation_show_view.php");					
 				}
-			}
+			
 			break;
 
 		case "details":

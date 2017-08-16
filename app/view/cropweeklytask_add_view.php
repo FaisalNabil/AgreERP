@@ -50,5 +50,5 @@ Select Insecticide Name:</br>
 Other Task:</br>
 <textarea name="otherTask" placeholder="Write Some task for this week.."></textarea></br>
 	 <input type="submit" value="Add"/>
-	 <a href="/AgriERP/?cropweeklytask_show&cropid=$cropId">SHOW ALL</a>
+	 <a href="/AgriERP/?cropweeklytask_show&cropid=<?=$_GET['id']?>">SHOW ALL</a>
 </form>

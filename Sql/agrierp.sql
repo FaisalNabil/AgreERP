@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 15, 2017 at 07:57 AM
+-- Generation Time: Aug 16, 2017 at 05:51 PM
 -- Server version: 10.1.21-MariaDB
--- PHP Version: 7.0.15
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -40,6 +40,13 @@ CREATE TABLE `crop` (
   `WaterSource` varchar(7) NOT NULL,
   `CropGroupName` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `crop`
+--
+
+INSERT INTO `crop` (`CropId`, `Name`, `RegionId`, `TimePeriod`, `TotalCost`, `EstimatedProduction`, `LandType`, `WaterSource`, `CropGroupName`) VALUES
+(1, 'BRRI-50', 2, 'January-April', '15000', '500', 'High groun', 'Well', 'Rice');
 
 -- --------------------------------------------------------
 
@@ -81,6 +88,13 @@ CREATE TABLE `cropweeklytask` (
   `InsecticideTask` varchar(255) NOT NULL,
   `OtherTask` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cropweeklytask`
+--
+
+INSERT INTO `cropweeklytask` (`WeekId`, `WeekNumber`, `CropId`, `CropInsectSysId`, `CropFertSysId`, `FertilizerTask`, `InsecticideTask`, `OtherTask`) VALUES
+(7, '1', 1, 2, 3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet vehicula turpis in gravida. Ut commodo leo vel maximus viverra. Vivamus tincidunt varius lacus vel placerat. Phasellus lectus lorem, vulputate vel orci vel, feugiat condimentum quam.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet vehicula turpis in gravida. Ut commodo leo vel maximus viverra. Vivamus tincidunt varius lacus vel placerat. Phasellus lectus lorem, vulputate vel orci vel, feugiat condimentum quam.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet vehicula turpis in gravida. Ut commodo leo vel maximus viverra. Vivamus tincidunt varius lacus vel placerat. Phasellus lectus lorem, vulputate vel orci vel, feugiat condimentum quam.');
 
 -- --------------------------------------------------------
 
@@ -149,7 +163,9 @@ CREATE TABLE `fertilizer` (
 --
 
 INSERT INTO `fertilizer` (`FertilizerId`, `Name`, `PricePerUnit`) VALUES
-(1, 'Urea', '50tk');
+(2, 'none', '0'),
+(3, 'Urea', '250'),
+(4, 'Carbaryl', '60');
 
 -- --------------------------------------------------------
 
@@ -170,7 +186,9 @@ CREATE TABLE `insecticide` (
 --
 
 INSERT INTO `insecticide` (`InsecticideId`, `Name`, `PricePerUnit`, `InsectName`, `DiseaseName`) VALUES
-(1, 'abc', '50tk', 'dsa', 'xyz');
+(2, '2,4-D, Dimethylamine salt', '120', 'Rice weevil', 'Bacterial leafstreak'),
+(3, 'Regiment', '200', 'Rice weevil', 'Bacterial leafstreak'),
+(4, 'none', '0', '', '');
 
 -- --------------------------------------------------------
 
@@ -189,7 +207,8 @@ CREATE TABLE `region` (
 --
 
 INSERT INTO `region` (`RegionId`, `RegionNumber`, `Area`) VALUES
-(1, '12', 'pabna');
+(1, '12', 'pabna'),
+(2, '13', 'Rajshahi');
 
 -- --------------------------------------------------------
 
@@ -212,6 +231,13 @@ CREATE TABLE `status` (
   `StatusId` int(5) NOT NULL,
   `DoneTask` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`StatusId`, `DoneTask`) VALUES
+(0, 'None');
 
 --
 -- Indexes for dumped tables
@@ -310,7 +336,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `crop`
 --
 ALTER TABLE `crop`
-  MODIFY `CropId` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `CropId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `cropfertilizer`
 --
@@ -325,12 +351,7 @@ ALTER TABLE `cropinsecticide`
 -- AUTO_INCREMENT for table `cropweeklytask`
 --
 ALTER TABLE `cropweeklytask`
-  MODIFY `WeekId` int(15) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `cultivation`
---
-ALTER TABLE `cultivation`
-  MODIFY `CultivationId` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `WeekId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `cultivationweeklytask`
 --
@@ -340,22 +361,22 @@ ALTER TABLE `cultivationweeklytask`
 -- AUTO_INCREMENT for table `farmer`
 --
 ALTER TABLE `farmer`
-  MODIFY `FarmerId` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `FarmerId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `fertilizer`
 --
 ALTER TABLE `fertilizer`
-  MODIFY `FertilizerId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `FertilizerId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `insecticide`
 --
 ALTER TABLE `insecticide`
-  MODIFY `InsecticideId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `InsecticideId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `region`
 --
 ALTER TABLE `region`
-  MODIFY `RegionId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `RegionId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
@@ -384,23 +405,21 @@ ALTER TABLE `cropinsecticide`
 -- Constraints for table `cropweeklytask`
 --
 ALTER TABLE `cropweeklytask`
-  ADD CONSTRAINT `cropweeklytask_ibfk_1` FOREIGN KEY (`CropId`) REFERENCES `crop` (`CropId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cropweeklytask_ibfk_2` FOREIGN KEY (`CropInsectSysId`) REFERENCES `cropinsecticide` (`CropInsectSysId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cropweeklytask_ibfk_3` FOREIGN KEY (`CropFertSysId`) REFERENCES `cropfertilizer` (`CropFertSysId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cropweeklytask_ibfk_1` FOREIGN KEY (`CropId`) REFERENCES `crop` (`CropId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `cultivation`
 --
 ALTER TABLE `cultivation`
   ADD CONSTRAINT `cultivation_ibfk_1` FOREIGN KEY (`CropId`) REFERENCES `crop` (`CropId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cultivation_ibfk_2` FOREIGN KEY (`FarmarId`) REFERENCES `farmer` (`FarmerID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cultivation_ibfk_2` FOREIGN KEY (`FarmarId`) REFERENCES `farmer` (`FarmerId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `cultivationweeklytask`
 --
 ALTER TABLE `cultivationweeklytask`
-  ADD CONSTRAINT `cultivationweeklytask_ibfk_1` FOREIGN KEY (`CultivationId`) REFERENCES `cultivation` (`CultivationId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cultivationweeklytask_ibfk_2` FOREIGN KEY (`StatusId`) REFERENCES `status` (`StatusId`);
+  ADD CONSTRAINT `cultivationweeklytask_ibfk_2` FOREIGN KEY (`StatusId`) REFERENCES `status` (`StatusId`),
+  ADD CONSTRAINT `cultivationweeklytask_ibfk_3` FOREIGN KEY (`CultivationId`) REFERENCES `cultivation` (`CultivationId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `regioncrop`

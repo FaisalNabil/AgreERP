@@ -16,7 +16,7 @@
 ?>
 <form method="post">
 	<br /><h3>DELETE FERTILIZER</h3><hr/><br />
-	Id: <?=$fertilizer['FertilizerId']?><input type="hidden" name="InsecticideId" value="<?=$fertilizer['FertilizerId']?>"/><br />
+	Id: <?=$fertilizer['FertilizerId']?><input type="hidden" name="FertilizerId" value="<?=$fertilizer['FertilizerId']?>"/><br />
 	Name: <?=$fertilizer['Name']?><br />
 	PricePerUnit: <?=$fertilizer['PricePerUnit']?><br />
 	

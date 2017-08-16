@@ -1,17 +1,17 @@
 <?php require_once(APP_ROOT."/lib/data_access_helper.php") ?>
 <?php
 	function addInsecticideToDb($insecticide){
-		$query = "INSERT INTO Insecticide(InsecticideId, Name, PricePerUnit, InsectName, DiseaseName) VALUES('$insecticide[InsecticideId]', '$insecticide[Name]', $insecticide[PricePerUnit], '$insecticide[InsectName]', '$insecticide[DiseaseName]')";
+		$query = "INSERT INTO Insecticide(Name, PricePerUnit, InsectName, DiseaseName) VALUES('$insecticide[Name]', $insecticide[PricePerUnit], '$insecticide[InsectName]', '$insecticide[DiseaseName]')";
 		return executeNonQuery($query);
 	}	
 	
 	function editInsecticideToDb($insecticide){
-		$query = "UPDATE Insecticide SET Name='$insecticide[Name]', PricePerUnit=$insecticide[PricePerUnit], InsectName='$insecticide[InsectName]', DiseaseName='$insecticide[DiseaseName]' WHERE InsecticideId='$insecticide[InsecticideId]'";
+		$query = "UPDATE Insecticide SET Name='$insecticide[Name]', PricePerUnit=$insecticide[PricePerUnit], InsectName='$insecticide[InsectName]', DiseaseName='$insecticide[DiseaseName]' WHERE InsecticideId=$insecticide[InsecticideId]";
 		return executeNonQuery($query);
 	}
 	
 	function removeInsecticideFromDb($id){
-		$query = "DELETE FROM Insecticide WHERE InsecticideId='$id'";
+		$query = "DELETE FROM Insecticide WHERE InsecticideId=$id";
 		return executeNonQuery($query);
 	}
 	
@@ -28,7 +28,7 @@
 	}
 
 	function getInsecticideByIdFromDb($id){
-		$query = "SELECT InsecticideId, Name, PricePerUnit, InsectName, DiseaseName FROM Insecticide WHERE InsecticideId='$id'";  
+		$query = "SELECT InsecticideId, Name, PricePerUnit, InsectName, DiseaseName FROM Insecticide WHERE InsecticideId=$id";  
 		$result = executeQuery($query);	
 		$insecticide = null;
 		if($result){

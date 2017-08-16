@@ -16,7 +16,7 @@
 	}
 	
 	function getAllFarmerFromDb(){
-		$query = "SELECT FarmerId, Name, District, Phone FROM Farmer";  
+		$query = "SELECT FarmerId, Name, District, Phone, Password FROM Farmer";  
 		$result = executeQuery($query);	
 		$farmerList = array();
 		if($result){
@@ -28,7 +28,7 @@
 	}
 
 	function getFarmerByIdFromDb($id){
-		$query = "SELECT FarmerId, Name, District, Phone FROM Farmer WHERE FarmerId=$id";  
+		$query = "SELECT FarmerId, Name, District, Phone, Password FROM Farmer WHERE FarmerId=$id";  
 		$result = executeQuery($query);	
 		$farmer = null;
 		if($result){
