@@ -14,6 +14,7 @@
 			$_SESSION['farmerid']=$farmerid;
 			//echo $_SESSION['farmerid'];
 			header('Location:?home_show');
+			exit();
 		}
 		
 		

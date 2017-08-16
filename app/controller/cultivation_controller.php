@@ -6,7 +6,7 @@
 ?>
 <?php include_once(APP_ROOT."/core/cultivation_service.php"); ?>
 <?php
-session_start();
+
 	switch($view){
 		case "cropshow":
 			$cropList = getAllCrop(); //Getting the model for view
@@ -48,8 +48,8 @@ session_start();
 				//print_r($cultivation);echo "<br/>";
 				$crop = getCropById($cultivation['CropId']);
 				//print_r($crop);echo "<br/>";
-				$cultivationweeklytaskList = getCrop_WeeklytaskByCropId($cultivation['CultivationId']);
-				//print_r($cultivationweeklytaskList);echo "<br/>";
+				$cultivationweeklytaskList = getCultivation_WeeklytaskByCultivationId($cultivationid);
+				//print_r($cultivationweeklytaskList);//echo $cultivationid;
 				if($cultivation){
 					include_once(APP_ROOT."/app/view/cultivation_details_view.php");					
 				}

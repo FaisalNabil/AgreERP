@@ -1,12 +1,12 @@
 <?php require_once(APP_ROOT."/lib/data_access_helper.php") ?>
 <?php
 	function addCultivation_WeeklytaskToDb($cultivation_Weeklytask){
-		$query = "INSERT INTO Cultivationweeklytask(WeekSysId, CultivationId StatusId) VALUES('$cultivation_Weeklytask[WeekSysId]', '$cultivation_Weeklytask[CultivationId]', '$cultivation_Weeklytask[StatusId]')";
+		$query = "INSERT INTO Cultivationweeklytask(WeekSysId, CultivationId, StatusId) VALUES($cultivation_Weeklytask[WeekSysId], $cultivation_Weeklytask[CultivationId], $cultivation_Weeklytask[StatusId])";
 		return executeNonQuery($query);
 	}	
 	
 	function editCultivation_WeeklytaskToDb($cultivation_Weeklytask){
-		$query = "UPDATE Cultivationweeklytask SET StatusId='$cultivation_Weeklytask[StatusId]' WHERE WeekSysId=$cultivation_Weeklytask[WeekSysId]";
+		$query = "UPDATE Cultivationweeklytask SET StatusId=$cultivation_Weeklytask[StatusId] WHERE WeekSysId=$cultivation_Weeklytask[WeekSysId]";
 		return executeNonQuery($query);
 	}
 	
@@ -19,7 +19,7 @@
 		$query = "SELECT WeekSysId, CultivationId, StatusId FROM Cultivationweeklytask";  
 		$result = executeQuery($query);	
 		$cultivation_WeeklytaskList = array();
-		if($cultivation_WeeklytaskList){
+		if($result){
 			for($i=0; $row = mysqli_fetch_assoc($result); ++$i) {
 				$cultivation_WeeklytaskList[$i] = $row;				
 			}
@@ -31,9 +31,21 @@
 		$query = "SELECT WeekSysId, CultivationId, StatusId FROM Cultivationweeklytask WHERE WeekSysId=$id";  
 		$result = executeQuery($query);	
 		$cultivation_Weeklytask = null;
-		if($cultivation_Weeklytask){
+		if($result){
 			$cultivation_Weeklytask = mysqli_fetch_assoc($result);
 		}
 		return $cultivation_Weeklytask;
+	}
+
+	function getCultivation_WeeklytaskByCultivationIdFromDb($id){
+		$query = "SELECT WeekSysId, CultivationId, StatusId FROM Cultivationweeklytask WHERE CultivationId=$id";  
+		$result = executeQuery($query);	
+		$cultivation_WeeklytaskList = array();
+		if($result){
+			for($i=0; $row = mysqli_fetch_assoc($result); ++$i) {
+				$cultivation_WeeklytaskList[$i] = $row;				
+			}
+		}
+		return $cultivation_WeeklytaskList;
 	}
 ?>

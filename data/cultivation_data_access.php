@@ -1,12 +1,12 @@
 <?php require_once(APP_ROOT."/lib/data_access_helper.php") ?>
 <?php
 	function addCultivationToDb($cultivation){
-		$query = "INSERT INTO Cultivation (CultivationId, CropId, FarmerId, StartDate, EndDate, TotalLandInUse, TotalCost) VALUES($cultivation[CultivationId], '$cultivation[CropId]', '$cultivation[FarmerId]', '$cultivation[StartDate]', '$cultivation[EndDate]', '$cultivation[TotalLandInUse]', '$cultivation[TotalCost]')";
+		$query = "INSERT INTO Cultivation (CultivationId, CropId, FarmerId, StartDate, EndDate, TotalLandInUse, TotalCost) VALUES($cultivation[CultivationId], $cultivation[CropId], $cultivation[FarmerId], '$cultivation[StartDate]', '$cultivation[EndDate]', '$cultivation[TotalLandInUse]', '$cultivation[TotalCost]')";
 		return executeNonQuery($query);
 	}	
 	
 	function editCultivationToDb($cultivation){
-		$query = "UPDATE Cultivation SET CropId='$cultivation[CropId]', FarmerId='$cultivation[FarmerId]', StartDate='$cultivation[StartDate]', EndDate='$cultivation[EndDate]', TotalLandInUse='$cultivation[TotalLandInUse]', TotalCost='$cultivation[TotalCost]'' WHERE CultivationId=$cultivation[CultivationId]";
+		$query = "UPDATE Cultivation SET CropId=$cultivation[CropId], FarmerId=$cultivation[FarmerId], StartDate='$cultivation[StartDate]', EndDate='$cultivation[EndDate]', TotalLandInUse='$cultivation[TotalLandInUse]', TotalCost='$cultivation[TotalCost]'' WHERE CultivationId=$cultivation[CultivationId]";
 		return executeNonQuery($query);
 	}
 	

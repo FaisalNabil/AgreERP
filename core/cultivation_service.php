@@ -79,6 +79,10 @@
 		return getCultivation_WeeklytaskByIdFromDb($id);
 	}
 
+	function getCultivation_WeeklytaskByCultivationId($id){	
+		return getCultivation_WeeklytaskByCultivationIdFromDb($id);
+	}	
+
 	function getFertilizerById($id){	
 		return getFertilizerByIdFromDb($id);
 	}

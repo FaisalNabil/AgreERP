@@ -16,7 +16,7 @@
 <form>
 	<?php
 		foreach($cultivationweeklytaskList as $cultivationweeklytask){
-			$weektask = getCrop_WeeklytaskById($cultivationweeklytask['WeekId']);
+			$weektask = getCrop_WeeklytaskById($cultivationweeklytask['WeekSysId']);
 			$fertilizerName = getFertilizerById($weektask['CropFertSysId']);
 			$insecticideName = getInsecticideById($weektask['CropInsectSysId']);
 			//print_r($weektask);
