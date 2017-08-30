@@ -1,52 +1,55 @@
 $(document).ready(function(){
 
-     $('#fertilizerBtn').click(function(event){
+     $('#addNew').click(function(event){
          event.preventDefault();
+          
 
           var week = $("#week option:selected").val();
-          var TextAreaValue = $("textarea#FertilizerTask").val();
-		  var fertilizerName = $("#fertilizer option:selected").val();
-		  
-          if (TextAreaValue.length > 0) {
-             var tableRow = "<tr>"+ "<td>"+week+"</td>"+ "<td>"+fertilizerName+"</td>" + " <td>"+TextAreaValue+<?php echo"noooo";+"</td>"+"</tr>";
-             $("#fertilizerList").append(tableRow); 
-          }else{
-            alert("Please Add some value");
-          }
+        
+          var fertilizerId = $("#fertilizerId option:selected").val();
            
-     });
-     // insecticide
-     $('#insecticideBtn').click(function(event){
-         event.preventDefault();
           
-          var week = $("#weekName option:selected").val();
-          var TextAreaValue = $("textarea#InserticideTask").val();
-		  var insecticideName = $("#insecticide option:selected").val();
+          var fertilizerTask = $("textarea#fertilizerTask").val();
+         
+          var insecticideId = $("#insecticideId option:selected").val();
+        
+          var insecticideTask = $("textarea#insecticideTask").val();
+    
+          var otherTask = $("textarea#otherTask").val();
+ 
 
-          if (TextAreaValue.length > 0) {
-             var tableRow = "<tr>"+ "<td>"+week+"</td>"+ "<td>"+insecticideName+"</td>" + " <td>"+TextAreaValue+"</td>"+"</tr>";
-             $("#insecticideList").append(tableRow); 
+           
+          if ((fertilizerTask.length > 0) && (insecticideTask.length > 0)) {
+             
+             var tableRow = "<tr>"+ "<td>"+week+"</td>"+ "<td>"+fertilizerId+"</td>" + "<td>"+fertilizerTask+ "</td>"+ "<td>"+ insecticideId +"</td>"+ "<td>"+ insecticideTask+"</td>"+ "<td>"+otherTask +"</td>"+"</tr>";
+             $("#cropWeeklyTask").append(tableRow); 
           }else{
             alert("Please Add some value");
           }
            
      });
 
-     // othertask
-     $('#otherTaskBtn').click(function(event){
-         event.preventDefault();
+      $('#sendServer').click(function(){
+          var dataArr = [];
+          $("tr>td").each(function(){
+              dataArr.push($(this).html());
+          });  
           
-          var week = $("#otherTaskweekName option:selected").val();
-          var TextAreaValue = $("textarea#otherTask").val();
-
-          if (TextAreaValue.length > 0) {
-             var tableRow = "<tr>"+ "<td>"+week+"</td>"+ "<td>"+TextAreaValue+"</td>"+"</tr>";
-             $("#otherTaskList").append(tableRow); 
-          }else{
-            alert("Please Add some value");
-          }
-           
-     });
+          $.ajax({
+                type  : "POST",
+                url   : 'app/view/server.php',
+                 data : "dataArr="+ dataArr,
+                success: function(data) {
+                    
+                    alert(data);// alert the data from the server
+                },
+                error : function() {
+                  alert("error");
+                }
+          });
+      });
+     
+     
      
      
 });
