@@ -1,54 +1,111 @@
-<?php 
+<?php
+
+include 'header.php';
 	if(!isset($isDispatchedByFrontController)){
 		include_once("../view/error.php");
 		die;
 	}
 ?>
 <?php
-	if($_SERVER['REQUEST_METHOD']=="POST"){	
-		$cropId = $_GET['id'];
-		$weekNumber = $_POST['weekNumber'];
-		$fertilizerId = $_POST['fertilizer'];
-		$fertilizerTask = $_POST['fertilizerTask'];
-		$insecticideId = $_POST['insecticide'];
-		$insecticideTask = $_POST['insecticideTask'];
-		$otherTask = $_POST['otherTask'];
-		$crop_Weeklytask = array("CropId"=>$cropId, "WeekNumber"=>$weekNumber, "CropInsectSysId"=>$insecticideId, "CropFertSysId"=>$fertilizerId, "FertilizerTask"=>$fertilizerTask, "InsecticideTask"=>$insecticideTask, "OtherTask"=>$otherTask);
-		
-		if(addCrop_Weeklytask($crop_Weeklytask)){
-			echo "Record Added!";
+ 
+     $Arr = "";
+    if (isset($_SESSION['Arr'])) {
+       
+    $Arr = explode(",",$_SESSION['Arr']);
+     
+     $c = 0;
+     $temp = 0;
+     $t = 0;
+     $newArray = array();
+     
+     for ($i=0; $i <sizeof($Arr); $i++) { 
+     	 $crop_Weeklytask_arr[$c] = $Arr[$i];
+     	 $c++;
+     	   
+     	 if ($c == 6) {
+            $newArray[$t++] = $crop_Weeklytask_arr; 
+          $c = 0;
+     	 }    	  
+     }
+     //print_r($newArray);
+      foreach( $newArray as $key => $obj)
+		{
+		    $cropId = $_GET['id'];
+			$weekNumber = $obj[0];
+			$fertilizerId = $obj[1];
+			$fertilizerTask = $obj[2];
+			$insecticideId = $obj[3];
+			$insecticideTask = $obj[4];
+			$otherTask = $obj[5];
+
+			$crop_Weeklytask = array("CropId"=>$cropId, "WeekNumber"=>$weekNumber, "CropInsectSysId"=>$insecticideId, "CropFertSysId"=>$fertilizerId, "FertilizerTask"=>$fertilizerTask, "InsecticideTask"=>$insecticideTask, "OtherTask"=>$otherTask);
+			if(addCrop_Weeklytask($crop_Weeklytask)){
+			   echo "Record Added!";
+		    }else{
+		    	echo "Not Added";
+		    }
 		}
-	}
+ }   
+
 ?>
-<form method="post"></br></br>
-Week Number:
-	<select name="weekNumber">
-	  <?php for($i = 1; $i<=5; $i++){ 
-		  echo "<option value='$i'>week$i</option>";
-		}?>	 
-    </select></br></br>
-Select fertilizer Name:</br>
-    <select name="fertilizer">
-		  
-	    <?php 
-			$fertilizerList = getAllFertilizer();
-			foreach( $fertilizerList as $fertilizer){ 
-				echo "<option value='".$fertilizer['FertilizerId']."'>".$fertilizer['Name']."</option>";
-		}?>	 
-   </select></br></br>
-<textarea name="fertilizerTask" placeholder="Write Some task for this week.."></textarea></br>
-Select Insecticide Name:</br>
-    <select name="insecticide">
-		  
-	    <?php 
-			$insecticideList = getAllInsecticide();
-			foreach( $insecticideList as $insecticide){ 
-				echo "<option value='".$insecticide['InsecticideId']."'>".$insecticide['Name']."</option>";
-		}?>	 
-   </select></br></br>
-<textarea name="insecticideTask" placeholder="Write Some task for this week.."></textarea></br>
-Other Task:</br>
-<textarea name="otherTask" placeholder="Write Some task for this week.."></textarea></br>
-	 <input type="submit" value="Add"/>
-	 <a href="/AgriERP/?cropweeklytask_show&cropid=<?=$_GET['id']?>">SHOW ALL</a>
-</form>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			 <form method="post"></br></br>
+				Week Number:
+					<select name="weekNumber" id="week">
+					  <?php for($i = 1; $i<=5; $i++){ 
+						  echo "<option value='$i'>week$i</option>";
+						}?>	 
+				    </select></br></br>
+				Select fertilizer Name:</br>
+				    <select name="fertilizer" id="fertilizerId">
+						  
+					    <?php 
+							$fertilizerList = getAllFertilizer();
+							foreach( $fertilizerList as $fertilizer){ 
+								echo "<option value='".$fertilizer['FertilizerId']."'>".$fertilizer['Name']."</option>";
+						}?>	 
+				   </select></br></br>
+				<textarea name="fertilizerTask" id="fertilizerTask" placeholder="Write Some task for this week.."></textarea></br>
+				Select Insecticide Name:</br>
+				    <select name="insecticide" id="insecticideId">
+						  
+					    <?php 
+							$insecticideList = getAllInsecticide();
+							foreach( $insecticideList as $insecticide){ 
+								echo "<option value='".$insecticide['InsecticideId']."'>".$insecticide['Name']."</option>";
+						}?>	 
+				   </select></br></br>
+				<textarea name="insecticideTask" id="insecticideTask" placeholder="Write Some task for this week.."></textarea></br>
+				Other Task:</br>
+				<textarea name="otherTask" id="otherTask" placeholder="Write Some task for this week.."></textarea></br>
+					 <input type="submit" id="addNew" value="Add"/>
+					 <a href="/AgriERP/?cropweeklytask_show&cropid=<?=$_GET['id']?>">SHOW ALL</a>
+				</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-striped">
+			  <thead>
+			    <tr>
+			      <th>Week</th>
+			      <th>Fertilizer Id</th> 
+			      <th>Fertilizer Task</th> 
+			      <th>Insecticide Id</th> 
+			      <th>Insecticide Task</th> 
+			      <th>Other Task</th> 
+			    </tr>
+			  </thead>
+			  <tbody id="cropWeeklyTask">
+			  </tbody>
+			</table>		
+	    </div>
+	    <input id="sendServer" name="sendServer" type="button" value="Send to Server" />	
+	</div>
+		 
+</div>
+
+<?php include 'footer.php'; ?>
