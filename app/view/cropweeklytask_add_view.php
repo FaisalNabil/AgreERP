@@ -11,8 +11,10 @@ include 'header.php';
      $Arr = "";
     if (isset($_SESSION['Arr'])) {
        
-    $Arr = explode(",",$_SESSION['Arr']);
-     
+     //$Arr = explode(",",$_SESSION['Arr']);
+     $Arr = $_SESSION['Arr'];
+     echo print_r($Arr);
+
      $c = 0;
      $temp = 0;
      $t = 0;

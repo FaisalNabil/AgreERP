@@ -1,5 +1,6 @@
 $(document).ready(function(){
-
+    var dataArr = [];
+    var i = 0;
      $('#addNew').click(function(event){
          event.preventDefault();
           
@@ -21,6 +22,11 @@ $(document).ready(function(){
            
           if ((fertilizerTask.length > 0) && (insecticideTask.length > 0)) {
              
+             dataArr[i] = {"week":week, "fertilizerId":fertilizerId, "fertilizerTask":fertilizerTask, "insecticideId":insecticideId, "insecticideTask":insecticideTask, "otherTask":otherTask};
+             //var myObj = JSON.parse(dataArr[i]);
+             alert(dataArr[i].week);
+             i++;
+
              var tableRow = "<tr>"+ "<td>"+week+"</td>"+ "<td>"+fertilizerId+"</td>" + "<td>"+fertilizerTask+ "</td>"+ "<td>"+ insecticideId +"</td>"+ "<td>"+ insecticideTask+"</td>"+ "<td>"+otherTask +"</td>"+"</tr>";
              $("#cropWeeklyTask").append(tableRow); 
           }else{
@@ -30,18 +36,18 @@ $(document).ready(function(){
      });
 
       $('#sendServer').click(function(){
-          var dataArr = [];
-          $("tr>td").each(function(){
-              dataArr.push($(this).html());
-          });  
+          //var dataArr = [];
+          //$("tr>td").each(function(){
+             // dataArr.push($(this).html());
+          //});  
           
           $.ajax({
                 type  : "POST",
                 url   : 'app/view/server.php',
-                 data : "dataArr="+ dataArr,
+                data : "dataArr="+ dataArr,
                 success: function(data) {
                     
-                    alert(data);// alert the data from the server
+                    alert(dataArr[0].fertilizerId);// alert the data from the server
                 },
                 error : function() {
                   alert("error");
