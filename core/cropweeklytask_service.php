@@ -3,6 +3,7 @@
 <?php require_once(APP_ROOT."/data/fertilizer_data_access.php") ?>
 <?php
 	function addCrop_Weeklytask($crop_Weeklytask){
+		//print_r($crop_Weeklytask);
 		return addCrop_WeeklytaskToDb($crop_Weeklytask);
 	}
 	

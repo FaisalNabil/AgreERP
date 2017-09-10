@@ -1,12 +1,12 @@
 <?php require_once(APP_ROOT."/lib/data_access_helper.php") ?>
 <?php
 	function addCropToDb($crop){
-		$query = "INSERT INTO Crop(Name, CropGroupName, RegionId, TimePeriod, TotalCost, EstimatedProduction, LandType, WaterSource) VALUES('$crop[Name]', '$crop[CropGroupName]', '$crop[RegionId]', '$crop[TimePeriod]', $crop[TotalCost], $crop[EstimatedProduction], '$crop[LandType]', '$crop[WaterSource]')";
+		$query = "INSERT INTO Crop(Name, CropGroupName, RegionId, TimePeriod, TotalCost, EstimatedProduction, LandType, WaterSource, TotalWeeks) VALUES('$crop[Name]', '$crop[CropGroupName]', '$crop[RegionId]', '$crop[TimePeriod]', $crop[TotalCost], $crop[EstimatedProduction], '$crop[LandType]', '$crop[WaterSource]', $crop[TotalWeeks])";
 		return executeNonQuery($query);
 	}	
 	
 	function editCropToDb($crop){
-		$query = "UPDATE Crop SET Name='$crop[Name]', 'CropGroupName=$crop[CropGroupName]', RegionId='$crop[RegionId]', TimePeriod='$crop[TimePeriod]', TotalCost=$crop[TotalCost], EstimatedProduction=$crop[EstimatedProduction], LandType='$crop[LandType]', WaterSource='$crop[WaterSource]' WHERE CropId=$crop[CropId]";
+		$query = "UPDATE Crop SET Name='$crop[Name]', 'CropGroupName=$crop[CropGroupName]', RegionId='$crop[RegionId]', TimePeriod='$crop[TimePeriod]', TotalCost=$crop[TotalCost], EstimatedProduction=$crop[EstimatedProduction], LandType='$crop[LandType]', WaterSource='$crop[WaterSource]' TotalWeeks=$crop[TotalWeeks] WHERE CropId=$crop[CropId]";
 		return executeNonQuery($query);
 	}
 	
@@ -16,7 +16,7 @@
 	}
 	
 	function getAllCropFromDb(){
-		$query = "SELECT CropId, Name, CropGroupName, RegionId, TimePeriod, TotalCost, EstimatedProduction, LandType, WaterSource FROM Crop";  
+		$query = "SELECT CropId, Name, CropGroupName, RegionId, TimePeriod, TotalCost, EstimatedProduction, LandType, WaterSource, TotalWeeks FROM Crop";  
 		$result = executeQuery($query);	
 		$cropList = array();
 		if($result){
@@ -28,7 +28,7 @@
 	}
 
 	function getCropByIdFromDb($id){
-		$query = "SELECT CropId, Name, CropGroupName, RegionId, TimePeriod, TotalCost, EstimatedProduction, LandType, WaterSource FROM Crop WHERE CropId=$id";  
+		$query = "SELECT CropId, Name, CropGroupName, RegionId, TimePeriod, TotalCost, EstimatedProduction, LandType, WaterSource, TotalWeeks FROM Crop WHERE CropId=$id";  
 		$result = executeQuery($query);	
 		$crop = null;
 		if($result){
