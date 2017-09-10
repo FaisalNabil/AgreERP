@@ -11,9 +11,9 @@ include 'header.php';
      $Arr = "";
     if (isset($_SESSION['Arr'])) {
        
-     //$Arr = explode(",",$_SESSION['Arr']);
-     $Arr = $_SESSION['Arr'];
-     echo print_r($Arr);
+     $Arr = explode(",",$_SESSION['Arr']);
+     //$Arr = $_SESSION['Arr'];
+     //print_r($Arr);
 
      $c = 0;
      $temp = 0;
@@ -29,7 +29,8 @@ include 'header.php';
           $c = 0;
      	 }    	  
      }
-     //print_r($newArray);
+     print_r($newArray);
+     $k = 0;
       foreach( $newArray as $key => $obj)
 		{
 		    $cropId = $_GET['id'];
@@ -42,10 +43,13 @@ include 'header.php';
 
 			$crop_Weeklytask = array("CropId"=>$cropId, "WeekNumber"=>$weekNumber, "CropInsectSysId"=>$insecticideId, "CropFertSysId"=>$fertilizerId, "FertilizerTask"=>$fertilizerTask, "InsecticideTask"=>$insecticideTask, "OtherTask"=>$otherTask);
 			if(addCrop_Weeklytask($crop_Weeklytask)){
-			   echo "Record Added!";
-		    }else{
-		    	echo "Not Added";
+			  $k = 1;
 		    }
+		}
+		if($k = 1){
+			echo "Data Added Successfully";
+		}else{
+			echo "Not Added";
 		}
  }   
 

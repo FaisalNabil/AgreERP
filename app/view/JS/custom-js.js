@@ -36,10 +36,10 @@ $(document).ready(function(){
      });
 
       $('#sendServer').click(function(){
-          //var dataArr = [];
-          //$("tr>td").each(function(){
-             // dataArr.push($(this).html());
-          //});  
+          var dataArr = [];
+          $("tr>td").each(function(){
+             dataArr.push($(this).html());
+          });  
           
           $.ajax({
                 type  : "POST",
@@ -47,7 +47,7 @@ $(document).ready(function(){
                 data : "dataArr="+ dataArr,
                 success: function(data) {
                     
-                    alert(dataArr[0].fertilizerId);// alert the data from the server
+                    alert(data);// alert the data from the server
                 },
                 error : function() {
                   alert("error");

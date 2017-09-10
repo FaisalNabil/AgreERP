@@ -2,7 +2,8 @@
 <?php
 	function addCrop_WeeklytaskToDb($crop_Weeklytask){
 		//print_r($crop_Weeklytask);
-		$query = "INSERT INTO CropWeeklytask(WeekNumber, CropId, CropInsectSysId, CropFertSysId, FertilizerTask, InsecticideTask, OtherTask) VALUES('$crop_Weeklytask[WeekNumber]', $crop_Weeklytask[CropId], $crop_Weeklytask[CropInsectSysId], $crop_Weeklytask[CropFertSysId], '$crop_Weeklytask[FertilizerTask]', '$crop_Weeklytask[InsecticideTask]', '$crop_Weeklytask[OtherTask]')";
+		$query = "INSERT INTO cropWeeklytask(WeekNumber, CropId, CropInsectSysId, CropFertSysId, FertilizerTask, InsecticideTask, OtherTask) VALUES('$crop_Weeklytask[WeekNumber]', $crop_Weeklytask[CropId], $crop_Weeklytask[CropInsectSysId], $crop_Weeklytask[CropFertSysId], '$crop_Weeklytask[FertilizerTask]', '$crop_Weeklytask[InsecticideTask]', '$crop_Weeklytask[OtherTask]')";
+		//echo $query;
 		return executeNonQuery($query);
 	}	
 	
