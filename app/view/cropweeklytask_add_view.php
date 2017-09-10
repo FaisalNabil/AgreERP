@@ -29,7 +29,7 @@ include 'header.php';
           $c = 0;
      	 }    	  
      }
-     print_r($newArray);
+     //print_r($newArray);
      $k = 0;
       foreach( $newArray as $key => $obj)
 		{
@@ -48,6 +48,7 @@ include 'header.php';
 		}
 		if($k = 1){
 			echo "Data Added Successfully";
+			 session_unset();
 		}else{
 			echo "Not Added";
 		}
