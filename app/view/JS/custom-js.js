@@ -54,8 +54,91 @@ $(document).ready(function(){
                 }
           });
       });
-     
-     
+     //+res[1]+'_'+res[2]
+     $('input[type=checkbox]').click(function(){
+       var name = $(this).attr("name");
+       if ($('#'+name).is(':checked')) {
+
+         var res = name.split("_");
+
+         var status='';
+
+         //fertilizer
+         if (res[0]=='fertilizertask') { 
+            if($('#insecticidetask_'+res[1]+'_'+res[2]).is(':checked') && $('#othertask_'+res[1]+'_'+res[2]).is(':checked')){
+              status='7'
+              alert(status);
+            }
+            if($('#insecticidetask_'+res[1]+'_'+res[2]).is(':checked') && !$('#othertask_'+res[1]+'_'+res[2]).is(':checked')){
+              status='4'
+              alert(status);
+            }
+            if(!$('#insecticidetask_'+res[1]+'_'+res[2]).is(':checked') && $('#othertask_'+res[1]+'_'+res[2]).is(':checked')){
+              status='5'
+              alert(status);
+            }
+            if(!$('#insecticidetask_'+res[1]+'_'+res[2]).is(':checked') && !$('#othertask_'+res[1]+'_'+res[2]).is(':checked')){
+              status='1'
+              alert(status);
+            }
+         }
+
+         //insecticide
+         if (res[0]=='insecticidetask') {
+            if($('#fertilizertask_'+res[1]+'_'+res[2]).is(':checked') && $('#othertask_'+res[1]+'_'+res[2]).is(':checked')){
+              status='7'
+              alert(status);
+            }
+            if($('#fertilizertask_'+res[1]+'_'+res[2]).is(':checked') && !$('#othertask_'+res[1]+'_'+res[2]).is(':checked')){
+              status='4'
+              alert(status);
+            }
+            if(!$('#fertilizertask_'+res[1]+'_'+res[2]).is(':checked') && $('#othertask_'+res[1]+'_'+res[2]).is(':checked')){
+              status='6'
+              alert(status);
+            }
+            if(!$('#fertilizertask_'+res[1]+'_'+res[2]).is(':checked') && !$('#othertask_'+res[1]+'_'+res[2]).is(':checked')){
+              status='2'
+              alert(status);
+            }
+         }
+
+         //other
+         if (res[0]=='othertask') {
+            if($('#fertilizertask_'+res[1]+'_'+res[2]).is(':checked') && $('#insecticidetask_'+res[1]+'_'+res[2]).is(':checked')){
+              status='7'
+              alert(status);
+            }
+            if($('#fertilizertask_'+res[1]+'_'+res[2]).is(':checked') && !$('#insecticidetask_'+res[1]+'_'+res[2]).is(':checked')){
+              status='5'
+              alert(status);
+            }
+            if(!$('#fertilizertask_'+res[1]+'_'+res[2]).is(':checked') && $('#insecticidetask_'+res[1]+'_'+res[2]).is(':checked')){
+              status='6'
+              alert(status);
+            }
+            if(!$('#fertilizertask_'+res[1]+'_'+res[2]).is(':checked') && !$('#insecticidetask_'+res[1]+'_'+res[2]).is(':checked')){
+              status='3'
+              alert(status);
+            }
+         }
+           
+          $.ajax({
+                  type  : "POST",
+                  url   : 'app/view/cultivation_weeklytask_ajax.php',
+                  data : {status: status, weekid: res[2]},
+                  success: function(data) {
+                      
+                      alert(data);// alert the data from the server
+                  },
+                  error : function() {
+                    alert(data);
+                  }
+            });
+
+       }
+          
+    }); 
      
      
 });

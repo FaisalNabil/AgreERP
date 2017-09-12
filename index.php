@@ -1,5 +1,5 @@
 <?php
-
+include 'app/view/header.php';
 session_start();
 	//var_dump($GLOBALS);
 	define('APP_ROOT', "$_SERVER[DOCUMENT_ROOT]/AgriERP");
@@ -22,4 +22,5 @@ session_start();
 	if($hasError){
 		include_once(APP_ROOT."/app/error.php");
 	}
+ include 'app/view/footer.php'; ?>
 ?>

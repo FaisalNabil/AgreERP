@@ -1,6 +1,5 @@
 <?php
 
-include 'header.php';
 	if(!isset($isDispatchedByFrontController)){
 		include_once("../view/error.php");
 		die;
@@ -115,4 +114,3 @@ include 'header.php';
 		 
 </div>
 
-<?php include 'footer.php'; ?>
