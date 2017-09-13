@@ -56,6 +56,16 @@
 			}
 			break;
 
+		case "end":
+			if(isset($_GET['cultivationid'])){
+				$cultivationid = $_GET['cultivationid'];
+				$cultivation = getCultivationById($cultivationid);
+				if($cultivation){
+					include_once(APP_ROOT."/app/view/cultivation_end_view.php");					
+				}
+			}
+			break;
+
 		default:
 			include_once(APP_ROOT."/app/error.php");
 	}	

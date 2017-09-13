@@ -12,11 +12,12 @@
 		$endDate = "";
 		$totalLandInUse = $_POST['landValue']." ".$_POST['landUnit'];
 		$totalCost = "";
+		$totalProduction = "";
 		$cultivationid=rand(1,999999);
 		$cropId = $_GET['cropid'];
 
-		$cultivation = array("CultivationId"=>$cultivationid, "CropId"=>$cropId, "FarmerId"=>$farmerId, "StartDate"=>$startDate, "EndDate"=>$endDate, "TotalLandInUse"=>$totalLandInUse, "TotalCost"=>$totalCost);
-		print_r($cultivation);
+		$cultivation = array("CultivationId"=>$cultivationid, "CropId"=>$cropId, "FarmerId"=>$farmerId, "StartDate"=>$startDate, "EndDate"=>$endDate, "TotalLandInUse"=>$totalLandInUse, "TotalCost"=>$totalCost, "TotalProduction"=>$totalProduction, "Status"=>'Ongoing');
+		//print_r($cultivation);
 		$weekId = getCrop_WeeklytaskByCropId($cropId);
 		//print_r($weekId);
 		
@@ -24,9 +25,9 @@
 		if(addCultivation($cultivation)){
 			foreach ($weekId as $week) {
 				$cultivation_Weeklytask = array("WeekSysId"=>$week['WeekId'], "CultivationId"=>$cultivationid, "StatusId"=>'0');
-				print_r($cultivation_Weeklytask);
+				//print_r($cultivation_Weeklytask);
 				if (addCultivation_Weeklytask($cultivation_Weeklytask)) {
-					echo "Weekly task and ";
+					//echo "Weekly task and ";
 				}
 			}
 			echo "Record Added!";

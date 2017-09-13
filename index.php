@@ -22,5 +22,5 @@ session_start();
 	if($hasError){
 		include_once(APP_ROOT."/app/error.php");
 	}
- include 'app/view/footer.php'; ?>
+ include 'app/view/footer.php';
 ?>

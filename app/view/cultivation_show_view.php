@@ -15,12 +15,15 @@
 	<?php
 		foreach($cultivationList as $cultivation){
 			$cropName=getCropById($cultivation['CropId']);
-			echo"<tr>
+			if ($cultivation['Status']=='Ongoing') {
+				echo"<tr>
 					<td>$cultivation[CultivationId]</td>
 					<td>$cropName[Name]</td>
 					<td>$cultivation[StartDate]</td>
 					<td><a href='/AgriERP/?cultivation_details&cultivationid=$cultivation[CultivationId]'>Details</a></td>
 				</tr>";
+			}
+			
 		}
 	?>	
 </table>

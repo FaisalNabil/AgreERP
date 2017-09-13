@@ -11,9 +11,10 @@
 	Estimated Production: <?=$crop['EstimatedProduction']?><br />
 	Land Type: <?=$crop['LandType']?><br />
 	Water Source: <?=$crop['WaterSource']?><br />
+	Status: <?=$cultivation['Status']?><br />
 	<hr/><hr/>
 	WEEKLY TASKS:<br />
-<form>
+
 	<?php
 		foreach($cultivationweeklytaskList as $cultivationweeklytask){
 			$weektask = getCrop_WeeklytaskById($cultivationweeklytask['WeekSysId']);
@@ -39,6 +40,7 @@
 					 <?php echo $weektask['OtherTask'] ?></input><br><br><hr/>
 	<?php
 		}
-	?>	
-
-</form>
+	?>
+	<br>
+	<a href="/AgriERP/?cultivation_end&cultivationid=<?=$cultivation['CultivationId']?>">End Cultivation</a>
+	<br>
