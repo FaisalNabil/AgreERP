@@ -1,12 +1,12 @@
 <?php require_once(APP_ROOT."/lib/data_access_helper.php") ?>
 <?php
 	function addFarmerToDb($farmer){
-		$query = "INSERT INTO Farmer(Name, District, Phone) VALUES('$farmer[Name]', '$farmer[District]', '$farmer[Phone]')";
+		$query = "INSERT INTO Farmer(FarmerId, Name, District, Phone, Password, Role) VALUES($farmer[FarmerId], '$farmer[Name]', '$farmer[District]', '$farmer[Phone]', '$farmer[Password]', '$farmer[Role]')";
 		return executeNonQuery($query);
 	}	
 	
 	function editFarmerToDb($farmer){
-		$query = "UPDATE Farmer SET Name='$farmer[Name]', District='$farmer[District]', Phone='$farmer[Phone]' WHERE FarmerId=$farmer[FarmerId]";
+		$query = "UPDATE Farmer SET Name='$farmer[Name]', District='$farmer[District]', Phone='$farmer[Phone]', 'Password=$farmer[Password]' WHERE FarmerId=$farmer[FarmerId]";
 		return executeNonQuery($query);
 	}
 	
@@ -16,7 +16,7 @@
 	}
 	
 	function getAllFarmerFromDb(){
-		$query = "SELECT FarmerId, Name, District, Phone, Password FROM Farmer";  
+		$query = "SELECT FarmerId, Name, District, Phone, Password, Role FROM Farmer";  
 		$result = executeQuery($query);	
 		$farmerList = array();
 		if($result){
@@ -28,7 +28,17 @@
 	}
 
 	function getFarmerByIdFromDb($id){
-		$query = "SELECT FarmerId, Name, District, Phone, Password FROM Farmer WHERE FarmerId=$id";  
+		$query = "SELECT FarmerId, Name, District, Phone, Password, Role FROM Farmer WHERE FarmerId=$id";  
+		$result = executeQuery($query);	
+		$farmer = null;
+		if($result){
+			$farmer = mysqli_fetch_assoc($result);
+		}
+		return $farmer;
+	}
+
+	function getFarmerByIdPasswordFromDB($id, $password){
+		$query = "SELECT Role FROM Farmer WHERE FarmerId='$id' and Password='$password'";  
 		$result = executeQuery($query);	
 		$farmer = null;
 		if($result){

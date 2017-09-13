@@ -9,13 +9,23 @@
 		$farmerid = $_POST['farmerid'];
 		$pass = $_POST['password'];
 
-		$farmer = getFarmerById($farmerid);
-		if($pass = $farmer['Password']){
+		$farmer = getFarmerByIdPassword($farmerid, $pass);
+		//echo $farmer;
+		if($farmer['Role'] == 'admin'){
 			$_SESSION['farmerid']=$farmerid;
 			//echo $_SESSION['farmerid'];
-			header('Location:?home_show');
+			header('Location:?home_admin');
 			exit();
 		}
+		else if($farmer['Role'] == 'farmer'){
+			$_SESSION['farmerid']=$farmerid;
+			//echo $_SESSION['farmerid'];
+			header('Location:?home_farmer');
+			exit();
+		}
+		else
+			echo "Please enter right credential";
+
 		
 		
 	}

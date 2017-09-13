@@ -5,11 +5,14 @@
 	}
 ?>
 <?php include_once(APP_ROOT."/core/cropweeklytask_service.php"); ?>
+<?php include_once(APP_ROOT."/core/cropregion_service.php"); ?>
 <?php include_once(APP_ROOT."/core/fertilizer_service.php"); ?>
 <?php include_once(APP_ROOT."/core/insecticide_service.php"); ?>
 <?php
 	switch($view){
 		case "add":
+			$id = $_GET['id'];
+			$crop = getCropByIdFromDb($id);
 			include_once(APP_ROOT."/app/view/cropweeklytask_add_view.php");
 			break;
 			

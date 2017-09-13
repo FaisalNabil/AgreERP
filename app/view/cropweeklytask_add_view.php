@@ -61,7 +61,7 @@
 			 <form method="post"></br></br>
 				Week Number:
 					<select name="weekNumber" id="week">
-					  <?php for($i = 1; $i<=5; $i++){ 
+					  <?php for($i = 1; $i<=$crop['TotalWeek']; $i++){ 
 						  echo "<option value='$i'>week$i</option>";
 						}?>	 
 				    </select></br></br>

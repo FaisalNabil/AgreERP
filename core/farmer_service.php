@@ -19,4 +19,8 @@
 	function getFarmerById($id){	
 		return getFarmerByIdFromDb($id);
 	}
+
+	function getFarmerByIdPassword($id, $password){
+		return getFarmerByIdPasswordFromDB($id, $password);
+	}
 ?>
