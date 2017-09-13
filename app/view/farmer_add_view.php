@@ -17,10 +17,9 @@
 	}
 ?>
 <form method="post">
-	<br /><h3>ADD FARMER</h3><hr/><br />
+	<br /><h3>REGISTER FARMER</h3><hr/><br />
 	Name:<br /><input type="text" name="name"/><br />
-	Phone:<br /><input type="text" name="phone"/><br /><br /><hr />
-	District:<br/><input type="text" name="district"/><br />
-	<input type="submit" value="Add"/>
-	<a href="/AgriERP/?farmer_show">SHOW ALL</a>
+	Phone:<br /><input type="text" name="phone"/><br /><hr />
+	District:<br/><input type="text" name="district"/><br /><br />
+	<input type="submit" value="Done"/>
 </form>

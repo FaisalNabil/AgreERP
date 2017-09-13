@@ -11,7 +11,10 @@
 	Estimated Production: <?=$crop['EstimatedProduction']?><br />
 	Land Type: <?=$crop['LandType']?><br />
 	Water Source: <?=$crop['WaterSource']?><br />
-	Status: <?=$cultivation['Status']?><br />
+	Status: <b><?=$cultivation['Status']?></b><br />
+<?php if ($cultivation['Status'] == 'Ongoing') {
+	?>
+
 	<hr/><hr/>
 	WEEKLY TASKS:<br />
 
@@ -44,3 +47,6 @@
 	<br>
 	<a href="/AgriERP/?cultivation_end&cultivationid=<?=$cultivation['CultivationId']?>">End Cultivation</a>
 	<br>
+<?php
+	}
+?>

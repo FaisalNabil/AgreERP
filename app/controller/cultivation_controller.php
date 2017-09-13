@@ -66,6 +66,16 @@
 			}
 			break;
 
+		case "history":
+			if(isset($_SESSION['farmerid'])){
+				$farmerid = $_SESSION['farmerid'];
+				$cultivationList = getAllCultivation($farmerid);
+				if($cultivationList){
+					include_once(APP_ROOT."/app/view/cultivation_history_view.php");					
+				}
+			}
+			break;
+
 		default:
 			include_once(APP_ROOT."/app/error.php");
 	}	
