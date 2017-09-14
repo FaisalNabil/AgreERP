@@ -247,5 +247,8 @@ footer{
   border-color: transparent #4e5760 transparent transparent;
   position: absolute;
   margin-left: 148px;
-  margin-top: -51px;
+  /* margin-top: -51px; */
+}
+.navbar.navbar-default {
+  height: 20px;
 }
