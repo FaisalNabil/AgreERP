@@ -16,6 +16,9 @@
 		}
 	}
 ?>
+
+<?php include 'navbar.php'; ?>
+
 <form method="post">
 	<br /><h3>ADD FERTILIZER</h3><hr/><br />
 	Name:<br /><input type="text" name="name"/><br />

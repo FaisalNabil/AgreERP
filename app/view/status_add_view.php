@@ -16,6 +16,9 @@
 		}
 	}
 ?>
+
+<?php include 'navbar.php'; ?>
+
 <form method="post">
 	<br /><h3>ADD STATUS</h3><hr/><br />
 	Id:<br /><input type="text" name="StatusId"/><br />

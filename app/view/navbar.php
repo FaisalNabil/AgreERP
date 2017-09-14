@@ -1,10 +1,3 @@
-<?php 
-	if(!isset($isDispatchedByFrontController)){
-		include_once("../view/error.php");
-		die;
-	}
-?>
-
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -17,7 +10,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/AgriERP/?farmer_show">SHOW ALL FARMERS</a></li>
+        <li><a href="/AgriERP/?farmer_show">SHOW ALL FARMERS</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">FERTILIZER <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -60,36 +53,14 @@
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="fa fa-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="fa fa-log-in"></span> Login</a></li>
+        <?php if($key!='login_logout' && $key!='login_show'){ ?>
+
+        <li><a href="/AgriERP/?login_logout"><span class="fa fa-sign-out"></span>Logout</a></li>
+        
+        <?php
+          }
+        ?>
       </ul>
     </div>
   </div>
 </nav>
-
-<br /><h3>SHOW FARMER</h3><hr/><br />
-<table>
-	<tr>
-		<td><b>NAME</b></td>
-		<td><b>PHONE</b></td>
-		<td><b>DISTRICT</b></td>
-		<td colspan="2"></td>
-	</tr>
-	<?php
-		foreach($farmerList as $farmer){
-			if($farmer['Role']!='admin'){
-				echo"<tr>
-						<td>$farmer[Name]</td>
-						<td>$farmer[Phone]</td>
-						<td>$farmer[District]</td>
-						<td><a href='/AgriERP/?farmer_edit&id=$farmer[FarmerId]'>EDIT</a></td>
-						<td><a href='/AgriERP/?farmer_delete&id=$farmer[FarmerId]'>DELETE</a></td>
-					</tr>";
-				}
-		}
-	?>	
-</table>
-
-<br /><hr />
-<a href="/AgriERP/?home_admin">BACK TO ADMIN PANEL</a>
-<br />

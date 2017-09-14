@@ -23,6 +23,9 @@
 		}
 	}
 ?>
+
+<?php include 'navbar.php'; ?>
+
 <form method="post"></br></br>
 Crops Name:</br>
 <input type="text" name="cropName"></br></br>

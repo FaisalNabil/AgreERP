@@ -16,6 +16,9 @@
 		}
 	}
 ?>
+
+ <?php include 'navbar.php'; ?>
+
 <form method="post">
 	<br /><h3>ADD REGION</h3><hr/><br />
 	Region Number:<br /><input type="text" name="regionNumber"/><br />

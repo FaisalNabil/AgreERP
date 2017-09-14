@@ -4,6 +4,9 @@
 		die;
 	}
 ?>
+
+<?php include 'navbar.php'; ?>
+
 <br /><h3>SHOW FERTILIZER</h3><hr/><br />
 <table>
 	<tr>

@@ -4,6 +4,9 @@
 		die;
 	}
 ?>
+
+<?php include 'navbar.php'; ?>
+
 <br /><h3>SHOW STATUS</h3><hr/><br />
 <table>
 	<tr>
