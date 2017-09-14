@@ -5,5 +5,5 @@
 	}
 ?>
 
-<a href="/AgriERP/?cultivation_cropshow">LIST OF CROPS</a> | <a href="/AgriERP/?login_show">Login</a> | <a href="/AgriERP/?farmer_add">Register</a>
+<a href="/AgriERP/?cultivation_cropshow">LIST OF CROPS</a> | <a href="/AgriERP/?login_show">LOGIN</a> | <a href="/AgriERP/?farmer_add">REGISTER</a>
 

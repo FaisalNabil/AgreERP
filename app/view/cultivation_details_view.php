@@ -6,7 +6,6 @@
 ?>
 
 	<h3>CULTIVATION OF <?=$crop['Name']?></h3><hr/><br />
-	Cultivation Id: <?=$cultivation['CultivationId']?><input type="hidden" name="cultivationId" value="<?=$cultivation['CultivationId']?>"/><br />
 	Estimated Cost: <?=$crop['TotalCost']?><br />
 	Estimated Production: <?=$crop['EstimatedProduction']?><br />
 	Land Type: <?=$crop['LandType']?><br />
@@ -45,7 +44,8 @@
 		}
 	?>
 	<br>
-	<a href="/AgriERP/?cultivation_end&cultivationid=<?=$cultivation['CultivationId']?>">End Cultivation</a>
+	<a href="/AgriERP/?cultivation_end&cultivationid=<?=$cultivation['CultivationId']?>">END CULTIVATION</a> | 
+	<a href="/AgriERP/?cultivation_show">BACK TO CULTIVATION LIST</a>
 	<br>
 <?php
 	}

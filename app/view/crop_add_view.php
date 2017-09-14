@@ -1,10 +1,10 @@
 <?php include 'header.php'; ?>
 
 <?php 
-	if(!isset($isDispatchedByFrontController)){
-		include_once("../view/error.php");
-		die;
-	}
+	//if(!isset($isDispatchedByFrontController)){
+		//include_once("../view/error.php");
+		//die;
+	//}
 ?>
 <?php
 	if($_SERVER['REQUEST_METHOD']=="POST"){		

@@ -76,6 +76,17 @@
 			}
 			break;
 
+		case "historydetails":
+			if(isset($_GET['cultivationid'])){
+				$cultivationid = $_GET['cultivationid'];
+				$cultivation = getCultivationById($cultivationid);
+				$crop = getCropById($cultivation['CropId']);
+				if($cultivation){
+					include_once(APP_ROOT."/app/view/cultivation_history_details_view.php");					
+				}
+			}
+			break;
+
 		default:
 			include_once(APP_ROOT."/app/error.php");
 	}	

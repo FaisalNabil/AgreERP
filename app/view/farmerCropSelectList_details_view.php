@@ -7,16 +7,15 @@
 
 	<br /><h3>DETAILS: <?=$crop['Name']?> </h3><hr/><br />
 
-	Crops Id:<?=$crop['CropId']?><input type="hidden" name="CropId" value="<?=$crop['CropId']?>"/><br />
-	Crops Name:<?=$crop['Name']?> <br />
-	Crops Group Name:<?=$crop['CropGroupName']?> <br />
-	Region:<?=$region['Area']?> <br />
-	Time Period:<?=$crop['TimePeriod']?> <br />
-	Total Cost:<?=$crop['TotalCost']?> <br />
-	Estimated Production:<?=$crop['EstimatedProduction']?> <br />
-	Land Type:<?=$crop['LandType']?> <br />
-	Water Source: <?=$crop['WaterSource']?> <br />
+	<b>CROP NAME</b>: <?=$crop['Name']?> <br />
+	<b>GROUP</b>: <?=$crop['CropGroupName']?> <br />
+	BEST IN <?=$region['Area']?> <br />
+	<b>TIME PERIOD</b>: <?=$crop['TimePeriod']?> <br />
+	<b>TOTAL COST</b>: <?=$crop['TotalCost']?> <br />
+	<b>ESTIMATED PRODUCTION</b>: <?=$crop['EstimatedProduction']?> <br />
+	<b>LAND TYPE</b>: <?=$crop['LandType']?> <br />
+	<b>WATER SOURCE</b>: <?=$crop['WaterSource']?> <br /><br />
 
-	<a href="/AgriERP/?cultivation_add&cropid=<?=$crop['CropId']?>">Add To Cultivation</a>
+	<a href="/AgriERP/?cultivation_add&cropid=<?=$crop['CropId']?>">ADD TO CULTIVATION</a> | 
 	<a href="/AgriERP/?cultivation_cropshow">SHOW ALL</a>
 

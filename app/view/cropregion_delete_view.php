@@ -31,3 +31,7 @@
 	<input type="submit" value="Delete"/>
 	<a href="/AgriERP/?cropregion_show">SHOW ALL</a>
 </form>
+
+<br /><hr />
+<a href="/AgriERP/?home_admin">BACK TO ADMIN PANEL</a>
+<br />

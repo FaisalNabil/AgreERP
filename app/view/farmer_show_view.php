@@ -15,14 +15,19 @@
 	</tr>
 	<?php
 		foreach($farmerList as $farmer){
-			echo"<tr>
-					<td>$farmer[Name]</td>
-					<td>$farmer[District]</td>
-					<td>$farmer[Phone]</td>
-					<td><a href='/AgriERP/?farmer_edit&id=$farmer[FarmerId]'>edit</a></td>
-					<td><a href='/AgriERP/?farmer_delete&id=$farmer[FarmerId]'>delete</a></td>
-				</tr>";
+			if($farmer['Role']!='admin'){
+				echo"<tr>
+						<td>$farmer[Name]</td>
+						<td>$farmer[Phone]</td>
+						<td>$farmer[District]</td>
+						<td><a href='/AgriERP/?farmer_edit&id=$farmer[FarmerId]'>EDIT</a></td>
+						<td><a href='/AgriERP/?farmer_delete&id=$farmer[FarmerId]'>DELETE</a></td>
+					</tr>";
+				}
 		}
 	?>	
 </table>
+
 <br /><hr />
+<a href="/AgriERP/?home_admin">BACK TO ADMIN PANEL</a>
+<br />

@@ -26,5 +26,7 @@
 	Phone: <input type="text" name="phone" value="<?=$farmer['Phone']?>"/><br /><br /><hr />
 	District: <input type="text" name="district" value="<?=$farmer['District']?>"/><br /><br />
 	<input type="submit" value="Update"/>
-	<a href="/AgriERP/?farmer_show">SHOW ALL</a>
 </form>
+<br /><hr />
+<a href="/AgriERP/?farmer_show">BACK TO ALL FARMERS</a> | <a href="/AgriERP/?home_admin">BACK TO ADMIN PANEL</a>
+<br />

@@ -22,5 +22,7 @@
 	Phone: <?=$farmer['Phone']?><br />
 	District: <?=$farmer['District']?><br /> 
 	<input type="submit" value="Delete"/>
-	<a href="/AgriERP/?farmer_show">SHOW ALL</a>
 </form>
+<br /><hr />
+<a href="/AgriERP/?farmer_show">BACK TO ALL FARMERS</a> | <a href="/AgriERP/?home_admin">BACK TO ADMIN PANEL</a>
+<br />

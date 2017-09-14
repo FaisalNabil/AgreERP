@@ -5,6 +5,8 @@
 	}
 ?>
 <br /><h3>SHOW CULTIVATION OF <?=$farmer['Name']?></h3><hr/><br />
+<?php if($cultivationList[0]['Status'] == 'Ongoing'){
+	?>
 <table>
 	<tr>
 		<td><b>ID</b></td>
@@ -20,11 +22,16 @@
 					<td>$cultivation[CultivationId]</td>
 					<td>$cropName[Name]</td>
 					<td>$cultivation[StartDate]</td>
-					<td><a href='/AgriERP/?cultivation_details&cultivationid=$cultivation[CultivationId]'>Details</a></td>
+					<td><a href='/AgriERP/?cultivation_details&cultivationid=$cultivation[CultivationId]'>DETAILS</a></td>
 				</tr>";
 			}
 			
 		}
 	?>	
-</table>
+</table><hr / >
+<?php
+	}else
+	echo '<h4>NO ONGOING CULTIVATION</h4><hr / >';
+?>
+<br /><a href="/AgriERP/?home_farmer">BACK TO FARMER HOME</a>
 <br /><hr />

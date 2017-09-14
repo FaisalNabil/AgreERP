@@ -21,11 +21,12 @@
 					<td>$cultivation[CultivationId]</td>
 					<td>$cropName[Name]</td>
 					<td>$cultivation[StartDate]</td>
-					<td><a href='/AgriERP/?cultivation_details&cultivationid=$cultivation[CultivationId]'>Details</a></td>
+					<td><a href='/AgriERP/?cultivation_historydetails&cultivationid=$cultivation[CultivationId]'>DETAILS</a></td>
 				</tr>";
 			}
 			
 		}
 	?>	
 </table>
+<br /><a href="/AgriERP/?home_farmer">BACK TO FARMER HOME</a>
 <br /><hr />

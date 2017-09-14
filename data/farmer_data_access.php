@@ -1,7 +1,7 @@
 <?php require_once(APP_ROOT."/lib/data_access_helper.php") ?>
 <?php
 	function addFarmerToDb($farmer){
-		$query = "INSERT INTO Farmer(FarmerId, Name, District, Phone, Password, Role) VALUES($farmer[FarmerId], '$farmer[Name]', '$farmer[District]', '$farmer[Phone]', '$farmer[Password]', '$farmer[Role]')";
+		$query = "INSERT INTO Farmer(Name, District, Phone, Password, Role) VALUES('$farmer[Name]', '$farmer[District]', '$farmer[Phone]', '$farmer[Password]', '$farmer[Role]')";
 		return executeNonQuery($query);
 	}	
 	
@@ -37,8 +37,8 @@
 		return $farmer;
 	}
 
-	function getFarmerByIdPasswordFromDB($id, $password){
-		$query = "SELECT Role FROM Farmer WHERE FarmerId='$id' and Password='$password'";  
+	function getFarmerByPhonePasswordFromDB($phone, $password){
+		$query = "SELECT FarmerId, Name, District, Phone, Password, Role FROM Farmer WHERE Phone='$phone' and Password='$password'";  
 		$result = executeQuery($query);	
 		$farmer = null;
 		if($result){

@@ -28,3 +28,7 @@
 	<input type="submit" value="Update"/>
 	<a href="/AgriERP/?fertilizer_show">SHOW ALL</a>
 </form>
+
+<br /><hr />
+<a href="/AgriERP/?home_admin">BACK TO ADMIN PANEL</a>
+<br />

@@ -11,7 +11,10 @@
 		case "show":
 			include_once(APP_ROOT."/app/view/login_show_view.php");
 			break;
-			
+		case "logout":
+			session_destroy() ;
+			include_once(APP_ROOT."/app/view/home_view.php");
+			break;
 		default:
 			include_once(APP_ROOT."/app/error.php");
 	}	

@@ -20,7 +20,7 @@
 		return getFarmerByIdFromDb($id);
 	}
 
-	function getFarmerByIdPassword($id, $password){
-		return getFarmerByIdPasswordFromDB($id, $password);
+	function getFarmerByPhonePassword($phone, $password){
+		return getFarmerByPhonePasswordFromDB($phone, $password);
 	}
 ?>

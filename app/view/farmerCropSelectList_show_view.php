@@ -6,27 +6,18 @@
 ?>
 
 <br /><h3>SHOW CROP</h3><hr/><br />
-<table>
-	<tr>
-		<td><b>NAME</b></td>
-		<td><b>GROUP</b></td>
-		<td><b>TIME PERIOD</b></td>
-		<td><b>TOTAL COST</b></td>
-		<td><b>ESTIMAED PRODCTION</b></td>
-		<td colspan="3"></td>
-	</tr>
+
 	<?php
 		foreach($cropList as $crop){
-			echo"<tr>
-					<td>$crop[Name]</td>
-					<td>$crop[CropGroupName]</td>
-					<td>$crop[TimePeriod]</td>
-					<td>$crop[TotalCost]</td>
-					<td>$crop[EstimatedProduction]</td>
-					<td><a href='/AgriERP/?cultivation_cropdetails&cropid=$crop[CropId]'>details</a></td>
-					<td><a href='/AgriERP/?cultivation_show'>SHOW ALL CULTIVATION</a></td>
-				</tr>";
+			if(isset($_SESSION['farmerid']))
+				$addToCultivationLink='/AgriERP/?cultivation_add&cropid='.$crop['CropId'];
+			else
+				$addToCultivationLink='/AgriERP/?login_show';
+
+			echo"CROP NAME: $crop[Name]<br>
+					GROUP: $crop[CropGroupName]<br>
+					TIME PERIOD: $crop[TimePeriod] | COST: $crop[TotalCost] | PRODUCTION: $crop[EstimatedProduction] KG <br>
+					<a href='/AgriERP/?cultivation_cropdetails&cropid=$crop[CropId]'>DETAILS</a> | <a href=$addToCultivationLink>ADD TO CULTIVATION</a><br /><hr />";
 		}
-	?>	
-</table>
+	?>
 <br /><hr />

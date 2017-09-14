@@ -44,7 +44,7 @@
 		<option value="Acre">Acre</option>
 	</select></br></br>
 	
-	<input type="submit" value="Add"/>
-	<a href="/AgriERP/?cultivation_cropshow">SHOW ALL CROPS</a>
+	<input type="submit" value="Add"/> <br /><br />
+	<a href="/AgriERP/?cultivation_cropshow">SHOW ALL CROPS</a> | 
 	<a href="/AgriERP/?cultivation_show">SHOW ALL CULTIVATION</a>
 </form>

@@ -24,3 +24,7 @@
 	?>	
 </table>
 <br /><hr />
+
+<br /><hr />
+<a href="/AgriERP/?home_admin">BACK TO ADMIN PANEL</a>
+<br />
