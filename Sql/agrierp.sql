@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2017 at 05:51 PM
+-- Generation Time: Sep 14, 2017 at 09:56 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -16,12 +16,13 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Database: `agrierp`
---
 
 CREATE DATABASE IF NOT EXISTS `agrierp` DEFAULT CHARACTER SET = 'utf8' COLLATE utf8_general_ci;
 USE `agrierp`;
+
+--
+-- Database: `agrierp`
+--
 
 -- --------------------------------------------------------
 
@@ -36,17 +37,19 @@ CREATE TABLE `crop` (
   `TimePeriod` varchar(20) NOT NULL,
   `TotalCost` varchar(7) NOT NULL,
   `EstimatedProduction` varchar(7) NOT NULL,
-  `LandType` varchar(10) NOT NULL,
+  `LandType` varchar(20) NOT NULL,
   `WaterSource` varchar(7) NOT NULL,
-  `CropGroupName` varchar(50) NOT NULL
+  `CropGroupName` varchar(50) NOT NULL,
+  `TotalWeeks` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `crop`
 --
 
-INSERT INTO `crop` (`CropId`, `Name`, `RegionId`, `TimePeriod`, `TotalCost`, `EstimatedProduction`, `LandType`, `WaterSource`, `CropGroupName`) VALUES
-(1, 'BRRI-50', 2, 'January-April', '15000', '500', 'High groun', 'Well', 'Rice');
+INSERT INTO `crop` (`CropId`, `Name`, `RegionId`, `TimePeriod`, `TotalCost`, `EstimatedProduction`, `LandType`, `WaterSource`, `CropGroupName`, `TotalWeeks`) VALUES
+(1, 'BRRI-50', 2, 'January-April', '15000', '500', 'High groun', 'Well', 'Rice', 10),
+(2, 'Kanchan', 1, 'Select Any One', '115', '2112', 'High groun', 'River', 'Oilseed', 12);
 
 -- --------------------------------------------------------
 
@@ -81,7 +84,7 @@ CREATE TABLE `cropinsecticide` (
 CREATE TABLE `cropweeklytask` (
   `WeekId` int(15) NOT NULL,
   `WeekNumber` varchar(3) NOT NULL,
-  `CropId` int(15) NOT NULL,
+  `CropId` int(15) DEFAULT NULL,
   `CropInsectSysId` int(15) NOT NULL,
   `CropFertSysId` int(15) NOT NULL,
   `FertilizerTask` varchar(255) NOT NULL,
@@ -94,7 +97,16 @@ CREATE TABLE `cropweeklytask` (
 --
 
 INSERT INTO `cropweeklytask` (`WeekId`, `WeekNumber`, `CropId`, `CropInsectSysId`, `CropFertSysId`, `FertilizerTask`, `InsecticideTask`, `OtherTask`) VALUES
-(7, '1', 1, 2, 3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet vehicula turpis in gravida. Ut commodo leo vel maximus viverra. Vivamus tincidunt varius lacus vel placerat. Phasellus lectus lorem, vulputate vel orci vel, feugiat condimentum quam.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet vehicula turpis in gravida. Ut commodo leo vel maximus viverra. Vivamus tincidunt varius lacus vel placerat. Phasellus lectus lorem, vulputate vel orci vel, feugiat condimentum quam.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet vehicula turpis in gravida. Ut commodo leo vel maximus viverra. Vivamus tincidunt varius lacus vel placerat. Phasellus lectus lorem, vulputate vel orci vel, feugiat condimentum quam.');
+(7, '1', 1, 2, 3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet vehicula turpis in gravida. Ut commodo leo vel maximus viverra. Vivamus tincidunt varius lacus vel placerat. Phasellus lectus lorem, vulputate vel orci vel, feugiat condimentum quam.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet vehicula turpis in gravida. Ut commodo leo vel maximus viverra. Vivamus tincidunt varius lacus vel placerat. Phasellus lectus lorem, vulputate vel orci vel, feugiat condimentum quam.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet vehicula turpis in gravida. Ut commodo leo vel maximus viverra. Vivamus tincidunt varius lacus vel placerat. Phasellus lectus lorem, vulputate vel orci vel, feugiat condimentum quam.'),
+(8, '1', 1, 2, 2, '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet vehicula turpis in gravida. Ut commodo leo vel maximus viverra. Vivamus tincidunt varius lacus vel placerat. Phasellus lectus lorem, vulputate vel orci vel, feugiat condimentum quam.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet vehicula turpis in gravida. Ut commodo leo vel maximus viverra. Vivamus tincidunt varius lacus vel placerat. Phasellus lectus lorem, vulputate vel orci vel, feugiat condimentum quam.'),
+(9, '1', 1, 2, 2, 'as', 'as', 'asad'),
+(10, '1', 1, 2, 2, 'as', 'as', 'asad'),
+(11, '1', 1, 2, 3, 'xc', 'cdcsdc', 'sdvsdv'),
+(12, '3', 1, 2, 3, 'xc', 'cdcsdc', 'sdvsdv'),
+(13, '1', 1, 2, 2, 'vhvhv', 'mbjbj', 'jhjh jh'),
+(14, '1', 1, 2, 2, 'wdce', 'dvwc', 'fvdefcv'),
+(15, '1', 1, 2, 2, 'yo', 'yo', 'honey sing'),
+(16, '1', 1, 2, 2, 'ss', 'ss', 'ss');
 
 -- --------------------------------------------------------
 
@@ -105,13 +117,22 @@ INSERT INTO `cropweeklytask` (`WeekId`, `WeekNumber`, `CropId`, `CropInsectSysId
 CREATE TABLE `cultivation` (
   `CultivationId` int(15) NOT NULL,
   `CropId` int(15) NOT NULL,
-  `FarmarId` int(15) NOT NULL,
+  `FarmerId` int(15) NOT NULL,
   `StartDate` varchar(20) NOT NULL,
   `EndDate` varchar(20) NOT NULL,
   `TotalLandInUse` varchar(20) NOT NULL,
   `TotalCost` varchar(10) NOT NULL,
-  `TotalProducation` varchar(10) NOT NULL
+  `TotalProduction` varchar(10) NOT NULL,
+  `Status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cultivation`
+--
+
+INSERT INTO `cultivation` (`CultivationId`, `CropId`, `FarmerId`, `StartDate`, `EndDate`, `TotalLandInUse`, `TotalCost`, `TotalProduction`, `Status`) VALUES
+(318069, 2, 12, '2017-09-14', '', '50 Katha', '', '', 'Ongoing'),
+(624823, 1, 12, '2017-09-13', '2017-09-13', '11 Katha', '123', '1222', 'Ended');
 
 -- --------------------------------------------------------
 
@@ -125,6 +146,22 @@ CREATE TABLE `cultivationweeklytask` (
   `StatusId` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `cultivationweeklytask`
+--
+
+INSERT INTO `cultivationweeklytask` (`WeekSysId`, `CultivationId`, `StatusId`) VALUES
+(7, 624823, 7),
+(8, 624823, 1),
+(9, 624823, 0),
+(10, 624823, 0),
+(11, 624823, 0),
+(12, 624823, 0),
+(13, 624823, 0),
+(14, 624823, 0),
+(15, 624823, 0),
+(16, 624823, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -136,15 +173,17 @@ CREATE TABLE `farmer` (
   `Name` varchar(35) NOT NULL,
   `District` varchar(35) NOT NULL,
   `Phone` varchar(15) NOT NULL,
-  `Password` varchar(15) NOT NULL
+  `Password` varchar(15) NOT NULL,
+  `Role` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `farmer`
 --
 
-INSERT INTO `farmer` (`FarmerId`, `Name`, `District`, `Phone`, `Password`) VALUES
-(1, 'ashiq', 'pabna', '01532312342', '1234');
+INSERT INTO `farmer` (`FarmerId`, `Name`, `District`, `Phone`, `Password`, `Role`) VALUES
+(1, 'admin', 'none', 'admin', '1234', 'admin'),
+(12, 'Ashik', 'Dhaka', '014', '12334', 'farmer');
 
 -- --------------------------------------------------------
 
@@ -237,7 +276,14 @@ CREATE TABLE `status` (
 --
 
 INSERT INTO `status` (`StatusId`, `DoneTask`) VALUES
-(0, 'None');
+(0, 'None'),
+(1, 'Fertilizer Task'),
+(2, 'Insecticide Task'),
+(3, 'Other Task'),
+(4, 'Fertilizer Task,Insecticide Task'),
+(5, 'Fertilizer Task,Other  Task'),
+(6, ' Insecticide Task,Other Task'),
+(7, 'Fertilizer Task,Insecticide Task,Other Task');
 
 --
 -- Indexes for dumped tables
@@ -281,7 +327,7 @@ ALTER TABLE `cropweeklytask`
 ALTER TABLE `cultivation`
   ADD PRIMARY KEY (`CultivationId`),
   ADD KEY `CropId` (`CropId`),
-  ADD KEY `FarmarId` (`FarmarId`);
+  ADD KEY `FarmarId` (`FarmerId`);
 
 --
 -- Indexes for table `cultivationweeklytask`
@@ -336,7 +382,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `crop`
 --
 ALTER TABLE `crop`
-  MODIFY `CropId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `CropId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `cropfertilizer`
 --
@@ -351,17 +397,12 @@ ALTER TABLE `cropinsecticide`
 -- AUTO_INCREMENT for table `cropweeklytask`
 --
 ALTER TABLE `cropweeklytask`
-  MODIFY `WeekId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `WeekId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `cultivationweeklytask`
 --
 ALTER TABLE `cultivationweeklytask`
-  MODIFY `WeekSysId` int(15) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `farmer`
---
-ALTER TABLE `farmer`
-  MODIFY `FarmerId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `WeekSysId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `fertilizer`
 --
@@ -412,7 +453,7 @@ ALTER TABLE `cropweeklytask`
 --
 ALTER TABLE `cultivation`
   ADD CONSTRAINT `cultivation_ibfk_1` FOREIGN KEY (`CropId`) REFERENCES `crop` (`CropId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cultivation_ibfk_2` FOREIGN KEY (`FarmarId`) REFERENCES `farmer` (`FarmerId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cultivation_ibfk_2` FOREIGN KEY (`FarmerId`) REFERENCES `farmer` (`FarmerId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `cultivationweeklytask`
