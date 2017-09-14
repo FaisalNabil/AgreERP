@@ -4,6 +4,13 @@
 		die;
 	}
 ?>
+
+<?php 
+  $name = "cultivation_show_view";
+  include 'navbar-farmer.php';
+
+?>
+
 <br /><h3>SHOW CULTIVATION OF <?=$farmer['Name']?></h3><hr/><br />
 <?php if($cultivationList[0]['Status'] == 'Ongoing'){
 	?>
