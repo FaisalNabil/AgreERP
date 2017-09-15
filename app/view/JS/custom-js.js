@@ -54,7 +54,7 @@ $(document).ready(function(){
                 }
           });
       });
-     //+res[1]+'_'+res[2]
+
      $('input[type=checkbox]').click(function(){
        var name = $(this).attr("name");
        if ($('#'+name).is(':checked')) {
@@ -67,19 +67,19 @@ $(document).ready(function(){
          if (res[0]=='fertilizertask') { 
             if($('#insecticidetask_'+res[1]+'_'+res[2]).is(':checked') && $('#othertask_'+res[1]+'_'+res[2]).is(':checked')){
               status='7'
-              alert(status);
+              //alert(status);
             }
             if($('#insecticidetask_'+res[1]+'_'+res[2]).is(':checked') && !$('#othertask_'+res[1]+'_'+res[2]).is(':checked')){
               status='4'
-              alert(status);
+              //alert(status);
             }
             if(!$('#insecticidetask_'+res[1]+'_'+res[2]).is(':checked') && $('#othertask_'+res[1]+'_'+res[2]).is(':checked')){
               status='5'
-              alert(status);
+              //alert(status);
             }
             if(!$('#insecticidetask_'+res[1]+'_'+res[2]).is(':checked') && !$('#othertask_'+res[1]+'_'+res[2]).is(':checked')){
               status='1'
-              alert(status);
+              //alert(status);
             }
          }
 
@@ -87,19 +87,19 @@ $(document).ready(function(){
          if (res[0]=='insecticidetask') {
             if($('#fertilizertask_'+res[1]+'_'+res[2]).is(':checked') && $('#othertask_'+res[1]+'_'+res[2]).is(':checked')){
               status='7'
-              alert(status);
+              //alert(status);
             }
             if($('#fertilizertask_'+res[1]+'_'+res[2]).is(':checked') && !$('#othertask_'+res[1]+'_'+res[2]).is(':checked')){
               status='4'
-              alert(status);
+              //alert(status);
             }
             if(!$('#fertilizertask_'+res[1]+'_'+res[2]).is(':checked') && $('#othertask_'+res[1]+'_'+res[2]).is(':checked')){
               status='6'
-              alert(status);
+              //alert(status);
             }
             if(!$('#fertilizertask_'+res[1]+'_'+res[2]).is(':checked') && !$('#othertask_'+res[1]+'_'+res[2]).is(':checked')){
               status='2'
-              alert(status);
+              //alert(status);
             }
          }
 
@@ -107,19 +107,19 @@ $(document).ready(function(){
          if (res[0]=='othertask') {
             if($('#fertilizertask_'+res[1]+'_'+res[2]).is(':checked') && $('#insecticidetask_'+res[1]+'_'+res[2]).is(':checked')){
               status='7'
-              alert(status);
+              //alert(status);
             }
             if($('#fertilizertask_'+res[1]+'_'+res[2]).is(':checked') && !$('#insecticidetask_'+res[1]+'_'+res[2]).is(':checked')){
               status='5'
-              alert(status);
+              //alert(status);
             }
             if(!$('#fertilizertask_'+res[1]+'_'+res[2]).is(':checked') && $('#insecticidetask_'+res[1]+'_'+res[2]).is(':checked')){
               status='6'
-              alert(status);
+              //alert(status);
             }
             if(!$('#fertilizertask_'+res[1]+'_'+res[2]).is(':checked') && !$('#insecticidetask_'+res[1]+'_'+res[2]).is(':checked')){
               status='3'
-              alert(status);
+              //alert(status);
             }
          }
            
@@ -129,7 +129,7 @@ $(document).ready(function(){
                   data : {status: status, weekid: res[2]},
                   success: function(data) {
                       
-                      alert(data);// alert the data from the server
+                      //alert(data);// alert the data from the server
                   },
                   error : function() {
                     alert(data);

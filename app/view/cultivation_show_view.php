@@ -12,7 +12,14 @@
 ?>
 
 <br /><h3>SHOW CULTIVATION OF <?=$farmer['Name']?></h3><hr/><br />
-<?php if($cultivationList[0]['Status'] == 'Ongoing'){
+<?php 
+$stat = 'false';
+for ($i = 0; $i < sizeof($cultivationList); $i++) {
+	if($cultivationList[$i]['Status'] == 'Ongoing'){
+		$stat = 'true' ;
+	}
+}
+if($stat == 'true'){
 	?>
 <table>
 	<tr>

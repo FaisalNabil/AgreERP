@@ -32,7 +32,7 @@
 
 		case "show":
 				$farmerid = $_SESSION['farmerid'];
-				$cultivationList = getAllCultivation($farmerid); //Getting the model for view
+				$cultivationList = getAllCultivation($farmerid); 
 				$farmer = getFarmerById($farmerid);
 				if($cultivationList){
 					//print_r($cultivationList);
