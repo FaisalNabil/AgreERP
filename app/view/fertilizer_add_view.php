@@ -17,7 +17,7 @@
 		}
 	}
 ?>
-
+<div class="container">
 
 <form method="post">
 	<br /><h3>ADD FERTILIZER</h3><hr/><br />
@@ -25,8 +25,9 @@
 	Price Unit:<br /><input type="number" name="pricePerUnit"/><br />
 	
 	<input type="submit" value="Add"/>
-	<a href="/AgriERP/?fertilizer_show">SHOW ALL</a>
+	<a href="/AgriERP/?fertilizer_show" class="btn btn-primary">SHOW ALL</a>
 </form>
 <br /><hr />
-<a href="/AgriERP/?home_admin">BACK TO ADMIN PANEL</a>
+<a href="/AgriERP/?home_admin" class="btn btn-primary">BACK TO ADMIN PANEL</a>
 <br />
+</div>

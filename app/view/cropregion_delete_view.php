@@ -15,6 +15,8 @@
 	}
 ?>
 
+<div class="container">
+
 <form method="post">
 	<br /><h3>DELETE CROP</h3><hr/><br />
 	
@@ -35,3 +37,5 @@
 <br /><hr />
 <a href="/AgriERP/?home_admin">BACK TO ADMIN PANEL</a>
 <br />
+
+</div>

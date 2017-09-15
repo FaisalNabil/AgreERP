@@ -34,6 +34,8 @@
 		}
 	}
 ?>
+<div class="container">
+
 <form method="post">
 	<br /><h3>ADD CULTIVATION</h3><hr/><br />
 	Total Land In Use:<br /><input type="number" name="landValue"/>
@@ -48,3 +50,4 @@
 	<a href="/AgriERP/?cultivation_cropshow">SHOW ALL CROPS</a> | 
 	<a href="/AgriERP/?cultivation_show">SHOW ALL CULTIVATION</a>
 </form>
+</div>

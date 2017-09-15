@@ -21,6 +21,7 @@
 		}
 	}
 ?>
+<div class="container">
 <form method="post">
 	<br /><h3>EDIT INSECTICIDE</h3><hr/><br />
 	Insecticide Id: <?=$insecticide['InsecticideId']?><input type="hidden" name="insecticideId" value="<?=$insecticide['InsecticideId']?>"/><br />
@@ -32,3 +33,4 @@
 	<input type="submit" value="Update"/>
 	<a href="/AgriERP/?insecticide_show">SHOW ALL</a>
 </form>
+</div>

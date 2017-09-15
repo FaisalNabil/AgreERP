@@ -5,10 +5,18 @@
 	}
 ?>
 <?php 
-  $name = "cultivation_show_view";
-  include 'navbar-farmer.php';
+	if(isset($_SESSION['role']) && $_SESSION['role']=='farmer'){
+		$name = "cultivation_show_view";
+	  	include 'navbar-farmer.php';
+	}else{
+		$name = "farmerCropSelectList_show_view";
+	  	include 'navbar-home.php';
+	}
+  
 
 ?>
+<div class="container">
+
 	<h3>CULTIVATION OF <?=$crop['Name']?></h3><hr/><br />
 	Estimated Cost: <?=$crop['TotalCost']?><br />
 	Estimated Production: <?=$crop['EstimatedProduction']?><br />
@@ -54,3 +62,4 @@
 <?php
 	}
 ?>
+</div>

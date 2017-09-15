@@ -23,6 +23,7 @@
 		}
 	}
 ?>
+<div class="container">
 
 <form method="POST">
 	Total Cost: <input type="number" name="TotalCost"><br><br>
@@ -31,3 +32,4 @@
 	<input type="submit" value="End Cultivation">
 	<a href="/AgriERP/?cultivation_show">SHOW ALL CULTIVATION</a>
 </form>
+</div>

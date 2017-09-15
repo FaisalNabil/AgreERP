@@ -18,7 +18,7 @@
 		}
 	}
 ?>
-
+<div class="container">
 <form method="post">
 	<br /><h3>EDIT FARMER</h3><hr/><br />
 	FarmerId: <?=$farmer['FarmerId']?><input type="hidden" name="farmerId" value="<?=$farmer['FarmerId']?>"/><br />
@@ -28,5 +28,6 @@
 	<input type="submit" value="Update"/>
 </form>
 <br /><hr />
-<a href="/AgriERP/?farmer_show">BACK TO ALL FARMERS</a> | <a href="/AgriERP/?home_admin">BACK TO ADMIN PANEL</a>
+<a href="/AgriERP/?farmer_show" class="btn btn-primary">BACK TO ALL FARMERS</a> | <a href="/AgriERP/?home_admin" class="btn btn-primary">BACK TO ADMIN PANEL</a>
 <br />
+</div>

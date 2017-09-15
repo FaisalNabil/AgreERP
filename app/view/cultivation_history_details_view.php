@@ -10,6 +10,7 @@
   include 'navbar-farmer.php';
 
 ?>
+<div class="container">
 	<h3>CULTIVATION OF <?=$crop['Name']?></h3><hr/><br />
 	Total Cost: <?=$cultivation['TotalCost']?><br />
 	Total Production: <?=$cultivation['TotalProduction']?><br />
@@ -18,3 +19,4 @@
 	Ended In: <?=$cultivation['EndDate']?><br /><br />
 	<a href="/AgriERP/?cultivation_history">BACK TO HISTORY</a>
 	<hr>
+</div>

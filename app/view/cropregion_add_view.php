@@ -27,7 +27,7 @@
 	}
 ?>
 
-
+<div class="container">
 <form method="post"></br></br>
 Crops Name:</br>
 <input type="text" name="cropName"></br></br>
@@ -78,3 +78,5 @@ Water Source:
 <br /><hr />
 <a href="/AgriERP/?home_admin">BACK TO ADMIN PANEL</a>
 <br />
+
+</div>

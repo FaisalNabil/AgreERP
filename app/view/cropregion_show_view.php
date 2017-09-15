@@ -7,6 +7,8 @@
 
 <?php include 'navbar.php'; ?>
 
+<div class="container">
+
 <br /><h3>SHOW CROP</h3><hr/><br />
 <table>
 	<tr>

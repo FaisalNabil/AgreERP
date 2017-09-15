@@ -20,6 +20,7 @@
 		}
 	}
 ?>
+<div class="container">
 <form method="post">
 	<br /><h3>EDIT FERTILIZER</h3><hr/><br />
 	Fertilizer Id: <?=$fertilizer['FertilizerId']?><input type="hidden" name="fertilizerId" value="<?=$fertilizer['FertilizerId']?>"/><br />
@@ -27,9 +28,10 @@
 	PricePer Unit: <input type="text" name="pricePerUnit" value="<?=$fertilizer['PricePerUnit']?>"/><br />
 
 	<input type="submit" value="Update"/>
-	<a href="/AgriERP/?fertilizer_show">SHOW ALL</a>
+	<a href="/AgriERP/?fertilizer_show" class="btn btn-primary">SHOW ALL</a>
 </form>
 
 <br /><hr />
-<a href="/AgriERP/?home_admin">BACK TO ADMIN PANEL</a>
+<a href="/AgriERP/?home_admin" class="btn btn-primary">BACK TO ADMIN PANEL</a>
 <br />
+</div>

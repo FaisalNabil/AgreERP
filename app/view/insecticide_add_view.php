@@ -20,6 +20,7 @@
 		}
 	}
 ?>
+<div class="container">
 
 <form method="post">
 	<br /><h3>ADD INSECTICIDE</h3><hr/><br />
@@ -33,5 +34,6 @@
 </form>
 
 <br /><hr />
-<a href="/AgriERP/?home_admin">BACK TO ADMIN PANEL</a>
+<a href="/AgriERP/?home_admin" class="btn btn-primary">BACK TO ADMIN PANEL</a>
 <br />
+</div>

@@ -16,6 +16,7 @@
 		}
 	}
 ?>
+<div class="container">
 <form method="post">
 	<br /><h3>DELETE INSECTICIDE</h3><hr/><br />
 	Id: <?=$insecticide['InsecticideId']?><input type="hidden" name="InsecticideId" value="<?=$insecticide['InsecticideId']?>"/><br />
@@ -28,5 +29,6 @@
 </form>
 
 <br /><hr />
-<a href="/AgriERP/?home_admin">BACK TO ADMIN PANEL</a>
+<a href="/AgriERP/?home_admin" class="btn btn-primary">BACK TO ADMIN PANEL</a>
 <br />
+</div>

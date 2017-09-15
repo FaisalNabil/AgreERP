@@ -10,6 +10,7 @@
   include 'navbar-farmer.php';
 
 ?>
+<div class="container">
 <br /><h3>HISTORY</h3><hr/><br />
 <table>
 	<tr>
@@ -35,5 +36,7 @@
 		}
 	?>	
 </table>
-<br /><a href="/AgriERP/?home_farmer">BACK TO FARMER HOME</a>
+<br /><a href="/AgriERP/?home_farmer" class="btn btn-primary">BACK TO FARMER HOME</a>
 <br /><hr />
+
+</div>

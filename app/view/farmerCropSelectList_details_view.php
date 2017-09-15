@@ -5,9 +5,16 @@
 	}
 ?>
 <?php 
-	$name = 'crops_show_view';
-	include 'navbar-farmer.php'; 
+	if(isset($_SESSION['role']) && $_SESSION['role']=='farmer'){
+		$name = "crops_show_view";
+	  	include 'navbar-farmer.php';
+	}else{
+		$name = "farmerCropSelectList_show_view";
+	  	include 'navbar-home.php';
+	}
 ?>
+
+<div class="container">
 	<br /><h3>DETAILS: <?=$crop['Name']?> </h3><hr/><br />
 
 	<b>CROP NAME</b>: <?=$crop['Name']?> <br />
@@ -18,7 +25,12 @@
 	<b>ESTIMATED PRODUCTION</b>: <?=$crop['EstimatedProduction']?> <br />
 	<b>LAND TYPE</b>: <?=$crop['LandType']?> <br />
 	<b>WATER SOURCE</b>: <?=$crop['WaterSource']?> <br /><br />
-
-	<a href="/AgriERP/?cultivation_add&cropid=<?=$crop['CropId']?>">ADD TO CULTIVATION</a> | 
-	<a href="/AgriERP/?cultivation_cropshow">SHOW ALL</a>
-
+<?php
+	if(isset($_SESSION['farmerid']))
+		$addToCultivationLink='/AgriERP/?cultivation_add&cropid='.$crop['CropId'];
+	else
+		$addToCultivationLink='/AgriERP/?login_show';
+?>
+	<a href='<?=$addToCultivationLink?>' class="btn btn-primary">ADD TO CULTIVATION</a> | 
+	<a href="/AgriERP/?cultivation_cropshow" class="btn btn-primary">SHOW ALL</a>
+</div>

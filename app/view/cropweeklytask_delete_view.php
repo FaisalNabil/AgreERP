@@ -15,6 +15,8 @@
 		}
 	}
 ?>
+
+<div class="container">
 <form method="post">
 	<br /><h3>DELETE WEEK TASK</h3><hr/><br />
 	Id: <?=$crop_Weeklytask['WeekId']?><input type="hidden" name="WeekId" value="<?=$crop_Weeklytask['WeekId']?>"/><br />
@@ -27,3 +29,4 @@
 	<input type="submit" value="Delete"/>
 	<a href="/AgriERP/?insecticide_show">SHOW ALL</a>
 </form>
+</div>

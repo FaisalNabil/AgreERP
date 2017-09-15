@@ -10,7 +10,7 @@
   include 'navbar-farmer.php';
 
 ?>
-
+<div class="container">
 <br /><h3>SHOW CULTIVATION OF <?=$farmer['Name']?></h3><hr/><br />
 <?php 
 $stat = 'false';
@@ -47,5 +47,7 @@ if($stat == 'true'){
 	}else
 	echo '<h4>NO ONGOING CULTIVATION</h4><hr / >';
 ?>
-<br /><a href="/AgriERP/?home_farmer">BACK TO FARMER HOME</a>
+<br /><a href="/AgriERP/?home_farmer" class="btn btn-primary">BACK TO FARMER HOME</a>
 <br /><hr />
+
+</div>

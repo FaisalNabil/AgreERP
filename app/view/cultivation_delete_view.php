@@ -14,6 +14,8 @@
 		}
 	}
 ?>
+<div class="container">
+
 <form method="post">
 	<br /><h3>DELETE CULTIVATION</h3><hr/><br />
 	Id: <?=$cultivation['CultivationId']?><input type="hidden" name="CultivationId" value="<?=$cultivation['CultivationId']?>"/><br />
@@ -24,3 +26,4 @@
 	<input type="submit" value="Delete"/>
 	<a href="/AgriERP/?insecticide_show">SHOW ALL</a>
 </form>
+</div>

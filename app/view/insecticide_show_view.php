@@ -6,6 +6,7 @@
 ?>
 
  <?php include 'navbar.php'; ?>
+<div class="container">
 
 <br /><h3>SHOW FARMER</h3><hr/><br />
 <table>
@@ -34,5 +35,6 @@
 <br /><hr />
 
 <br /><hr />
-<a href="/AgriERP/?home_admin">BACK TO ADMIN PANEL</a>
+<a href="/AgriERP/?home_admin" class="btn btn-primary">BACK TO ADMIN PANEL</a>
 <br />
+</div>

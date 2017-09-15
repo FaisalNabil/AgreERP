@@ -17,16 +17,17 @@
 		}
 	}
 ?>
-
+<div class="container">
 <form method="post">
 	<br /><h3>EDIT STATUS</h3><hr/><br />
 	Status Id: <?=$status['StatusId']?><input type="hidden" name="StatusId" value="<?=$status['StatusId']?>"/><br />
 	Done Task: <input type="text" name="DoneTask" value="<?=$status['DoneTask']?>"/><br />
 
 	<input type="submit" value="Update"/>
-	<a href="/AgriERP/?status_show">SHOW ALL</a>
+	<a href="/AgriERP/?status_show" class="btn btn-primary">SHOW ALL</a>
 </form>
 
 <br /><hr />
-<a href="/AgriERP/?home_admin">BACK TO ADMIN PANEL</a>
+<a href="/AgriERP/?home_admin" class="btn btn-primary">BACK TO ADMIN PANEL</a>
 <br />
+</div>
