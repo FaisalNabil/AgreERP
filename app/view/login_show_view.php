@@ -13,12 +13,14 @@
 		//echo $farmer;
 		if($farmer['Role'] == 'admin'){
 			$_SESSION['farmerid']=$farmer['FarmerId'];
+			$_SESSION['role']=$farmer['Role'];
 			//echo $_SESSION['farmerid'];
 			header('Location:?home_admin');
 			exit();
 		}
 		else if($farmer['Role'] == 'farmer'){
 			$_SESSION['farmerid']=$farmer['FarmerId'];
+			$_SESSION['role']=$farmer['Role'];
 			//echo $_SESSION['farmerid'];
 			header('Location:?home_farmer');
 			exit();
@@ -33,7 +35,7 @@
 LOGIN<hr>
 
 <form method="POST">
-	Phone: <input type="text" name="phone"><br>
+	Phone: <input type="text" name="phone"><br><br>
 	Password: <input type="password" name="password"><br><br>
 	<input type="submit" value="LOGIN"/>
 </form>

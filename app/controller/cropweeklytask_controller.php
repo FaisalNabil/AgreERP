@@ -44,6 +44,7 @@
 		case "show":
 			if(isset($_GET['cropid'])){
 				$id = $_GET['cropid'];
+				$crop = getCropById($id);
 				$crop_WeeklytaskList = getCrop_WeeklytaskByCropId($id); //Getting the model for view
 				if(count($crop_WeeklytaskList)>0){
 					include_once(APP_ROOT."/app/view/cropweeklytask_show_view.php");

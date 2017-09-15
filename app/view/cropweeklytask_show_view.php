@@ -4,8 +4,9 @@
 		die;
 	}
 ?>
+<?php include 'navbar.php'; ?>
 
-<br /><h3>WEEKLY TASKS FOR CROP:</h3><hr/><br />
+<br /><h3>WEEKLY TASKS FOR CROP: <?=$crop['Name']?></h3><hr/><br />
 <table>
 	<tr>
 		<td><b>Week No</b></td>

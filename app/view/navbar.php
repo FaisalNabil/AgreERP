@@ -6,11 +6,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">AgriERP</a>
+      <a class="navbar-brand" href="/AgriERP/?home_admin">AgriERP</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="/AgriERP/?farmer_show">SHOW ALL FARMERS</a></li>
+
+
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">CROP<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/AgriERP/?cropregion_add">ADD CROP</a></li>
+            <li><a href="/AgriERP/?cropregion_show">SHOW ALL CROP</a></li>
+          </ul>
+        </li>
+
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">FERTILIZER <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -40,14 +50,6 @@
           <ul class="dropdown-menu">
             <li><a href="/AgriERP/?status_add">ADD STATUS</a></li>
             <li><a href="/AgriERP/?status_show">SHOW ALL STATUS</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">CROP<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/AgriERP/?cropregion_add">ADD CROP</a></li>
-            <li><a href="/AgriERP/?cropregion_show">SHOW ALL CROP</a></li>
           </ul>
         </li>
 

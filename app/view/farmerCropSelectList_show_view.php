@@ -4,7 +4,13 @@
 		die;
 	}
 ?>
-
+<?php 
+if (isset($_SESSION['role']) && $_SESSION['role']=='farmer') {
+	$name = 'crops_show_view';
+	include 'navbar-farmer.php'; 
+}
+	
+?>
 <br /><h3>SHOW CROP</h3><hr/><br />
 
 	<?php

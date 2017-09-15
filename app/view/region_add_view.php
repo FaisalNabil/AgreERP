@@ -5,6 +5,8 @@
 	}
 ?>
 
+ <?php include 'navbar.php'; ?>
+
 <?php
 	if($_SERVER['REQUEST_METHOD']=="POST"){	
 		$regionNumber = $_POST['regionNumber'];
@@ -16,8 +18,6 @@
 		}
 	}
 ?>
-
- <?php include 'navbar.php'; ?>
 
 <form method="post">
 	<br /><h3>ADD REGION</h3><hr/><br />

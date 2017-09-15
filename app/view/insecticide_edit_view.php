@@ -5,6 +5,8 @@
 	}
 ?>
 
+
+<?php include 'navbar.php'; ?>
 <?php
 	if($_SERVER['REQUEST_METHOD']=="POST"){	
 		
@@ -27,7 +29,7 @@
 	Name: <input type="text" name="name" value="<?=$insecticide['Name']?>"/><br />
 	PricePer Unit: <input type="text" name="pricePerUnit" value="<?=$insecticide['PricePerUnit']?>"/><br />
 	Insect Name: <input type="text" name="insectName" value="<?=$insecticide['InsectName']?>"/><br />
-	Insect Name: <input type="text" name="diseaseName" value="<?=$insecticide['DiseaseName']?>"/><br />
+	Disease Name: <input type="text" name="diseaseName" value="<?=$insecticide['DiseaseName']?>"/><br />
 
 	<input type="submit" value="Update"/>
 	<a href="/AgriERP/?insecticide_show">SHOW ALL</a>

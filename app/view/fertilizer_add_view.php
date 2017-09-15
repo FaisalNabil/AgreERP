@@ -5,6 +5,7 @@
 	}
 ?>
 
+<?php include 'navbar.php'; ?>
 <?php
 	if($_SERVER['REQUEST_METHOD']=="POST"){		
 		$name = $_POST['name'];
@@ -17,7 +18,6 @@
 	}
 ?>
 
-<?php include 'navbar.php'; ?>
 
 <form method="post">
 	<br /><h3>ADD FERTILIZER</h3><hr/><br />

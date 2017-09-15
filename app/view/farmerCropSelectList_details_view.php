@@ -4,7 +4,10 @@
 		die;
 	}
 ?>
-
+<?php 
+	$name = 'crops_show_view';
+	include 'navbar-farmer.php'; 
+?>
 	<br /><h3>DETAILS: <?=$crop['Name']?> </h3><hr/><br />
 
 	<b>CROP NAME</b>: <?=$crop['Name']?> <br />

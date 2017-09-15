@@ -15,8 +15,8 @@
 	<tr>
 		<td><b>ID</b></td>
 		<td><b>Crop Name</b></td>
-		<td><b>Starting date</b></td>
-		<td><b>Starting date</b></td>
+		<td><b>Starting Date</b></td>
+		<td><b>Ending Date</b></td>
 		<td colspan="2"></td>
 	</tr>
 	<?php
@@ -27,6 +27,7 @@
 					<td>$cultivation[CultivationId]</td>
 					<td>$cropName[Name]</td>
 					<td>$cultivation[StartDate]</td>
+					<td>$cultivation[EndDate]</td>
 					<td><a href='/AgriERP/?cultivation_historydetails&cultivationid=$cultivation[CultivationId]'>DETAILS</a></td>
 				</tr>";
 			}

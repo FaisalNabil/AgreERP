@@ -5,6 +5,7 @@
 	}
 ?>
 
+<?php include 'navbar.php'; ?>
 <?php
 	if($_SERVER['REQUEST_METHOD']=="POST"){		
 		$id = $_POST['StatusId'];
@@ -17,7 +18,6 @@
 	}
 ?>
 
-<?php include 'navbar.php'; ?>
 
 <form method="post">
 	<br /><h3>ADD STATUS</h3><hr/><br />

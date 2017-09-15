@@ -4,6 +4,8 @@
 		die;
 	}
 ?>
+
+<?php include 'navbar.php'; ?>
 <?php
 	if($_SERVER['REQUEST_METHOD']=="POST"){	
 		$cropName = $_POST['cropName'];
@@ -14,9 +16,10 @@
 		$EstimatedProduction = $_POST['EstimatedProduction'];
 		$LandType = $_POST['LandType'];
 		$WaterSource = $_POST['WaterSource'];
+		$totalWeeks = $_POST['TotalWeeks'];
 		$regionId=getRegionByArea($region);
 		//print_r($regionId);
-		$crop = array("Name"=>$cropName, "CropGroupName"=>$CropGroupName, "RegionId"=>$regionId['RegionId'], "TimePeriod"=>$TimePeriod, "TotalCost"=>$TotalCost, "EstimatedProduction"=>$EstimatedProduction, "LandType"=>$LandType, "WaterSource"=>$WaterSource);
+		$crop = array("Name"=>$cropName, "CropGroupName"=>$CropGroupName, "RegionId"=>$regionId['RegionId'], "TimePeriod"=>$TimePeriod, "TotalCost"=>$TotalCost, "EstimatedProduction"=>$EstimatedProduction, "LandType"=>$LandType, "WaterSource"=>$WaterSource, 'TotalWeeks'=>$totalWeeks);
 		//print_r($crop);
 		if(addCrop($crop)){
 			echo "Record Added!";
@@ -24,7 +27,6 @@
 	}
 ?>
 
-<?php include 'navbar.php'; ?>
 
 <form method="post"></br></br>
 Crops Name:</br>
@@ -52,6 +54,7 @@ Time Period:
 	<option>May-Aug</option>
 	<option>Sep-Dec</option>
   </select></br></br>
+Total Weeks Needed: <input type="number" name="TotalWeeks"><br>
 Total Cost:</br>
 <input type="text" name="TotalCost"></br></br>
 Estimated Production:</br>

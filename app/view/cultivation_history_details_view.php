@@ -4,7 +4,12 @@
 		die;
 	}
 ?>
+<?php 
+  
+  $name = "cultivation_history_view";
+  include 'navbar-farmer.php';
 
+?>
 	<h3>CULTIVATION OF <?=$crop['Name']?></h3><hr/><br />
 	Total Cost: <?=$cultivation['TotalCost']?><br />
 	Total Production: <?=$cultivation['TotalProduction']?><br />

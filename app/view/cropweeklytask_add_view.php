@@ -5,6 +5,7 @@
 		die;
 	}
 ?>
+<?php include 'navbar.php'; ?>
 <?php
  
      $Arr = "";
