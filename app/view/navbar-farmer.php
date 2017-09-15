@@ -15,6 +15,7 @@
         <li class="<?php echo ($name == 'crops_show_view')? 'active':'' ?>" ><a href="/AgriERP/?cultivation_cropshow">LIST OF CROPS</a></li>
         <li class="<?php echo ($name == 'cultivation_show_view')? 'active':'' ?>" ><a href="/AgriERP/?cultivation_show">ONGOING CULTIVATIONS</a></li>
         <li class="<?php echo ($name == 'cultivation_history_view')? 'active':'' ?>" ><a href="/AgriERP/?cultivation_history">HISTORY</a></li>
+        <li class="<?php echo ($name == 'crops_by_system_show_view')? 'active':'' ?>" ><a href="/AgriERP/?cultivation_cropshowbysystem">GET SUGGESTION</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <?php if($key!='login_logout' && $key!='login_show'){ ?>

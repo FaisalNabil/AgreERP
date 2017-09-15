@@ -10,8 +10,26 @@
 	switch($view){
 		case "cropshow":
 			$cropList = getAllCrop(); //Getting the model for view
+			$name = "crops_show_view";
 			if(count($cropList)>0){
 				include_once(APP_ROOT."/app/view/farmerCropSelectList_show_view.php");
+			}
+			break;
+
+		case "cropshowbysystem":
+			if(isset($_SESSION['farmerid'])){
+				$farmerid = $_SESSION['farmerid'];
+				//echo $farmerid.'<br>';
+				$farmer = getFarmerById($farmerid);
+				//print_r( $farmer);
+				$farmerArea = getRegionByArea($farmer['District']);
+				//print_r($farmerArea) ;
+				$cropList = getAllCropByRegion($farmerArea['RegionId']);
+				//print_r($cropList) ;
+				$name = "crops_by_system_show_view";
+				if(count($cropList)>0){
+					include_once(APP_ROOT."/app/view/farmerCropSelectList_show_view.php");
+				}
 			}
 			break;
 

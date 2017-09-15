@@ -36,5 +36,17 @@
 		}
 		return $crop;
 	}
+
+	function getAllCropByRegionFromDb($regionid){
+		$query = "SELECT CropId, Name, CropGroupName, RegionId, TimePeriod, TotalCost, EstimatedProduction, LandType, WaterSource, TotalWeeks FROM Crop where RegionId=$regionid";  
+		$result = executeQuery($query);	
+		$cropList = array();
+		if($result){
+			for($i=0; $row = mysqli_fetch_assoc($result); ++$i) {
+				$cropList[$i] = $row;				
+			}
+		}
+		return $cropList;
+	}
 	
 ?>

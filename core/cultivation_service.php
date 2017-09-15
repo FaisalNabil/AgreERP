@@ -35,6 +35,10 @@
 		return getCropByIdFromDb($id);
 	}
 	
+	function getAllCropByRegion($regionid){
+		return getAllCropByRegionFromDb($regionid);
+	}
+	
 	function getAllRegion(){
 		return getAllRegionFromDb();
 	}
