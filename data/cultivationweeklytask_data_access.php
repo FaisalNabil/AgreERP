@@ -6,17 +6,17 @@
 	}	
 	
 	function editCultivation_WeeklytaskToDb($cultivation_Weeklytask){
-		$query = "UPDATE Cultivationweeklytask SET StatusId=$cultivation_Weeklytask[StatusId] WHERE WeekSysId=$cultivation_Weeklytask[WeekSysId]";
+		$query = "UPDATE Cultivationweeklytask SET StatusId=$cultivation_Weeklytask[StatusId] WHERE Cultivationweekid=$cultivation_Weeklytask[Cultivationweekid]";
 		return executeNonQuery($query);
 	}
 	
 	function removeCultivation_WeeklytaskFromDb($id){
-		$query = "DELETE FROM Cultivationweeklytask WHERE WeekSysId=$id";
+		$query = "DELETE FROM Cultivationweeklytask WHERE Cultivationweekid=$id";
 		return executeNonQuery($query);
 	}
 	
 	function getAllCultivation_WeeklytaskFromDb(){
-		$query = "SELECT WeekSysId, CultivationId, StatusId FROM Cultivationweeklytask";  
+		$query = "SELECT Cultivationweekid, WeekSysId, CultivationId, StatusId FROM Cultivationweeklytask";  
 		$result = executeQuery($query);	
 		$cultivation_WeeklytaskList = array();
 		if($result){
@@ -28,7 +28,7 @@
 	}
 
 	function getCultivation_WeeklytaskByIdFromDb($id){
-		$query = "SELECT WeekSysId, CultivationId, StatusId FROM Cultivationweeklytask WHERE WeekSysId=$id";  
+		$query = "SELECT Cultivationweekid, WeekSysId, CultivationId, StatusId FROM Cultivationweeklytask WHERE Cultivationweekid=$id";  
 		$result = executeQuery($query);	
 		$cultivation_Weeklytask = null;
 		if($result){
@@ -38,7 +38,7 @@
 	}
 
 	function getCultivation_WeeklytaskByCultivationIdFromDb($id){
-		$query = "SELECT WeekSysId, CultivationId, StatusId FROM Cultivationweeklytask WHERE CultivationId=$id";  
+		$query = "SELECT Cultivationweekid, WeekSysId, CultivationId, StatusId FROM Cultivationweeklytask WHERE CultivationId=$id";  
 		$result = executeQuery($query);	
 		$cultivation_WeeklytaskList = array();
 		if($result){

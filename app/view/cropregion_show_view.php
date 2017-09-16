@@ -27,7 +27,7 @@
 					<td>$crop[TimePeriod]</td>
 					<td>$crop[TotalCost]</td>
 					<td>$crop[EstimatedProduction]</td>
-					<td><a href='/AgriERP/?cropweeklytask_add&id=$crop[CropId]'>Add Week Task</a></td>
+					<td><a href='/AgriERP/?cropweeklytask_show&cropid=$crop[CropId]'>Show All Weekly Tasks</a></td>
 					<td><a href='/AgriERP/?cropregion_edit&id=$crop[CropId]'>edit</a></td>
 					<td><a href='/AgriERP/?cropregion_delete&id=$crop[CropId]'>delete</a></td>
 				</tr>";

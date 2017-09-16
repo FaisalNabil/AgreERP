@@ -43,11 +43,15 @@
 			
 		case "show":
 			if(isset($_GET['cropid'])){
+				include APP_ROOT.'/app/view/navbar.php';
 				$id = $_GET['cropid'];
 				$crop = getCropById($id);
 				$crop_WeeklytaskList = getCrop_WeeklytaskByCropId($id); //Getting the model for view
 				if(count($crop_WeeklytaskList)>0){
 					include_once(APP_ROOT."/app/view/cropweeklytask_show_view.php");
+				}else{
+					echo "<h3>No Weekly task to Show</h3>";
+					echo "<a href='/AgriERP/?cropweeklytask_add&id=$id'>ADD NEW</a>";
 				}
 				break;
 			}

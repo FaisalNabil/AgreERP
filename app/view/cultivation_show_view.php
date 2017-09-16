@@ -5,11 +5,6 @@
 	}
 ?>
 
-<?php 
-  $name = "cultivation_show_view";
-  include 'navbar-farmer.php';
-
-?>
 <div class="container">
 <br /><h3>SHOW CULTIVATION OF <?=$farmer['Name']?></h3><hr/><br />
 <?php 

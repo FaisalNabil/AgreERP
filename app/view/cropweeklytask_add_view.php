@@ -89,7 +89,6 @@
 				Other Task:</br>
 				<textarea name="otherTask" id="otherTask" placeholder="Write Some task for this week.."></textarea></br>
 					 <input type="submit" id="addNew" value="Add"/>
-					 <a href="/AgriERP/?cropweeklytask_show&cropid=<?=$_GET['id']?>">SHOW ALL</a>
 				</form>
 		</div>
 	</div>
@@ -110,8 +109,9 @@
 			  </tbody>
 			</table>		
 	    </div>
-	    <input id="sendServer" name="sendServer" type="button" value="Send to Server" />	
+	    <input id="sendServer" name="sendServer" type="button" value="Send to Server" /> | 
+					 <a href="/AgriERP/?cropweeklytask_show&cropid=<?=$_GET['id']?>">SHOW ALL</a>
 	</div>
-		 
+		
 </div>
 

@@ -4,12 +4,6 @@
 		die;
 	}
 ?>
-<?php 
-  
-  $name = "cultivation_history_view";
-  include 'navbar-farmer.php';
-
-?>
 <div class="container">
 <br /><h3>HISTORY</h3><hr/><br />
 <table>

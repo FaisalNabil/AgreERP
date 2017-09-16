@@ -4,17 +4,6 @@
 		die;
 	}
 ?>
-<?php 
-	if(isset($_SESSION['role']) && $_SESSION['role']=='farmer'){
-		$name = "cultivation_show_view";
-	  	include 'navbar-farmer.php';
-	}else{
-		$name = "farmerCropSelectList_show_view";
-	  	include 'navbar-home.php';
-	}
-  
-
-?>
 <div class="container">
 
 	<h3>CULTIVATION OF <?=$crop['Name']?></h3><hr/><br />
@@ -32,7 +21,7 @@
 	<?php
 		foreach($cultivationweeklytaskList as $cultivationweeklytask){
 			$weektask = getCrop_WeeklytaskById($cultivationweeklytask['WeekSysId']);
-			$weekid=$cultivationweeklytask['WeekSysId'];
+			$weekid=$cultivationweeklytask['Cultivationweekid'];
 			$cultivationid=$cultivationweeklytask['CultivationId'];
 			$fertilizerName = getFertilizerById($weektask['CropFertSysId']);
 			$insecticideName = getInsecticideById($weektask['CropInsectSysId']);

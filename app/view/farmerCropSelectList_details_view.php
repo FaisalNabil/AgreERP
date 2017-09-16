@@ -4,15 +4,6 @@
 		die;
 	}
 ?>
-<?php 
-	if(isset($_SESSION['role']) && $_SESSION['role']=='farmer'){
-		$name = "crops_show_view";
-	  	include 'navbar-farmer.php';
-	}else{
-		$name = "farmerCropSelectList_show_view";
-	  	include 'navbar-home.php';
-	}
-?>
 
 <div class="container">
 	<br /><h3>DETAILS: <?=$crop['Name']?> </h3><hr/><br />

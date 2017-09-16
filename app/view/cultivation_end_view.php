@@ -4,11 +4,6 @@
 		die;
 	}
 ?>
-<?php 
-  $name = "cultivation_show_view";
-  include 'navbar-farmer.php';
-
-?>
 <h5>PLEASE PROVIDE THESE INFORMATIONS TO END THE CULTIVATION:</h5><br>
 <?php
 	if($_SERVER['REQUEST_METHOD']=="POST"){	

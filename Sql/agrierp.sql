@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2017 at 09:56 AM
+-- Generation Time: Sep 16, 2017 at 04:41 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -49,7 +49,8 @@ CREATE TABLE `crop` (
 
 INSERT INTO `crop` (`CropId`, `Name`, `RegionId`, `TimePeriod`, `TotalCost`, `EstimatedProduction`, `LandType`, `WaterSource`, `CropGroupName`, `TotalWeeks`) VALUES
 (1, 'BRRI-50', 2, 'January-April', '15000', '500', 'High groun', 'Well', 'Rice', 10),
-(2, 'Kanchan', 1, 'Select Any One', '115', '2112', 'High groun', 'River', 'Oilseed', 12);
+(2, 'Kanchan', 1, 'Select Any One', '115', '2112', 'High groun', 'River', 'Oilseed', 12),
+(3, 'sad3', 2, 'May-Aug', '12300', '2300', 'High ground', 'Pond', 'Rice', 11);
 
 -- --------------------------------------------------------
 
@@ -106,7 +107,9 @@ INSERT INTO `cropweeklytask` (`WeekId`, `WeekNumber`, `CropId`, `CropInsectSysId
 (13, '1', 1, 2, 2, 'vhvhv', 'mbjbj', 'jhjh jh'),
 (14, '1', 1, 2, 2, 'wdce', 'dvwc', 'fvdefcv'),
 (15, '1', 1, 2, 2, 'yo', 'yo', 'honey sing'),
-(16, '1', 1, 2, 2, 'ss', 'ss', 'ss');
+(16, '1', 1, 2, 2, 'ss', 'ss', 'ss'),
+(17, '1', 2, 2, 3, 'sc d', 'dv dv dc', ''),
+(18, '1', 2, 2, 3, 'adasc', 'sacasc', 'hhbbbj');
 
 -- --------------------------------------------------------
 
@@ -131,8 +134,8 @@ CREATE TABLE `cultivation` (
 --
 
 INSERT INTO `cultivation` (`CultivationId`, `CropId`, `FarmerId`, `StartDate`, `EndDate`, `TotalLandInUse`, `TotalCost`, `TotalProduction`, `Status`) VALUES
-(318069, 2, 12, '2017-09-14', '', '50 Katha', '', '', 'Ongoing'),
-(624823, 1, 12, '2017-09-13', '2017-09-13', '11 Katha', '123', '1222', 'Ended');
+(624430, 1, 12, '2017-09-16', '', '20 Katha', '', '', 'Ongoing'),
+(632092, 1, 12, '2017-09-16', '2017-09-16', '10 Katha', '15000', '10', 'Ended');
 
 -- --------------------------------------------------------
 
@@ -141,7 +144,8 @@ INSERT INTO `cultivation` (`CultivationId`, `CropId`, `FarmerId`, `StartDate`, `
 --
 
 CREATE TABLE `cultivationweeklytask` (
-  `WeekSysId` int(15) NOT NULL,
+  `Cultivationweekid` int(10) NOT NULL,
+  `WeekSysId` int(10) NOT NULL,
   `CultivationId` int(15) NOT NULL,
   `StatusId` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -150,17 +154,27 @@ CREATE TABLE `cultivationweeklytask` (
 -- Dumping data for table `cultivationweeklytask`
 --
 
-INSERT INTO `cultivationweeklytask` (`WeekSysId`, `CultivationId`, `StatusId`) VALUES
-(7, 624823, 7),
-(8, 624823, 1),
-(9, 624823, 0),
-(10, 624823, 0),
-(11, 624823, 0),
-(12, 624823, 0),
-(13, 624823, 0),
-(14, 624823, 0),
-(15, 624823, 0),
-(16, 624823, 0);
+INSERT INTO `cultivationweeklytask` (`Cultivationweekid`, `WeekSysId`, `CultivationId`, `StatusId`) VALUES
+(1, 7, 632092, 1),
+(2, 8, 632092, 0),
+(3, 9, 632092, 0),
+(4, 10, 632092, 0),
+(5, 11, 632092, 0),
+(6, 12, 632092, 0),
+(7, 13, 632092, 0),
+(8, 14, 632092, 0),
+(9, 15, 632092, 0),
+(10, 16, 632092, 7),
+(11, 7, 624430, 5),
+(12, 8, 624430, 0),
+(13, 9, 624430, 0),
+(14, 10, 624430, 0),
+(15, 11, 624430, 0),
+(16, 12, 624430, 0),
+(17, 13, 624430, 0),
+(18, 14, 624430, 0),
+(19, 15, 624430, 0),
+(20, 16, 624430, 0);
 
 -- --------------------------------------------------------
 
@@ -182,6 +196,7 @@ CREATE TABLE `farmer` (
 --
 
 INSERT INTO `farmer` (`FarmerId`, `Name`, `District`, `Phone`, `Password`, `Role`) VALUES
+(0, 'Nabil', 'Rajshahi', '015', '1234', 'farmer'),
 (1, 'admin', 'none', 'admin', '1234', 'admin'),
 (12, 'Ashik', 'Dhaka', '014', '12334', 'farmer');
 
@@ -227,7 +242,8 @@ CREATE TABLE `insecticide` (
 INSERT INTO `insecticide` (`InsecticideId`, `Name`, `PricePerUnit`, `InsectName`, `DiseaseName`) VALUES
 (2, '2,4-D, Dimethylamine salt', '120', 'Rice weevil', 'Bacterial leafstreak'),
 (3, 'Regiment', '200', 'Rice weevil', 'Bacterial leafstreak'),
-(4, 'none', '0', '', '');
+(4, 'none', '0', '', ''),
+(5, 'asd', '40', 'Rice weevil', 'sdfg');
 
 -- --------------------------------------------------------
 
@@ -333,7 +349,7 @@ ALTER TABLE `cultivation`
 -- Indexes for table `cultivationweeklytask`
 --
 ALTER TABLE `cultivationweeklytask`
-  ADD PRIMARY KEY (`WeekSysId`),
+  ADD PRIMARY KEY (`Cultivationweekid`),
   ADD KEY `CultivationId` (`CultivationId`),
   ADD KEY `StatusId` (`StatusId`);
 
@@ -382,7 +398,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `crop`
 --
 ALTER TABLE `crop`
-  MODIFY `CropId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `CropId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `cropfertilizer`
 --
@@ -397,12 +413,12 @@ ALTER TABLE `cropinsecticide`
 -- AUTO_INCREMENT for table `cropweeklytask`
 --
 ALTER TABLE `cropweeklytask`
-  MODIFY `WeekId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `WeekId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `cultivationweeklytask`
 --
 ALTER TABLE `cultivationweeklytask`
-  MODIFY `WeekSysId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `Cultivationweekid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `fertilizer`
 --
@@ -412,7 +428,7 @@ ALTER TABLE `fertilizer`
 -- AUTO_INCREMENT for table `insecticide`
 --
 ALTER TABLE `insecticide`
-  MODIFY `InsecticideId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `InsecticideId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `region`
 --
@@ -459,7 +475,7 @@ ALTER TABLE `cultivation`
 -- Constraints for table `cultivationweeklytask`
 --
 ALTER TABLE `cultivationweeklytask`
-  ADD CONSTRAINT `cultivationweeklytask_ibfk_2` FOREIGN KEY (`StatusId`) REFERENCES `status` (`StatusId`),
+  ADD CONSTRAINT `cultivationweeklytask_ibfk_2` FOREIGN KEY (`StatusId`) REFERENCES `status` (`StatusId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `cultivationweeklytask_ibfk_3` FOREIGN KEY (`CultivationId`) REFERENCES `cultivation` (`CultivationId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
