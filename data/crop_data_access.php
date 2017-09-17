@@ -9,6 +9,11 @@
 		$query = "UPDATE Crop SET Name='$crop[Name]', 'CropGroupName=$crop[CropGroupName]', RegionId='$crop[RegionId]', TimePeriod='$crop[TimePeriod]', TotalCost=$crop[TotalCost], EstimatedProduction=$crop[EstimatedProduction], LandType='$crop[LandType]', WaterSource='$crop[WaterSource]' TotalWeeks=$crop[TotalWeeks] WHERE CropId=$crop[CropId]";
 		return executeNonQuery($query);
 	}
+
+	function editCropCostProductionToDb($crop){
+		$query = "UPDATE Crop SET TotalCost=$crop[TotalCost], EstimatedProduction=$crop[EstimatedProduction] WHERE CropId=$crop[CropId]";
+		return executeNonQuery($query);
+	}
 	
 	function removeCropFromDb($id){
 		$query = "DELETE FROM Crop WHERE CropId=$id";

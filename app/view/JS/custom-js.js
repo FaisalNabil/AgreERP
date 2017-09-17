@@ -153,7 +153,30 @@ $(document).ready(function(){
           
     }); 
      
-     
+     $( "input[name^='weekcostbutton_']" ).click(function() {
+       var name = $(this).attr("name");
+       //alert(name);
+       var res = name.split("_");
+
+       var textboxname = 'weekcosttext_'+res[1]+'_'+res[2];
+
+       var costFromTextbox = $("input[name="+textboxname+"]").val();
+
+       //alert(costFromTextbox);
+
+       $.ajax({
+                  type  : "POST",
+                  url   : 'app/view/cultivation_weeklytaskcost_ajax.php',
+                  data : {cost: costFromTextbox, weekid: res[2] },
+                  success: function(data) {
+                      
+                      $("input[name="+textboxname+"]").attr("disabled", "disabled");
+                  },
+                  error : function() {
+                    alert(data);
+                  }
+            });
+     });
 });
 
 function myFunction() {

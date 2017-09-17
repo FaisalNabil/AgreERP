@@ -15,9 +15,15 @@
 		$totalProduction = $_POST['TotalProduction'];
 		$endDate = date("Y-m-d");
 
+		$avgCost = ($totalCost+$crop['TotalCost'])/2;
+		$avgProduction = ($totalProduction+$crop['EstimatedProduction'])/2;
+
+		$cropUpdate = array("CropId"=>$cultivation['CropId'], "TotalCost"=>$avgCost, "EstimatedProduction"=>$avgProduction);
+
 		$cultivation = array("CultivationId"=>$cultivation['CultivationId'], "CropId"=>$cultivation['CropId'], "FarmerId"=>$cultivation['FarmerId'], "StartDate"=>$cultivation['StartDate'], "EndDate"=>$endDate, "TotalLandInUse"=>$cultivation['TotalLandInUse'], "TotalCost"=>$totalCost, "TotalProduction"=>$totalProduction, "Status"=>'Ended');
 
 		if(editCultivation($cultivation)){
+			editCropCostProduction($cropUpdate);
 			echo "Cultivation Ended!";
 		}
 	}

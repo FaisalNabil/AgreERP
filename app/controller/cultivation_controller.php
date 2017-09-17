@@ -130,6 +130,7 @@
 				$cultivationid = $_GET['cultivationid'];
 				$cultivation = getCultivationById($cultivationid);
 				$cultivationweeklytaskList = getCultivation_WeeklytaskByCultivationId($cultivationid);
+				$crop = getCropById($cultivation['CropId']);
 				if($cultivation){
 					include_once(APP_ROOT."/app/view/cultivation_end_view.php");					
 				}else{

@@ -35,6 +35,10 @@
 		return getCropByIdFromDb($id);
 	}
 	
+	function editCropCostProduction($id){	
+		return editCropCostProductionToDb($id);
+	}
+	
 	function getAllCropByRegion($regionid){
 		return getAllCropByRegionFromDb($regionid);
 	}
