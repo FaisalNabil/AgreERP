@@ -6,7 +6,12 @@
 	}	
 	
 	function editCultivation_WeeklytaskToDb($cultivation_Weeklytask){
-		$query = "UPDATE Cultivationweeklytask SET StatusId=$cultivation_Weeklytask[StatusId] WHERE Cultivationweekid=$cultivation_Weeklytask[Cultivationweekid]";
+		$query = "UPDATE Cultivationweeklytask SET StatusId=$cultivation_Weeklytask[StatusId], DoneDate='$cultivation_Weeklytask[DoneDate]' WHERE Cultivationweekid=$cultivation_Weeklytask[Cultivationweekid]";
+		return executeNonQuery($query);
+	}
+
+	function editCultivation_WeeklytaskCostToDb($cultivation_Weeklytask){
+		$query = "UPDATE Cultivationweeklytask SET WeeklyCost=$cultivation_Weeklytask[WeeklyCost] WHERE Cultivationweekid=$cultivation_Weeklytask[Cultivationweekid]";
 		return executeNonQuery($query);
 	}
 	
@@ -16,7 +21,7 @@
 	}
 	
 	function getAllCultivation_WeeklytaskFromDb(){
-		$query = "SELECT Cultivationweekid, WeekSysId, CultivationId, StatusId FROM Cultivationweeklytask";  
+		$query = "SELECT Cultivationweekid, WeekSysId, CultivationId, StatusId, DoneDate, WeeklyCost FROM Cultivationweeklytask";  
 		$result = executeQuery($query);	
 		$cultivation_WeeklytaskList = array();
 		if($result){
@@ -28,7 +33,7 @@
 	}
 
 	function getCultivation_WeeklytaskByIdFromDb($id){
-		$query = "SELECT Cultivationweekid, WeekSysId, CultivationId, StatusId FROM Cultivationweeklytask WHERE Cultivationweekid=$id";  
+		$query = "SELECT Cultivationweekid, WeekSysId, CultivationId, StatusId, DoneDate, WeeklyCost FROM Cultivationweeklytask WHERE Cultivationweekid=$id";  
 		$result = executeQuery($query);	
 		$cultivation_Weeklytask = null;
 		if($result){
@@ -38,7 +43,7 @@
 	}
 
 	function getCultivation_WeeklytaskByCultivationIdFromDb($id){
-		$query = "SELECT Cultivationweekid, WeekSysId, CultivationId, StatusId FROM Cultivationweeklytask WHERE CultivationId=$id";  
+		$query = "SELECT Cultivationweekid, WeekSysId, CultivationId, StatusId, DoneDate, WeeklyCost FROM Cultivationweeklytask WHERE CultivationId=$id";  
 		$result = executeQuery($query);	
 		$cultivation_WeeklytaskList = array();
 		if($result){

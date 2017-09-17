@@ -129,6 +129,7 @@
 				include APP_ROOT.'/app/view/navbar-farmer.php';
 				$cultivationid = $_GET['cultivationid'];
 				$cultivation = getCultivationById($cultivationid);
+				$cultivationweeklytaskList = getCultivation_WeeklytaskByCultivationId($cultivationid);
 				if($cultivation){
 					include_once(APP_ROOT."/app/view/cultivation_end_view.php");					
 				}else{

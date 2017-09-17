@@ -63,6 +63,19 @@ $(document).ready(function(){
 
          var status='';
 
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd;
+        } 
+        if(mm<10){
+            mm='0'+mm;
+        } 
+        var today = yyyy+'-'+mm+'-'+dd;
+
          //fertilizer
          if (res[0]=='fertilizertask') { 
             if($('#insecticidetask_'+res[1]+'_'+res[2]).is(':checked') && $('#othertask_'+res[1]+'_'+res[2]).is(':checked')){
@@ -126,7 +139,7 @@ $(document).ready(function(){
           $.ajax({
                   type  : "POST",
                   url   : 'app/view/cultivation_weeklytask_ajax.php',
-                  data : {status: status, weekid: res[2]},
+                  data : {status: status, weekid: res[2], date: today},
                   success: function(data) {
                       
                       //alert(data);// alert the data from the server

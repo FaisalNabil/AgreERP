@@ -38,7 +38,7 @@
 	}
 
 	function getAllCropByRegionFromDb($regionid){
-		$query = "SELECT CropId, Name, CropGroupName, RegionId, TimePeriod, TotalCost, EstimatedProduction, LandType, WaterSource, TotalWeeks FROM Crop where RegionId=$regionid";  
+		$query = "SELECT CropId, Name, CropGroupName, RegionId, TimePeriod, TotalCost, EstimatedProduction, LandType, WaterSource, TotalWeeks, TotalCost/EstimatedProduction AS Ratio FROM Crop where RegionId=$regionid ORDER BY Ratio ASC LIMIT 5";  
 		$result = executeQuery($query);	
 		$cropList = array();
 		if($result){

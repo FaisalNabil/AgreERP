@@ -5,10 +5,11 @@
 	}
 ?>
 <?php
+
+    $failed = "";
 	if($_SERVER['REQUEST_METHOD']=="POST"){		
 		$phone = $_POST['phone'];
 		$pass = $_POST['password'];
-
 		$farmer = getFarmerByPhonePassword($phone, $pass);
 		//echo $farmer;
 		if($farmer['Role'] == 'admin'){
@@ -26,7 +27,7 @@
 			exit();
 		}
 		else
-			echo "Please enter right credential<br>";
+			$failed="Please enter right credential<br>";
 
 		
 		
@@ -73,6 +74,9 @@
       <div class="col-sm-4">          
         <input type="password" class="form-control test" id="password" placeholder="Enter password" name="password">
       </div>
+    </div>
+    <div class="col-sm-offset-2 col-sm-10">
+      <?php echo $failed; ?><br>
     </div>
     <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">

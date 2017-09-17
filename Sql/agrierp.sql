@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 16, 2017 at 04:41 PM
+-- Generation Time: Sep 17, 2017 at 06:59 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -15,7 +15,6 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-
 
 CREATE DATABASE IF NOT EXISTS `agrierp` DEFAULT CHARACTER SET = 'utf8' COLLATE utf8_general_ci;
 USE `agrierp`;
@@ -109,7 +108,8 @@ INSERT INTO `cropweeklytask` (`WeekId`, `WeekNumber`, `CropId`, `CropInsectSysId
 (15, '1', 1, 2, 2, 'yo', 'yo', 'honey sing'),
 (16, '1', 1, 2, 2, 'ss', 'ss', 'ss'),
 (17, '1', 2, 2, 3, 'sc d', 'dv dv dc', ''),
-(18, '1', 2, 2, 3, 'adasc', 'sacasc', 'hhbbbj');
+(18, '1', 2, 2, 3, 'adasc', 'sacasc', 'hhbbbj'),
+(19, '1', 2, 3, 3, 'dvdf v', 'dfvdrb ', 'dvbdrf');
 
 -- --------------------------------------------------------
 
@@ -134,8 +134,8 @@ CREATE TABLE `cultivation` (
 --
 
 INSERT INTO `cultivation` (`CultivationId`, `CropId`, `FarmerId`, `StartDate`, `EndDate`, `TotalLandInUse`, `TotalCost`, `TotalProduction`, `Status`) VALUES
-(624430, 1, 12, '2017-09-16', '', '20 Katha', '', '', 'Ongoing'),
-(632092, 1, 12, '2017-09-16', '2017-09-16', '10 Katha', '15000', '10', 'Ended');
+(270203, 1, 12, '2017-09-17', '', '10 Katha', '', '', 'Ongoing'),
+(889555, 1, 12, '2017-09-17', '', '100 Katha', '', '', 'Ongoing');
 
 -- --------------------------------------------------------
 
@@ -144,37 +144,39 @@ INSERT INTO `cultivation` (`CultivationId`, `CropId`, `FarmerId`, `StartDate`, `
 --
 
 CREATE TABLE `cultivationweeklytask` (
-  `Cultivationweekid` int(10) NOT NULL,
+  `Cultivationweekid` int(15) NOT NULL,
   `WeekSysId` int(10) NOT NULL,
   `CultivationId` int(15) NOT NULL,
-  `StatusId` int(5) NOT NULL
+  `StatusId` int(5) NOT NULL,
+  `DoneDate` varchar(15) NOT NULL,
+  `WeeklyCost` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `cultivationweeklytask`
 --
 
-INSERT INTO `cultivationweeklytask` (`Cultivationweekid`, `WeekSysId`, `CultivationId`, `StatusId`) VALUES
-(1, 7, 632092, 1),
-(2, 8, 632092, 0),
-(3, 9, 632092, 0),
-(4, 10, 632092, 0),
-(5, 11, 632092, 0),
-(6, 12, 632092, 0),
-(7, 13, 632092, 0),
-(8, 14, 632092, 0),
-(9, 15, 632092, 0),
-(10, 16, 632092, 7),
-(11, 7, 624430, 5),
-(12, 8, 624430, 0),
-(13, 9, 624430, 0),
-(14, 10, 624430, 0),
-(15, 11, 624430, 0),
-(16, 12, 624430, 0),
-(17, 13, 624430, 0),
-(18, 14, 624430, 0),
-(19, 15, 624430, 0),
-(20, 16, 624430, 0);
+INSERT INTO `cultivationweeklytask` (`Cultivationweekid`, `WeekSysId`, `CultivationId`, `StatusId`, `DoneDate`, `WeeklyCost`) VALUES
+(1, 7, 270203, 0, '', 1000),
+(2, 8, 270203, 0, '', 200),
+(3, 9, 270203, 0, '', 0),
+(4, 10, 270203, 0, '', 0),
+(5, 11, 270203, 0, '', 0),
+(6, 12, 270203, 0, '', 0),
+(7, 13, 270203, 0, '', 0),
+(8, 14, 270203, 0, '', 0),
+(9, 15, 270203, 0, '', 0),
+(10, 16, 270203, 0, '', 0),
+(11, 7, 889555, 7, '2017-09-17', 0),
+(12, 8, 889555, 0, '', 0),
+(13, 9, 889555, 0, '', 0),
+(14, 10, 889555, 0, '', 0),
+(15, 11, 889555, 0, '', 0),
+(16, 12, 889555, 0, '', 0),
+(17, 13, 889555, 0, '', 0),
+(18, 14, 889555, 0, '', 0),
+(19, 15, 889555, 0, '', 0),
+(20, 16, 889555, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -413,12 +415,12 @@ ALTER TABLE `cropinsecticide`
 -- AUTO_INCREMENT for table `cropweeklytask`
 --
 ALTER TABLE `cropweeklytask`
-  MODIFY `WeekId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `WeekId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `cultivationweeklytask`
 --
 ALTER TABLE `cultivationweeklytask`
-  MODIFY `Cultivationweekid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `Cultivationweekid` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `fertilizer`
 --

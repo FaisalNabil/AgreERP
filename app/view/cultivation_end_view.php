@@ -6,6 +6,10 @@
 ?>
 <h5>PLEASE PROVIDE THESE INFORMATIONS TO END THE CULTIVATION:</h5><br>
 <?php
+	$totalCost = 0;
+	foreach ($cultivationweeklytaskList as $cultivationWeeklyTask) {
+		$totalCost+=$cultivationWeeklyTask['WeeklyCost'];
+	}
 	if($_SERVER['REQUEST_METHOD']=="POST"){	
 		$totalCost = $_POST['TotalCost'];
 		$totalProduction = $_POST['TotalProduction'];
@@ -21,7 +25,7 @@
 <div class="container">
 
 <form method="POST">
-	Total Cost: <input type="number" name="TotalCost"><br><br>
+	Total Cost: <input type="number" name="TotalCost" value="<?=$totalCost?>" readonly><br><br>
 	Total Production: <input type="number" name="TotalProduction"><br>
 	<br>
 	<input type="submit" value="End Cultivation">

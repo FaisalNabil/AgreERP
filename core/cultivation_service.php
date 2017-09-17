@@ -70,6 +70,10 @@
 	function editCultivation_Weeklytask($cultivation_Weeklytask){	
 		return editCultivation_WeeklytaskToDb($cultivation_Weeklytask);
 	}
+
+	function editCultivation_WeeklytaskCost($cultivation_Weeklytask){	
+		return editCultivation_WeeklytaskCostToDb($cultivation_Weeklytask);
+	}
 	
 	function removeCultivation_Weeklytask($id){
 		return removeCultivation_WeeklytaskFromDb($id);

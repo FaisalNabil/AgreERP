@@ -24,7 +24,7 @@
 		if(addCultivation($cultivation)){
 			foreach ($weekId as $week) {
 				$cultivation_Weeklytask = array("WeekSysId"=>$week['WeekId'], "CultivationId"=>$cultivationid, "StatusId"=>'0');
-				//print_r($cultivation_Weeklytask);
+				print_r($cultivation_Weeklytask);
 				if (addCultivation_Weeklytask($cultivation_Weeklytask)) {
 					//echo "Weekly task and ";
 				}
