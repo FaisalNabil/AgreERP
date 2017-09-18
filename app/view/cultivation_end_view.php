@@ -12,7 +12,11 @@
 	}
 	if($_SERVER['REQUEST_METHOD']=="POST"){	
 		$totalCost = $_POST['TotalCost'];
-		$totalProduction = $_POST['TotalProduction'];
+		if($_POST['unit']=='KG'){
+			$totalProduction = $_POST['TotalProduction'];
+		}else {
+			$totalProduction = $_POST['TotalProduction']*1000;
+		}
 		$endDate = date("Y-m-d");
 
 		$avgCost = ($totalCost+$crop['TotalCost'])/2;
@@ -32,9 +36,13 @@
 
 <form method="POST">
 	Total Cost: <input type="number" name="TotalCost" value="<?=$totalCost?>" readonly><br><br>
-	Total Production: <input type="number" name="TotalProduction"><br>
+	Total Production: <input type="number" name="TotalProduction">
+	<select name="unit">
+	<option>KG</option>
+	<option>Ton</option>
+	</select><br>
 	<br>
-	<input type="submit" value="End Cultivation">
-	<a href="/AgriERP/?cultivation_show">SHOW ALL CULTIVATION</a>
+	<input type="submit" value="End Cultivation" class="btn btn-primary">
+	<a href="/AgriERP/?cultivation_show" class="btn btn-info">SHOW ALL CULTIVATION</a>
 </form>
 </div>

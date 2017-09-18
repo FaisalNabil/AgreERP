@@ -27,8 +27,8 @@
 	Name: <input type="text" name="name" value="<?=$fertilizer['Name']?>"/><br />
 	PricePer Unit: <input type="text" name="pricePerUnit" value="<?=$fertilizer['PricePerUnit']?>"/><br />
 
-	<input type="submit" value="Update"/>
-	<a href="/AgriERP/?fertilizer_show" class="btn btn-primary">SHOW ALL</a>
+	<input type="submit" value="Update" class='btn btn-primary' />
+	<a href="/AgriERP/?fertilizer_show" class="btn btn-info">SHOW ALL</a>
 </form>
 
 <br /><hr />

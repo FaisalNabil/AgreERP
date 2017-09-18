@@ -6,7 +6,7 @@
 	}	
 	
 	function editFarmerToDb($farmer){
-		$query = "UPDATE Farmer SET Name='$farmer[Name]', District='$farmer[District]', Phone='$farmer[Phone]', 'Password=$farmer[Password]' WHERE FarmerId=$farmer[FarmerId]";
+		$query = "UPDATE Farmer SET Name='$farmer[Name]', District='$farmer[District]', Phone='$farmer[Phone]', Password='$farmer[Password]' WHERE FarmerId=$farmer[FarmerId]";
 		return executeNonQuery($query);
 	}
 	

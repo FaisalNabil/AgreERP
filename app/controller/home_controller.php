@@ -14,7 +14,9 @@
 			include APP_ROOT.'/app/view/navbar.php';
 			$totalFarmers = count(getAllRegisteredFarmer());
 			$totalActiveFarmers = count(getAllActiveFarmer());
+			$totalCrop = count(getAllCrop());
 			$totalCultivation = count(getAllCultivation());
+			$totalOngoingCultivation = count(getAllOngoingCultivation());
 			include_once(APP_ROOT."/app/view/admin_home_view.php");
 			break;
 

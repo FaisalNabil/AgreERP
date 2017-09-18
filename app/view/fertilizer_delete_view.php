@@ -22,8 +22,8 @@
 	Name: <?=$fertilizer['Name']?><br />
 	PricePerUnit: <?=$fertilizer['PricePerUnit']?><br />
 	
-	<input type="submit" value="Delete"/>
-	<a href="/AgriERP/?fertilizer_show" class="btn btn-primary">SHOW ALL</a>
+	<input type="submit" value="Delete" class='btn btn-primary'/>
+	<a href="/AgriERP/?fertilizer_show" class="btn btn-info">SHOW ALL</a>
 </form>
 
 <br /><hr />

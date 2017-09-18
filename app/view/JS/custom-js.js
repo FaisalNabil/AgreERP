@@ -18,13 +18,11 @@ $(document).ready(function(){
     
           var otherTask = $("textarea#otherTask").val();
  
-
-           
           if ((fertilizerTask.length > 0) && (insecticideTask.length > 0)) {
              
              dataArr[i] = {"week":week, "fertilizerId":fertilizerId, "fertilizerTask":fertilizerTask, "insecticideId":insecticideId, "insecticideTask":insecticideTask, "otherTask":otherTask};
              //var myObj = JSON.parse(dataArr[i]);
-             alert(dataArr[i].week);
+             //alert(dataArr[i].week);
              i++;
 
              var tableRow = "<tr>"+ "<td>"+week+"</td>"+ "<td>"+fertilizerId+"</td>" + "<td>"+fertilizerTask+ "</td>"+ "<td>"+ insecticideId +"</td>"+ "<td>"+ insecticideTask+"</td>"+ "<td>"+otherTask +"</td>"+"</tr>";
@@ -47,7 +45,7 @@ $(document).ready(function(){
                 data : "dataArr="+ dataArr,
                 success: function(data) {
                     
-                    alert(data);// alert the data from the server
+                    alert('Done');// alert the data from the server
                 },
                 error : function() {
                   alert("error");

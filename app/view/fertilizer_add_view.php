@@ -24,8 +24,8 @@
 	Name:<br /><input type="text" name="name"/><br />
 	Price Unit:<br /><input type="number" name="pricePerUnit"/><br />
 	
-	<input type="submit" value="Add"/>
-	<a href="/AgriERP/?fertilizer_show" class="btn btn-primary">SHOW ALL</a>
+	<input type="submit" value="Add" class='btn btn-primary'/>
+	<a href="/AgriERP/?fertilizer_show" class="btn btn-info">SHOW ALL</a>
 </form>
 <br /><hr />
 <a href="/AgriERP/?home_admin" class="btn btn-primary">BACK TO ADMIN PANEL</a>

@@ -23,7 +23,7 @@
 					<td>$cropName[Name]</td>
 					<td>$cultivation[StartDate]</td>
 					<td>$cultivation[EndDate]</td>
-					<td><a href='/AgriERP/?cultivation_historydetails&cultivationid=$cultivation[CultivationId]'>DETAILS</a></td>
+					<td><a href='/AgriERP/?cultivation_historydetails&cultivationid=$cultivation[CultivationId]' class='btn btn-primary'>DETAILS</a></td>
 				</tr>";
 			}
 			

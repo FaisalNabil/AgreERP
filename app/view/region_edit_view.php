@@ -26,8 +26,8 @@
 	Region Number: <input type="text" name="regionNumber" value="<?=$region['RegionNumber']?>"/><br />
 	Area: <input type="text" name="area" value="<?=$region['Area']?>"/><br />
 
-	<input type="submit" value="Update"/>
-	<a href="/AgriERP/?region_show" class="btn btn-primary">SHOW ALL</a>
+	<input type="submit" value="Update" class='btn btn-primary'/>
+	<a href="/AgriERP/?region_show" class="btn btn-info">SHOW ALL</a>
 </form>
 
 <br /><hr />

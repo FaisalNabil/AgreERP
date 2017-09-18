@@ -53,8 +53,8 @@
 		}
 	?>
 	<br>
-	<a href="/AgriERP/?cultivation_end&cultivationid=<?=$cultivation['CultivationId']?>">END CULTIVATION</a> | 
-	<a href="/AgriERP/?cultivation_show">BACK TO CULTIVATION LIST</a>
+	<a href="/AgriERP/?cultivation_end&cultivationid=<?=$cultivation['CultivationId']?>" class="btn btn-primary">END CULTIVATION</a> | 
+	<a href="/AgriERP/?cultivation_show" class="btn btn-primary">BACK TO CULTIVATION LIST</a>
 	<br>
 <?php
 	}

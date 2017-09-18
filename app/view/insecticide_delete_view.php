@@ -24,8 +24,8 @@
 	PricePerUnit: <?=$insecticide['PricePerUnit']?><br />
 	InsectName: <?=$insecticide['InsectName']?><br /> 
 	DiseaseName: <?=$insecticide['DiseaseName']?><br /> 
-	<input type="submit" value="Delete"/>
-	<a href="/AgriERP/?insecticide_show">SHOW ALL</a>
+	<input type="submit" value="Delete" class='btn btn-primary'/>
+	<a href="/AgriERP/?insecticide_show" class='btn btn-info'>SHOW ALL</a>
 </form>
 
 <br /><hr />

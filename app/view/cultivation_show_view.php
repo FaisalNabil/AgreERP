@@ -31,7 +31,7 @@ if($stat == 'true'){
 					<td>$cultivation[CultivationId]</td>
 					<td>$cropName[Name]</td>
 					<td>$cultivation[StartDate]</td>
-					<td><a href='/AgriERP/?cultivation_details&cultivationid=$cultivation[CultivationId]'>DETAILS</a></td>
+					<td><a href='/AgriERP/?cultivation_details&cultivationid=$cultivation[CultivationId]' class='btn btn-primary'>DETAILS</a></td>
 				</tr>";
 			}
 			

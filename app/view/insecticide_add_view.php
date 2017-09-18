@@ -29,8 +29,8 @@
 	Insect Name:<br /><input type="text" name="insectName"/><br />
 	Disease Name:<br /><input type="text" name="diseaseName"/><br />
 	
-	<input type="submit" value="Add"/>
-	<a href="/AgriERP/?insecticide_show">SHOW ALL</a>
+	<input type="submit" value="Add" class='btn btn-primary'/>
+	<a href="/AgriERP/?insecticide_show" class='btn btn-info'>SHOW ALL</a>
 </form>
 
 <br /><hr />

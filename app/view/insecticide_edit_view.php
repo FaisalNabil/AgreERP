@@ -32,8 +32,8 @@
 	Insect Name: <input type="text" name="insectName" value="<?=$insecticide['InsectName']?>"/><br />
 	Disease Name: <input type="text" name="diseaseName" value="<?=$insecticide['DiseaseName']?>"/><br />
 
-	<input type="submit" value="Update"/>
-	<a href="/AgriERP/?insecticide_show">SHOW ALL</a>
+	<input type="submit" value="Update" class='btn btn-primary'/>
+	<a href="/AgriERP/?insecticide_show" class='btn btn-info'>SHOW ALL</a>
 </form>
 
 <br /><hr />

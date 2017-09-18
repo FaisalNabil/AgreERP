@@ -30,13 +30,13 @@
 					<td>$insecticide[Name]</td>
 					<td>$crop_Weeklytask[InsecticideTask]</td>
 					<td>$crop_Weeklytask[OtherTask]</td>
-					<td><a href='/AgriERP/?cropweeklytask_edit&id=$crop_Weeklytask[WeekId]'>edit</a></td>
-					<td><a href='/AgriERP/?cropweeklytask_delete&id=$crop_Weeklytask[WeekId]&cropid=$cropId'>delete</a></td>
+					<td><a href='/AgriERP/?cropweeklytask_edit&id=$crop_Weeklytask[WeekId]' class='btn btn-info'>edit</a></td>
+					<td><a href='/AgriERP/?cropweeklytask_delete&id=$crop_Weeklytask[WeekId]&cropid=$cropId' class='btn btn-info'>delete</a></td>
 				</tr>";
 		}
 	?>	
 </table>
-<a href='/AgriERP/?cropweeklytask_add&id=<?=$cropId?>'>ADD NEW</a>
+<a href='/AgriERP/?cropweeklytask_add&id=<?=$cropId?>' class="btn btn-primary">ADD NEW</a>
 <br /><hr />
 
 </div>

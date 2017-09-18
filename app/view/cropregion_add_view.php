@@ -11,9 +11,14 @@
 		$cropName = $_POST['cropName'];
 		$CropGroupName = $_POST['CropGroupName'];
 		$region = $_POST['region'];
-		$TimePeriod = $_POST['TimePeriod'];
+		$TimePeriod = $_POST['TimePeriodStart']."-".$_POST['TimePeriodEnd'];
 		$TotalCost = $_POST['TotalCost'];
-		$EstimatedProduction = $_POST['EstimatedProduction'];
+		if($_POST['unit']=='KG'){
+			$EstimatedProduction = $_POST['EstimatedProduction'];
+		}
+		else {
+			$EstimatedProduction = $_POST['EstimatedProduction']*1000;
+		}
 		$LandType = $_POST['LandType'];
 		$WaterSource = $_POST['WaterSource'];
 		$totalWeeks = $_POST['TotalWeeks'];
@@ -31,12 +36,14 @@
 <form method="post"></br></br>
 Crops Name:</br>
 <input type="text" name="cropName"></br></br>
-Crops Group Name:</br>
+Crops Group Name:
 	<select name="CropGroupName">
-		<option>Select Group</option>
 		<option value="Rice">Rice</option>
-		<option value="Wheat">Wheat</option>
-		<option value="Oilseed">Oilseed</option>
+		<option value="Pulses">Pulses</option>
+		<option value="Oilseeds">Oilseeds</option>
+		<option value="Fibres">Fibres</option>
+		<option value="Starches">Starches</option>
+		<option value="Spices">Spices</option>
 	</select></br></br>
 Select Region:
 	<select name="region">
@@ -48,17 +55,41 @@ Select Region:
 		?>
 	</select></br></br>
 Time Period:
-  <select name="TimePeriod">
-	<option>Select Any One</option>
-	<option>January-April</option>
-	<option>May-Aug</option>
-	<option>Sep-Dec</option>
-  </select></br></br>
-Total Weeks Needed: <input type="number" name="TotalWeeks"><br>
-Total Cost:</br>
-<input type="text" name="TotalCost"></br></br>
-Estimated Production:</br>
-<input type="text" name="EstimatedProduction"></br></br>
+  <select name="TimePeriodStart">
+	<option>Jan</option>
+	<option>Feb</option>
+	<option>Mar</option>
+	<option>Apr</option>
+	<option>May</option>
+	<option>Jun</option>
+	<option>Jal</option>
+	<option>Aug</option>
+	<option>Sep</option>
+	<option>Nov</option>
+	<option>Dec</option>
+  </select>
+  -
+  <select name="TimePeriodEnd">
+	<option>Jan</option>
+	<option>Feb</option>
+	<option>Mar</option>
+	<option>Apr</option>
+	<option>May</option>
+	<option>Jun</option>
+	<option>Jal</option>
+	<option>Aug</option>
+	<option>Sep</option>
+	<option>Nov</option>
+	<option>Dec</option>
+  </select>
+</br></br>
+Total Weeks Needed: <input type="number" name="TotalWeeks"><br><br>
+Total Cost: <input type="text" name="TotalCost">TK.</br></br>
+Estimated Production: <input type="number" name="EstimatedProduction">
+<select name="unit">
+	<option>KG</option>
+	<option>Ton</option>
+</select></br></br>
 Land Type:
 	<select name="LandType">
 	  <option value="High ground">High ground</option>
@@ -71,12 +102,12 @@ Water Source:
 		<option value="Pond">Pond</option>
 		<option value="Well">Well</option>
 	 </select></br></br></br>
-	 <input type="submit" value="Add"/>
-	 <a href="/AgriERP/?cropregion_show">SHOW ALL</a>
+	 <input type="submit" value="Add" class="btn btn-primary" />
+	 <a href="/AgriERP/?cropregion_show" class="btn btn-info" >SHOW ALL</a>
 </form>
 
 <br /><hr />
-<a href="/AgriERP/?home_admin">BACK TO ADMIN PANEL</a>
+<a href="/AgriERP/?home_admin" class="btn btn-info">BACK TO ADMIN PANEL</a>
 <br />
 
 </div>

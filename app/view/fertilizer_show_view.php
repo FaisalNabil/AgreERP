@@ -18,13 +18,16 @@
 	</tr>
 	<?php
 		foreach($fertilizerList as $fertilizer){
-			echo"<tr>
+			if ($fertilizer['Name']!='none') {
+				echo"<tr>
 					<td>$fertilizer[Name]</td>
 					<td>$fertilizer[PricePerUnit]</td>
 
-					<td><a href='/AgriERP/?fertilizer_edit&id=$fertilizer[FertilizerId]'>edit</a></td>
-					<td><a href='/AgriERP/?fertilizer_delete&id=$fertilizer[FertilizerId]'>delete</a></td>
+					<td><a href='/AgriERP/?fertilizer_edit&id=$fertilizer[FertilizerId]' class='btn btn-info'>edit</a></td>
+					<td><a href='/AgriERP/?fertilizer_delete&id=$fertilizer[FertilizerId]' class='btn btn-info'>delete</a></td>
 				</tr>";
+			}
+			
 		}
 	?>	
 </table>

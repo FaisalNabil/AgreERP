@@ -23,8 +23,8 @@
 	RegionNumber: <?=$region['RegionNumber']?><br />
 	Area: <?=$region['Area']?><br />
 
-	<input type="submit" value="Delete"/>
-	<a href="/AgriERP/?region_show" class="btn btn-primary">SHOW ALL</a>
+	<input type="submit" value="Delete" class='btn btn-primary'/>
+	<a href="/AgriERP/?region_show" class="btn btn-info">SHOW ALL</a>
 </form>
 
 <br /><hr />

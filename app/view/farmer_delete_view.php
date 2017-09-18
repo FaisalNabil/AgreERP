@@ -4,7 +4,7 @@
 		die;
 	}
 ?>
-
+<?php include 'navbar.php'; ?>
 <?php
 	if($_SERVER['REQUEST_METHOD']=="POST"){
 		$id = $_POST['FarmerId'];
@@ -21,7 +21,7 @@
 	Name: <?=$farmer['Name']?><br />
 	Phone: <?=$farmer['Phone']?><br />
 	District: <?=$farmer['District']?><br /> 
-	<input type="submit" value="Delete"/>
+	<input type="submit" value="Delete" class='btn btn-primary'/>
 </form>
 <br /><hr />
 <a href="/AgriERP/?farmer_show" class="btn btn-primary">BACK TO ALL FARMERS</a> | <a href="/AgriERP/?home_admin" class="btn btn-primary">BACK TO ADMIN PANEL</a>

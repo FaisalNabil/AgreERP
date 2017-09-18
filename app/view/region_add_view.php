@@ -25,8 +25,8 @@
 	Region Number:<br /><input type="text" name="regionNumber"/><br />
 	Area:<br /><input type="text" name="area"/><br />
 	
-	<input type="submit" value="Add"/>
-	<a href="/AgriERP/?region_show">SHOW ALL</a>
+	<input type="submit" value="Add" class='btn btn-primary'/>
+	<a href="/AgriERP/?region_show" class='btn btn-info'>SHOW ALL</a>
 </form>
 
 <br /><hr />

@@ -55,6 +55,7 @@
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="/AgriERP/?farmer_edit&id=<?=$_SESSION['farmerid']?>">Change Password</a></li>
         <?php if($key!='login_logout' && $key!='login_show'){ ?>
 
         <li><a href="/AgriERP/?login_logout"><span class="fa fa-sign-out"></span>Logout</a></li>

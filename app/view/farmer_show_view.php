@@ -14,7 +14,7 @@
 		<td><b>NAME</b></td>
 		<td><b>PHONE</b></td>
 		<td><b>DISTRICT</b></td>
-		<td colspan="2"></td>
+		<td></td>
 	</tr>
 	<?php
 		foreach($farmerList as $farmer){
@@ -23,8 +23,7 @@
 						<td>$farmer[Name]</td>
 						<td>$farmer[Phone]</td>
 						<td>$farmer[District]</td>
-						<td><a href='/AgriERP/?farmer_edit&id=$farmer[FarmerId]'>EDIT</a></td>
-						<td><a href='/AgriERP/?farmer_delete&id=$farmer[FarmerId]'>DELETE</a></td>
+						<td><a href='/AgriERP/?farmer_delete&id=$farmer[FarmerId]' class='btn btn-info'>DELETE</a></td>
 					</tr>";
 				}
 		}

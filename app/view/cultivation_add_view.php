@@ -24,7 +24,7 @@
 		if(addCultivation($cultivation)){
 			foreach ($weekId as $week) {
 				$cultivation_Weeklytask = array("WeekSysId"=>$week['WeekId'], "CultivationId"=>$cultivationid, "StatusId"=>'0');
-				print_r($cultivation_Weeklytask);
+				//print_r($cultivation_Weeklytask);
 				if (addCultivation_Weeklytask($cultivation_Weeklytask)) {
 					//echo "Weekly task and ";
 				}
@@ -45,8 +45,8 @@
 		<option value="Acre">Acre</option>
 	</select></br></br>
 	
-	<input type="submit" value="Add"/> <br /><br />
-	<a href="/AgriERP/?cultivation_cropshow">SHOW ALL CROPS</a> | 
-	<a href="/AgriERP/?cultivation_show">SHOW ALL CULTIVATION</a>
+	<input type="submit" value="Add" class="btn btn-primary"/> <br /><br />
+	<a href="/AgriERP/?cultivation_cropshow" class="btn btn-info">SHOW ALL CROPS</a> | 
+	<a href="/AgriERP/?cultivation_show" class="btn btn-info">SHOW ALL CULTIVATION</a>
 </form>
 </div>

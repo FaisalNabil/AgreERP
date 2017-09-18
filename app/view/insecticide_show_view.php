@@ -20,19 +20,20 @@
 	<?php
 	//print_r($insecticideList);
 		foreach($insecticideList as $insecticide){
+			if ($insecticide['Name']!='none') {
 			echo"<tr>
 					<td>$insecticide[Name]</td>
 					<td>$insecticide[PricePerUnit]</td>
 					<td>$insecticide[InsectName]</td>
 					<td>$insecticide[DiseaseName]</td>
 
-					<td><a href='/AgriERP/?insecticide_edit&id=$insecticide[InsecticideId]'>edit</a></td>
-					<td><a href='/AgriERP/?insecticide_delete&id=$insecticide[InsecticideId]'>delete</a></td>
+					<td><a href='/AgriERP/?insecticide_edit&id=$insecticide[InsecticideId]' class='btn btn-info'>edit</a></td>
+					<td><a href='/AgriERP/?insecticide_delete&id=$insecticide[InsecticideId]' class='btn btn-info'>delete</a></td>
 				</tr>";
+			}
 		}
 	?>	
 </table>
-<br /><hr />
 
 <br /><hr />
 <a href="/AgriERP/?home_admin" class="btn btn-primary">BACK TO ADMIN PANEL</a>

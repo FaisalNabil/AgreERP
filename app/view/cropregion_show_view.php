@@ -25,11 +25,11 @@
 					<td>$crop[Name]</td>
 					<td>$crop[CropGroupName]</td>
 					<td>$crop[TimePeriod]</td>
-					<td>$crop[TotalCost]</td>
-					<td>$crop[EstimatedProduction]</td>
-					<td><a href='/AgriERP/?cropweeklytask_show&cropid=$crop[CropId]'>Show All Weekly Tasks</a></td>
-					<td><a href='/AgriERP/?cropregion_edit&id=$crop[CropId]'>edit</a></td>
-					<td><a href='/AgriERP/?cropregion_delete&id=$crop[CropId]'>delete</a></td>
+					<td>$crop[TotalCost] tk.</td>
+					<td>$crop[EstimatedProduction] kg</td>
+					<td><a href='/AgriERP/?cropweeklytask_show&cropid=$crop[CropId]' class='btn btn-primary'>Show All Weekly Tasks</a></td>
+					<td><a href='/AgriERP/?cropregion_edit&id=$crop[CropId]' class='btn btn-info'>edit</a></td>
+					<td><a href='/AgriERP/?cropregion_delete&id=$crop[CropId]' class='btn btn-info'>delete</a></td>
 				</tr>";
 		}
 	?>	
@@ -37,5 +37,5 @@
 <br /><hr />
 
 <br /><hr />
-<a href="/AgriERP/?home_admin">BACK TO ADMIN PANEL</a>
+<a href="/AgriERP/?home_admin" class='btn btn-primary'>BACK TO ADMIN PANEL</a>
 <br />

@@ -29,3 +29,7 @@
 	</ul>
 	You can use the search bars, just type the <b>Crop Name</b> you are looking for.
 </div>
+
+<div>
+	You can edit your profile from <b><a href="/AgriERP/?farmer_edit&id=<?=$_SESSION['farmerid']?>">here</a></b>
+</div>

@@ -33,7 +33,15 @@
 		return getAllActiveFarmerFromDb();
 	}
 
+	function getAllCrop(){
+		return getAllCropFromDb();
+	}
+
 	function getAllCultivation(){
 		return getAllCultivationFromDb();
+	}
+
+	function getAllOngoingCultivation(){
+		return getAllOngoingCultivationFromDb();
 	}
 ?>

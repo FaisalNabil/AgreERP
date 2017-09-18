@@ -75,7 +75,7 @@
 								echo "<option value='".$fertilizer['FertilizerId']."'>".$fertilizer['Name']."</option>";
 						}?>	 
 				   </select></br></br>
-				<textarea name="fertilizerTask" id="fertilizerTask" placeholder="Write Some task for this week.."></textarea></br>
+				<textarea name="fertilizerTask" id="fertilizerTask" placeholder="Write Some task for this week.."></textarea><span>Please write "N/A" if no task to be added</span></br>
 				Select Insecticide Name:</br>
 				    <select name="insecticide" id="insecticideId">
 						  
@@ -85,10 +85,10 @@
 								echo "<option value='".$insecticide['InsecticideId']."'>".$insecticide['Name']."</option>";
 						}?>	 
 				   </select></br></br>
-				<textarea name="insecticideTask" id="insecticideTask" placeholder="Write Some task for this week.."></textarea></br>
+				<textarea name="insecticideTask" id="insecticideTask" placeholder="Write Some task for this week.."></textarea><span>Please write "N/A" if no task to be added</span></br>
 				Other Task:</br>
-				<textarea name="otherTask" id="otherTask" placeholder="Write Some task for this week.."></textarea></br>
-					 <input type="submit" id="addNew" value="Add"/>
+				<textarea name="otherTask" id="otherTask" placeholder="Write Some task for this week.."></textarea><span>Please write "N/A" if no task to be added</span></br>
+					 <input type="submit" id="addNew" value="Add" class='btn btn-info'/>
 				</form>
 		</div>
 	</div>
@@ -109,8 +109,8 @@
 			  </tbody>
 			</table>		
 	    </div>
-	    <input id="sendServer" name="sendServer" type="button" value="Send to Server" /> | 
-					 <a href="/AgriERP/?cropweeklytask_show&cropid=<?=$_GET['id']?>">SHOW ALL</a>
+	    <input id="sendServer" name="sendServer" type="button" class="btn btn-info" value="Synchronize" /> | 
+					 <a href="/AgriERP/?cropweeklytask_show&cropid=<?=$_GET['id']?>" class="btn btn-primary">SHOW ALL</a>
 	</div>
 		
 </div>
