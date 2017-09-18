@@ -45,7 +45,7 @@ $(document).ready(function(){
                 data : "dataArr="+ dataArr,
                 success: function(data) {
                     
-                    alert('Done');// alert the data from the server
+                    location.reload();// alert the data from the server
                 },
                 error : function() {
                   alert("error");

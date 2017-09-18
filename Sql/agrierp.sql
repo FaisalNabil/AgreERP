@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2017 at 06:59 PM
+-- Generation Time: Sep 18, 2017 at 04:30 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -47,33 +47,8 @@ CREATE TABLE `crop` (
 --
 
 INSERT INTO `crop` (`CropId`, `Name`, `RegionId`, `TimePeriod`, `TotalCost`, `EstimatedProduction`, `LandType`, `WaterSource`, `CropGroupName`, `TotalWeeks`) VALUES
-(1, 'BRRI-50', 2, 'January-April', '15000', '500', 'High groun', 'Well', 'Rice', 10),
-(2, 'Kanchan', 1, 'Select Any One', '115', '2112', 'High groun', 'River', 'Oilseed', 12),
-(3, 'sad3', 2, 'May-Aug', '12300', '2300', 'High ground', 'Pond', 'Rice', 11);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cropfertilizer`
---
-
-CREATE TABLE `cropfertilizer` (
-  `CropFertSysId` int(15) NOT NULL,
-  `CropId` int(15) NOT NULL,
-  `FertilizerId` int(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cropinsecticide`
---
-
-CREATE TABLE `cropinsecticide` (
-  `CropInsectSysId` int(15) NOT NULL,
-  `CropId` int(15) NOT NULL,
-  `InsecticideId` int(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+(4, 'BRRI-50', 2, 'Jan-Apr', '145500', '19500', 'High ground', 'River', 'Rice', 15),
+(5, 'Kanchan', 4, 'Apr-Aug', '15000', '120', 'Low ground', 'River', 'Pulses', 13);
 
 -- --------------------------------------------------------
 
@@ -97,19 +72,13 @@ CREATE TABLE `cropweeklytask` (
 --
 
 INSERT INTO `cropweeklytask` (`WeekId`, `WeekNumber`, `CropId`, `CropInsectSysId`, `CropFertSysId`, `FertilizerTask`, `InsecticideTask`, `OtherTask`) VALUES
-(7, '1', 1, 2, 3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet vehicula turpis in gravida. Ut commodo leo vel maximus viverra. Vivamus tincidunt varius lacus vel placerat. Phasellus lectus lorem, vulputate vel orci vel, feugiat condimentum quam.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet vehicula turpis in gravida. Ut commodo leo vel maximus viverra. Vivamus tincidunt varius lacus vel placerat. Phasellus lectus lorem, vulputate vel orci vel, feugiat condimentum quam.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet vehicula turpis in gravida. Ut commodo leo vel maximus viverra. Vivamus tincidunt varius lacus vel placerat. Phasellus lectus lorem, vulputate vel orci vel, feugiat condimentum quam.'),
-(8, '1', 1, 2, 2, '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet vehicula turpis in gravida. Ut commodo leo vel maximus viverra. Vivamus tincidunt varius lacus vel placerat. Phasellus lectus lorem, vulputate vel orci vel, feugiat condimentum quam.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet vehicula turpis in gravida. Ut commodo leo vel maximus viverra. Vivamus tincidunt varius lacus vel placerat. Phasellus lectus lorem, vulputate vel orci vel, feugiat condimentum quam.'),
-(9, '1', 1, 2, 2, 'as', 'as', 'asad'),
-(10, '1', 1, 2, 2, 'as', 'as', 'asad'),
-(11, '1', 1, 2, 3, 'xc', 'cdcsdc', 'sdvsdv'),
-(12, '3', 1, 2, 3, 'xc', 'cdcsdc', 'sdvsdv'),
-(13, '1', 1, 2, 2, 'vhvhv', 'mbjbj', 'jhjh jh'),
-(14, '1', 1, 2, 2, 'wdce', 'dvwc', 'fvdefcv'),
-(15, '1', 1, 2, 2, 'yo', 'yo', 'honey sing'),
-(16, '1', 1, 2, 2, 'ss', 'ss', 'ss'),
-(17, '1', 2, 2, 3, 'sc d', 'dv dv dc', ''),
-(18, '1', 2, 2, 3, 'adasc', 'sacasc', 'hhbbbj'),
-(19, '1', 2, 3, 3, 'dvdf v', 'dfvdrb ', 'dvbdrf');
+(1, '1', 4, 6, 2, 'N/A', 'Lorem ipsum dolor sit amet', ' consectetur adipisicing elit. Obcaecati beatae earum quisquam. Illo eum assumenda officia voluptatibus aspernatur ipsa labore maiores temporibus et quibusdam! Pariatur animi saepe dicta numquam reprehenderit.'),
+(2, '1', 4, 6, 2, 'N/A', 'Lorem ipsum dolor sit amet', ' consectetur adipisicing elit. Ea dicta cumque minus dolor aspernatur quasi ad error laborum ab assumenda officia tempore sequi'),
+(3, '3', 4, 7, 2, 'N/A', 'Lorem ipsum dolor sit amet', ' consectetur adipisicing elit. Ea dicta cumque minus dolor aspernatur quasi ad error laborum ab assumenda officia tempore sequi'),
+(4, '1', 5, 4, 2, 'N/A', 'N/A', 'Lorem ipsum dolor sit amet'),
+(5, '3', 5, 4, 2, 'N/A', 'N/A', 'Lorem ipsum dolor sit amet'),
+(6, '2', 5, 7, 3, 'Lorem Ipsum', 'Lorem Ipsum', 'N/A'),
+(7, '5', 5, 6, 3, 'Lorem Ipsum', 'Lorem Ipsum', 'Lorem Ipsum');
 
 -- --------------------------------------------------------
 
@@ -134,8 +103,7 @@ CREATE TABLE `cultivation` (
 --
 
 INSERT INTO `cultivation` (`CultivationId`, `CropId`, `FarmerId`, `StartDate`, `EndDate`, `TotalLandInUse`, `TotalCost`, `TotalProduction`, `Status`) VALUES
-(270203, 1, 12, '2017-09-17', '', '10 Katha', '', '', 'Ongoing'),
-(889555, 1, 12, '2017-09-17', '', '100 Katha', '', '', 'Ongoing');
+(720681, 4, 0, '2017-09-18', '2017-09-18', '10 Bigha', '141000', '19000', 'Ended');
 
 -- --------------------------------------------------------
 
@@ -157,26 +125,9 @@ CREATE TABLE `cultivationweeklytask` (
 --
 
 INSERT INTO `cultivationweeklytask` (`Cultivationweekid`, `WeekSysId`, `CultivationId`, `StatusId`, `DoneDate`, `WeeklyCost`) VALUES
-(1, 7, 270203, 0, '', 1000),
-(2, 8, 270203, 0, '', 200),
-(3, 9, 270203, 0, '', 0),
-(4, 10, 270203, 0, '', 0),
-(5, 11, 270203, 0, '', 0),
-(6, 12, 270203, 0, '', 0),
-(7, 13, 270203, 0, '', 0),
-(8, 14, 270203, 0, '', 0),
-(9, 15, 270203, 0, '', 0),
-(10, 16, 270203, 0, '', 0),
-(11, 7, 889555, 7, '2017-09-17', 0),
-(12, 8, 889555, 0, '', 0),
-(13, 9, 889555, 0, '', 0),
-(14, 10, 889555, 0, '', 0),
-(15, 11, 889555, 0, '', 0),
-(16, 12, 889555, 0, '', 0),
-(17, 13, 889555, 0, '', 0),
-(18, 14, 889555, 0, '', 0),
-(19, 15, 889555, 0, '', 0),
-(20, 16, 889555, 0, '', 0);
+(1, 1, 720681, 4, '2017-09-18', 1000),
+(2, 2, 720681, 7, '2017-09-18', 20000),
+(3, 3, 720681, 7, '2017-09-18', 120000);
 
 -- --------------------------------------------------------
 
@@ -199,8 +150,7 @@ CREATE TABLE `farmer` (
 
 INSERT INTO `farmer` (`FarmerId`, `Name`, `District`, `Phone`, `Password`, `Role`) VALUES
 (0, 'Nabil', 'Rajshahi', '015', '1234', 'farmer'),
-(1, 'admin', 'none', 'admin', '1234', 'admin'),
-(12, 'Ashik', 'Dhaka', '014', '12334', 'farmer');
+(1, 'admin', 'none', 'admin', '1234', 'admin');
 
 -- --------------------------------------------------------
 
@@ -242,10 +192,9 @@ CREATE TABLE `insecticide` (
 --
 
 INSERT INTO `insecticide` (`InsecticideId`, `Name`, `PricePerUnit`, `InsectName`, `DiseaseName`) VALUES
-(2, '2,4-D, Dimethylamine salt', '120', 'Rice weevil', 'Bacterial leafstreak'),
-(3, 'Regiment', '200', 'Rice weevil', 'Bacterial leafstreak'),
 (4, 'none', '0', '', ''),
-(5, 'asd', '40', 'Rice weevil', 'sdfg');
+(6, '2,4-D, Dimethylamine salt', '120', 'Rice weevil', 'Bacterial leafstreak'),
+(7, 'Regiment', '200', 'Rice weevil', 'Bacterial leafstreak');
 
 -- --------------------------------------------------------
 
@@ -264,8 +213,10 @@ CREATE TABLE `region` (
 --
 
 INSERT INTO `region` (`RegionId`, `RegionNumber`, `Area`) VALUES
-(1, '12', 'pabna'),
-(2, '13', 'Rajshahi');
+(1, '12', 'Pabna'),
+(2, '13', 'Rajshahi'),
+(3, '71', 'Dhaka'),
+(4, '35', 'Narshingdi');
 
 -- --------------------------------------------------------
 
@@ -313,22 +264,6 @@ INSERT INTO `status` (`StatusId`, `DoneTask`) VALUES
 ALTER TABLE `crop`
   ADD PRIMARY KEY (`CropId`),
   ADD KEY `RegionId` (`RegionId`);
-
---
--- Indexes for table `cropfertilizer`
---
-ALTER TABLE `cropfertilizer`
-  ADD PRIMARY KEY (`CropFertSysId`),
-  ADD KEY `CropId` (`CropId`),
-  ADD KEY `FertilizerId` (`FertilizerId`);
-
---
--- Indexes for table `cropinsecticide`
---
-ALTER TABLE `cropinsecticide`
-  ADD PRIMARY KEY (`CropInsectSysId`),
-  ADD KEY `CropId` (`CropId`),
-  ADD KEY `InsecticideId` (`InsecticideId`);
 
 --
 -- Indexes for table `cropweeklytask`
@@ -400,27 +335,17 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `crop`
 --
 ALTER TABLE `crop`
-  MODIFY `CropId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `cropfertilizer`
---
-ALTER TABLE `cropfertilizer`
-  MODIFY `CropFertSysId` int(15) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `cropinsecticide`
---
-ALTER TABLE `cropinsecticide`
-  MODIFY `CropInsectSysId` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `CropId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `cropweeklytask`
 --
 ALTER TABLE `cropweeklytask`
-  MODIFY `WeekId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `WeekId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `cultivationweeklytask`
 --
 ALTER TABLE `cultivationweeklytask`
-  MODIFY `Cultivationweekid` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `Cultivationweekid` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `fertilizer`
 --
@@ -430,12 +355,12 @@ ALTER TABLE `fertilizer`
 -- AUTO_INCREMENT for table `insecticide`
 --
 ALTER TABLE `insecticide`
-  MODIFY `InsecticideId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `InsecticideId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `region`
 --
 ALTER TABLE `region`
-  MODIFY `RegionId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `RegionId` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Constraints for dumped tables
 --
@@ -445,20 +370,6 @@ ALTER TABLE `region`
 --
 ALTER TABLE `crop`
   ADD CONSTRAINT `crop_ibfk_1` FOREIGN KEY (`RegionId`) REFERENCES `region` (`RegionId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `cropfertilizer`
---
-ALTER TABLE `cropfertilizer`
-  ADD CONSTRAINT `cropfertilizer_ibfk_1` FOREIGN KEY (`CropId`) REFERENCES `crop` (`CropId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cropfertilizer_ibfk_2` FOREIGN KEY (`FertilizerId`) REFERENCES `fertilizer` (`FertilizerId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `cropinsecticide`
---
-ALTER TABLE `cropinsecticide`
-  ADD CONSTRAINT `cropinsecticide_ibfk_1` FOREIGN KEY (`CropId`) REFERENCES `crop` (`CropId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cropinsecticide_ibfk_2` FOREIGN KEY (`InsecticideId`) REFERENCES `insecticide` (`InsecticideId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `cropweeklytask`
